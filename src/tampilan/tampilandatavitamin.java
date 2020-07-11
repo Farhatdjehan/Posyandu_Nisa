@@ -5,17 +5,29 @@
  */
 package tampilan;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.KeyEvent;
+import koneksi.koneksi;
+
 /**
  *
  * @author farhatdk
  */
 public class tampilandatavitamin extends javax.swing.JFrame {
+    
+    private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
 
     /**
      * Creates new form tampilandatavitamin
      */
     public tampilandatavitamin() {
         initComponents();
+        kosong();
+        aktif();
+        datatable();
     }
 
     /**
@@ -332,4 +344,37 @@ public class tampilandatavitamin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    private void kosong() {
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextArea1.setText("");
+        jTextField1.setText("");
+    }
+
+    private void aktif() {
+        jTextField2.requestFocus();
+    }
+
+    private void datatable() {
+         Object[] Baris = {"No KTP", "Nama", "Alamat", "No. Telepon"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem = jTextField1.getText();
+        try {
+            String sql = "SELECT * FROM pelanggan where noKtp like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by noKtp asc ";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()) {
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4)
+                });
+            }
+            jTable1.setModel(tabmode);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
+        }
+    }
 }
