@@ -116,8 +116,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(900, 105));
         jPanel2.setMinimumSize(new java.awt.Dimension(900, 105));
 
-        jLabel5.setText("Data Anak");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        jLabel5.setText("Pelayanan Anak");
 
+        jButton7.setBackground(new java.awt.Color(153, 153, 255));
+        jButton7.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton7.setText("Kembali");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +128,8 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setBackground(new java.awt.Color(153, 153, 255));
+        jButton8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton8.setText("Beranda");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -132,9 +137,9 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 756, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 640, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,12 +148,15 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(39, 39, 39))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -166,8 +174,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel6.setText("Layanan Lansia");
 
+        jButton5.setBackground(new java.awt.Color(153, 153, 255));
+        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton5.setText("Cari");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -175,9 +186,9 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -199,9 +210,14 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel7.setText("ID Lansia");
 
+        jButton6.setBackground(new java.awt.Color(153, 153, 255));
+        jButton6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton6.setText("Cetak");
+
+        jTabbedPane1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -252,19 +268,27 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton1.setText("Ubah");
 
-        jButton3.setText("jButton3");
+        jButton3.setBackground(new java.awt.Color(153, 153, 255));
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton3.setText("Hapus");
 
-        jButton9.setText("jButton3");
+        jButton9.setBackground(new java.awt.Color(153, 153, 255));
+        jButton9.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton9.setText("Batal");
 
-        jButton4.setText("jButton1");
+        jButton4.setBackground(new java.awt.Color(153, 153, 255));
+        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton4.setText("Simpan");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -274,7 +298,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addGap(40, 40, 40))
+                                .addGap(28, 28, 28))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -305,19 +329,21 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(27, 27, 27)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addGap(9, 9, 9)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(16, 16, 16))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(22, 22, 22))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,24 +419,17 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable3);
 
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel16.setText("No Imunisasi");
 
-        jTextField11.setText("jTextField11");
-
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel17.setText("ID Anak");
 
-        jTextField12.setText("jTextField12");
-
-        jTextField13.setText("jTextField13");
-
-        jTextField14.setText("jTextField14");
-
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel18.setText("Bln");
 
-        jTextField15.setText("jTextField15");
-
-        jTextField16.setText("jTextField16");
-
+        jButton2.setBackground(new java.awt.Color(153, 153, 255));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton2.setText("Cari");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,30 +437,30 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             }
         });
 
-        jTextField17.setText("jTextField17");
-
-        jTextField18.setText("jTextField18");
-
-        jTextField20.setText("jTextField20");
-
+        jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel19.setText("Nama Anak");
 
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel20.setText("Usia");
 
+        jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel21.setText("Nama Ibu");
 
+        jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel22.setText("ID Vitamin");
 
-        jLabel23.setText("jLabel23");
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel23.setText("Jenis Vitamin");
 
-        jLabel24.setText("jLabel24");
+        jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel24.setText("ID Imunisasi");
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane5.setViewportView(jTextArea2);
 
-        jTextField21.setText("jTextField21");
-
+        jButton10.setBackground(new java.awt.Color(153, 153, 255));
+        jButton10.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton10.setText("Cari");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,28 +468,39 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             }
         });
 
-        jLabel25.setText("jLabel25");
+        jLabel25.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel25.setText("Keterangan");
 
-        jLabel26.setText("jLabel26");
+        jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel26.setText("ID Daftar");
 
-        jLabel27.setText("jLabel27");
+        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel27.setText("Jenis Imunisasi");
 
-        jButton11.setText("jButton11");
+        jButton11.setBackground(new java.awt.Color(153, 153, 255));
+        jButton11.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton11.setText("Simpan");
 
-        jButton12.setText("jButton11");
+        jButton12.setBackground(new java.awt.Color(153, 153, 255));
+        jButton12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton12.setText("Ubah");
 
-        jButton13.setText("jButton11");
+        jButton13.setBackground(new java.awt.Color(153, 153, 255));
+        jButton13.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton13.setText("Hapus");
+        jButton13.setToolTipText("");
 
-        jButton14.setText("jButton11");
+        jButton14.setBackground(new java.awt.Color(153, 153, 255));
+        jButton14.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jButton14.setText("Batal");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -496,10 +526,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                                 .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel18)
+                                .addGap(34, 34, 34))
                             .addComponent(jTextField17)
                             .addComponent(jTextField11)
                             .addComponent(jTextField12)
@@ -507,21 +538,20 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                             .addComponent(jTextField15))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jLabel27))
-                                .addGap(31, 31, 31)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))))
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jTextField18, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
@@ -587,7 +617,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -596,7 +626,8 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton6))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(

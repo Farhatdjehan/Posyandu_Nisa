@@ -243,7 +243,7 @@ public class tampilandataibuhamil extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Nama Suami");
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel8.setText("Telepon");
@@ -339,7 +339,7 @@ public class tampilandataibuhamil extends javax.swing.JFrame {
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(52, 52, 52)
                                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

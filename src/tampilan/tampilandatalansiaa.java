@@ -59,8 +59,6 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
@@ -77,6 +75,7 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(900, 105));
         jPanel2.setMinimumSize(new java.awt.Dimension(900, 105));
 
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         jLabel5.setText("Data Lansia");
 
         jButton7.setBackground(new java.awt.Color(153, 153, 255));
@@ -99,7 +98,7 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 750, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 693, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,9 +271,6 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel12.setText("Usia");
-
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel14.setText("Alamat");
 
@@ -293,11 +289,9 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59))
@@ -306,22 +300,14 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
+                    .addComponent(jLabel14)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addGap(32, 32, 32))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
@@ -477,7 +463,6 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -503,6 +488,5 @@ public class tampilandatalansiaa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

@@ -79,7 +79,8 @@ public class tampilandataanak extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(900, 105));
         jPanel2.setMinimumSize(new java.awt.Dimension(900, 105));
 
-        jLabel5.setText("Data Lansia");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        jLabel5.setText("Data Anak");
 
         jButton7.setBackground(new java.awt.Color(153, 153, 255));
         jButton7.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -101,7 +102,7 @@ public class tampilandataanak extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 750, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 702, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,7 +305,7 @@ public class tampilandataanak extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(jTextField10)
                     .addComponent(jTextField5)
                     .addComponent(jScrollPane2))
                 .addGap(59, 59, 59))
