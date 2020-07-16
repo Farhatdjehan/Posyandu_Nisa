@@ -67,7 +67,7 @@ public class tampilandaftar extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         jPanel5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -78,7 +78,6 @@ public class tampilandaftar extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -94,6 +93,7 @@ public class tampilandaftar extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
         jPanel6 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -101,7 +101,6 @@ public class tampilandaftar extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
@@ -115,6 +114,7 @@ public class tampilandaftar extends javax.swing.JFrame {
         jTextField16 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
+        datePicker3 = new com.github.lgooddatepicker.components.DatePicker();
         jPanel2 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
@@ -133,25 +133,25 @@ public class tampilandaftar extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel32.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel32.setText("ID  Daftar");
+        jLabel32.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton10.setText("Buat");
         jButton10.setBackground(new java.awt.Color(153, 153, 255));
         jButton10.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton10.setText("Buat");
 
-        jLabel33.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel33.setText("Jenis Pelayanan");
+        jLabel33.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton11.setText("Ok");
         jButton11.setBackground(new java.awt.Color(153, 153, 255));
         jButton11.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton11.setText("Ok");
 
-        jButton12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton12.setText("Batal");
+        jButton12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -201,52 +201,52 @@ public class tampilandaftar extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Daftar Layanan");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         jLabel2.setText("Ambil Nomor Antrian");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setText("Data Lengkap");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
 
         jTabbedPane1.setBackground(new java.awt.Color(153, 153, 255));
-        jTabbedPane1.setToolTipText("");
         jTabbedPane1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jTabbedPane1.setToolTipText("");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel4.setText("Isi Data yang Lengkap");
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel5.setText("ID Lansia");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel6.setText("Nama Lengkap");
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel7.setText("Jenis Kelamin");
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jRadioButton1.setText("Laki - Laki");
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jRadioButton1.setText("Laki - Laki");
 
+        jRadioButton2.setText("Perempuan");
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jRadioButton2.setText("Perempuan");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton2ActionPerformed(evt);
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel8.setText("Usia");
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton1.setText("Daftar");
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton1.setText("Daftar");
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,28 +254,28 @@ public class tampilandaftar extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel9.setText("Tahun");
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton2.setText("Batal");
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel10.setText("Alamat");
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel11.setText("Telepon");
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton3.setText("Data Lansia");
         jButton3.setBackground(new java.awt.Color(153, 153, 255));
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton3.setText("Data Lansia");
 
-        jLabel38.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel38.setText("Tanggal Lahir");
+        jLabel38.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -306,16 +306,16 @@ public class tampilandaftar extends javax.swing.JFrame {
                                         .addComponent(jLabel6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel38)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jRadioButton1)
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jRadioButton2))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel38)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jRadioButton1)
+                                                .addGap(8, 8, 8)
+                                                .addComponent(jRadioButton2))
+                                            .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +343,7 @@ public class tampilandaftar extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
@@ -352,17 +352,6 @@ public class tampilandaftar extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jLabel7)
-                            .addComponent(jRadioButton2))
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -373,8 +362,19 @@ public class tampilandaftar extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel38))))
-                .addGap(56, 56, 56)
+                            .addComponent(jLabel38)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jLabel7)
+                            .addComponent(jRadioButton2))
+                        .addGap(18, 18, 18)
+                        .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(57, 57, 57)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,61 +386,61 @@ public class tampilandaftar extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel12.setText("Isi Data yang Lengkap");
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel13.setText("ID Anak");
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel14.setText("Nama Lengkap");
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel15.setText("Jenis Kelamin");
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jRadioButton3.setText("Laki - Laki");
         jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jRadioButton3.setText("Laki - Laki");
 
+        jRadioButton4.setText("Perempuan");
         jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jRadioButton4.setText("Perempuan");
 
-        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel16.setText("Tanggal Lahir");
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel17.setText("Usia");
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel18.setText("Tahun");
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton4.setText("Daftar");
         jButton4.setBackground(new java.awt.Color(153, 153, 255));
         jButton4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton4.setText("Daftar");
 
-        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton5.setText("Batal");
+        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel19.setText("Nama Ayah");
+        jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel20.setText("Nama Ibu");
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel21.setText("Alamat");
+        jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
+        jButton6.setText("Data Anak");
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton6.setText("Data Anak");
 
-        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel23.setText("Telepon");
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -481,16 +481,17 @@ public class tampilandaftar extends javax.swing.JFrame {
                                     .addComponent(jLabel16)
                                     .addComponent(jLabel17))
                                 .addGap(34, 34, 34)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel18))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jRadioButton3)
-                                        .addGap(10, 10, 10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jRadioButton4))
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(8, 8, 8)))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,9 +504,6 @@ public class tampilandaftar extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel23)
                                             .addComponent(jLabel21))
@@ -513,7 +511,10 @@ public class tampilandaftar extends javax.swing.JFrame {
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(47, 47, 47))))))
         );
         jPanel5Layout.setVerticalGroup(
@@ -535,7 +536,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                     .addComponent(jLabel20)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -547,7 +548,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
@@ -561,59 +562,59 @@ public class tampilandaftar extends javax.swing.JFrame {
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGap(25, 25, 25))
         );
 
         jTabbedPane1.addTab("Pendaftaran Anak", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel22.setText("Isi Data yang Lengkap ");
+        jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
-        jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel24.setText("ID Ibu Hamill");
+        jLabel24.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel25.setText("Nama Lengkap");
+        jLabel25.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel26.setText("Tanggal Lahir");
+        jLabel26.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel27.setText("Usia");
+        jLabel27.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel28.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel28.setText("Tahun");
+        jLabel28.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton7.setText("Daftar");
         jButton7.setBackground(new java.awt.Color(153, 153, 255));
         jButton7.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton7.setText("Daftar");
 
-        jButton8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton8.setText("Batal");
+        jButton8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
+        jButton9.setText("Data Ibu Hamil");
         jButton9.setBackground(new java.awt.Color(153, 153, 255));
         jButton9.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton9.setText("Data Ibu Hamil");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
 
-        jLabel29.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel29.setText("Alamat");
+        jLabel29.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        jLabel30.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel30.setText("Telepon");
+        jLabel30.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel31.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel31.setText("Nama Suami");
+        jLabel31.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -639,8 +640,8 @@ public class tampilandaftar extends javax.swing.JFrame {
                                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel28))
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(datePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -696,8 +697,8 @@ public class tampilandaftar extends javax.swing.JFrame {
                             .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26))
+                            .addComponent(jLabel26)
+                            .addComponent(datePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
@@ -717,24 +718,24 @@ public class tampilandaftar extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(900, 105));
         jPanel2.setMinimumSize(new java.awt.Dimension(900, 105));
 
-        jLabel34.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         jLabel34.setText("Daftar Posyandu Gurame III");
+        jLabel34.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
 
+        jButton13.setText("Kembali");
         jButton13.setBackground(new java.awt.Color(153, 153, 255));
         jButton13.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton13.setText("Kembali");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
 
+        jButton14.setText("Beranda");
         jButton14.setBackground(new java.awt.Color(153, 153, 255));
         jButton14.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton14.setText("Beranda");
 
-        jLabel35.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel35.setText("Jl. Kemiri Jaya RT. 001 RW. 001");
+        jLabel35.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         jLabel37.setIcon(new javax.swing.ImageIcon("C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\logo.png")); // NOI18N
 
@@ -887,6 +888,9 @@ public class tampilandaftar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -962,18 +966,15 @@ public class tampilandaftar extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
