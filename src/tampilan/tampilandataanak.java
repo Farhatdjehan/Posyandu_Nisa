@@ -5,10 +5,13 @@
  */
 package tampilan;
 
+import java.awt.event.ActionEvent;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import koneksi.koneksi;
 
 /**
@@ -16,8 +19,6 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilandataanak extends javax.swing.JFrame {
-private Connection conn = new koneksi().connect();
-private DefaultTableModel tabmode;
 
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
@@ -31,7 +32,6 @@ private DefaultTableModel tabmode;
         aktif();
         datatable();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +82,7 @@ private DefaultTableModel tabmode;
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         batal = new javax.swing.JButton();
+        ubah1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,9 +159,9 @@ private DefaultTableModel tabmode;
             }
         });
 
+        caributton.setText("Cari");
         caributton.setBackground(new java.awt.Color(153, 153, 255));
         caributton.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        caributton.setText("Cari");
         caributton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caributtonActionPerformed(evt);
@@ -372,9 +373,9 @@ private DefaultTableModel tabmode;
             }
         });
 
+        ubah.setText("Ubah");
         ubah.setBackground(new java.awt.Color(153, 153, 255));
         ubah.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        ubah.setText("Ubah");
         ubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ubahActionPerformed(evt);
@@ -390,19 +391,19 @@ private DefaultTableModel tabmode;
             }
         });
 
+        batal.setText("Batal");
         batal.setBackground(new java.awt.Color(153, 153, 255));
         batal.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        batal.setText("Batal");
         batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 batalActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Ubah");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        ubah1.setText("Ubah");
+        ubah1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                ubahActionPerformed(evt);
             }
         });
 
@@ -420,17 +421,8 @@ private DefaultTableModel tabmode;
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(51, 51, 51)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(52, 52, 52)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
@@ -488,44 +480,64 @@ private DefaultTableModel tabmode;
         // TODO add your handling code here:
     }//GEN-LAST:event_perempuanActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    
+
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from anak where id='" + txtid.getText() + "'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosong();
+                txtid.requestFocus();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
+            }
+            datatable();
+        }
+        txtid.setEditable(true);
+    }                                      
+
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         String jenis = null;
 
-        if (jRadioButton1.isSelected()) {
+        if (laki.isSelected()) {
             jenis = "Laki-Laki";
-        } else if (jRadioButton2.isSelected()) {
+        } else if (perempuan.isSelected()) {
             jenis = "Perempuan";
         }
-        
+
         String sql = "insert into anak values (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, jTextField2.getText());
-            stat.setString(2, jTextField3.getText());
+            stat.setString(1, txtid.getText());
+            stat.setString(2, txtnamaanak.getText());
             stat.setString(3, jenis);
-            stat.setString(4, jTextField4.getText());
-            stat.setString(5, jTextField6.getText());
-            stat.setString(6, jTextField8.getText());
-            stat.setString(7, jTextField5.getText());
-            stat.setString(8, jTextArea1.getText());
-            stat.setString(9, jTextField10.getText());
+            stat.setString(4, txttgllahiranak.getDateStringOrEmptyString());
+            stat.setString(5, txtusia.getText());
+            stat.setString(6, txtnamaayah.getText());
+            stat.setString(7, txtnamaibu.getText());
+            stat.setString(8, txtalamat.getText());
+            stat.setString(9, txttelepon.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosong();
-            jTextField2.requestFocus();
+            txtid.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
         datatable();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_simpanActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
         kosong();
         datatable();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_batalActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int bar = jTable1.getSelectedRow();
+    private void tblanakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblanakMouseClicked
+        int bar = tblanak.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
         String c = tabmode.getValueAt(bar, 2).toString();
@@ -535,50 +547,64 @@ private DefaultTableModel tabmode;
         String g = tabmode.getValueAt(bar, 6).toString();
         String h = tabmode.getValueAt(bar, 7).toString();
         String i = tabmode.getValueAt(bar, 8).toString();
-        jTextField2.setEditable(false);
-        jTextField2.setText(a);
-        jTextField3.setText(b);
+        txtid.setEditable(false);
+        txtid.setText(a);
+        txtnamaanak.setText(b);
         if ("Laki-Laki".equals(c)) {
-            jRadioButton1.setSelected(true);
+            laki.setSelected(true);
         } else {
-            jRadioButton2.setSelected(true);
+            perempuan.setSelected(true);
         }
-        jTextField4.setText(d);
-        jTextField6.setText(e);
-        jTextField8.setText(f);
-        jTextField5.setText(g);
-        jTextArea1.setText(h);
-        jTextField10.setText(i);
-    }//GEN-LAST:event_jTable1MouseClicked
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dateTime = LocalDate.parse(d, formatter);
+        txttgllahiranak.setDate(dateTime);
+        txtusia.setText(e);
+        txtnamaayah.setText(f);
+        txtnamaibu.setText(g);
+        txtalamat.setText(h);
+        txttelepon.setText(i);
+    }//GEN-LAST:event_tblanakMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void caributtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caributtonActionPerformed
         datatable();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_caributtonActionPerformed
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void txtcariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcariKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             datatable();
         }
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_txtcariKeyPressed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jTextField2.setEditable(true);
+    private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
+        txtid.setEditable(true);
+        String jenis = null;
+
+        if (laki.isSelected()) {
+            jenis = "Laki-Laki";
+        } else if (perempuan.isSelected()) {
+            jenis = "Perempuan";
+        }
         try {
-            String sql = "update anak set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + jTextField2.getText() + "'  ";
+            String sql = "update anak set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + txtid.getText() + "'  ";
 
             PreparedStatement stat = conn.prepareStatement(sql);
-//            stat.setString(1, txtnm.getText());
-//            stat.setString(2, txtalamat.getText());
-//            stat.setString(3, txttelp.getText());
+            stat.setString(1, txtnamaanak.getText());
+            stat.setString(2, jenis);
+            stat.setString(3, txttgllahiranak.getDateStringOrEmptyString());
+            stat.setString(4, txtusia.getText());
+            stat.setString(5, txtnamaayah.getText());
+            stat.setString(6, txtnamaibu.getText());
+            stat.setString(7, txtalamat.getText());
+            stat.setString(8, txttelepon.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosong();
-            jTextField2.requestFocus();
+            txtid.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
         }
         datatable();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_ubahActionPerformed
 
     /**
      * @param args the command line arguments
@@ -624,7 +650,6 @@ private DefaultTableModel tabmode;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -658,28 +683,29 @@ private DefaultTableModel tabmode;
     private com.github.lgooddatepicker.components.DatePicker txttgllahiranak;
     private javax.swing.JTextField txtusia;
     private javax.swing.JButton ubah;
+    private javax.swing.JButton ubah1;
     // End of variables declaration//GEN-END:variables
 
     private void kosong() {
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField6.setText("");
-        jTextField8.setText("");
-        jTextField5.setText("");
-        jTextArea1.setText("");
-        jTextField10.setText("");
-        jTextField1.setText("");
+        txtid.setText("");
+        txtnamaanak.setText("");
+        buttonGroup1.clearSelection();
+        txttgllahiranak.setDate(LocalDate.of(1998,8,13));
+        txtusia.setText("");
+        txtnamaayah.setText("");
+        txtnamaibu.setText("");
+        txtalamat.setText("");
+        txttelepon.setText("");
     }
 
     private void aktif() {
-        jTextField2.requestFocus();
+        txtid.requestFocus();
     }
 
     private void datatable() {
         Object[] Baris = {"ID", "NAMA", "KELAMIN", "TGL LAHIR", "USIA", "AYAH", "IBU", "ALAMAT", "TELEPON"};
         tabmode = new DefaultTableModel(null, Baris);
-        String cariitem = jTextField1.getText();
+        String cariitem = txtcari.getText();
         try {
             String sql = "SELECT * FROM anak where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by id asc ";
             Statement stat = conn.createStatement();
@@ -697,7 +723,7 @@ private DefaultTableModel tabmode;
                     hasil.getString(9)
                 });
             }
-            jTable1.setModel(tabmode);
+            tblanak.setModel(tabmode);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
