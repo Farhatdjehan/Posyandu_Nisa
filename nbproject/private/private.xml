@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -9,3 +10,24 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilanlayananibuhamil.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilandataibuhamil.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilanlayananlansia.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilandaftar.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilandatalansiaa.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/koneksi/koneksi.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilanlayanananak.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilandataanak.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilanutama.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilandatavitamin.java</file>
+            <file>file:/C:/Users/farhatdk/Documents/NetBeansProjects/Posyandu_Nisa/src/tampilan/tampilanlogin.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> 5e02e293c9318e1052e8e6f5323714ca226ff13a

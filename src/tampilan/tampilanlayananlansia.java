@@ -79,8 +79,11 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(900, 105));
         jPanel2.setMinimumSize(new java.awt.Dimension(900, 105));
 
-        jLabel5.setText("Data Ibu Hamil");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        jLabel5.setText("Pelayanan Lansia");
 
+        jButton7.setBackground(new java.awt.Color(153, 153, 255));
+        jButton7.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton7.setText("Kembali");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +91,8 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setBackground(new java.awt.Color(153, 153, 255));
+        jButton8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton8.setText("Beranda");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -129,30 +134,42 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel1.setText("No. Layanan");
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel3.setText("ID Lansia");
 
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel4.setText("Nama");
 
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel10.setText("Usia");
 
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel11.setText("Tahun");
 
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel12.setText("Kg");
 
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel13.setText("Berat Badan");
 
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel14.setText("Tensi");
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane3.setViewportView(jTextArea2);
 
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel15.setText("Keterangan");
 
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel2.setText("ID Layanan");
 
+        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton1.setText("Simpan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,10 +177,16 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(153, 153, 255));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton2.setText("Ubah");
 
+        jButton3.setBackground(new java.awt.Color(153, 153, 255));
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton3.setText("Hapus");
 
+        jButton4.setBackground(new java.awt.Color(153, 153, 255));
+        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton4.setText("Batal");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -277,8 +300,11 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel6.setText("Layanan Lansia");
 
+        jButton5.setBackground(new java.awt.Color(153, 153, 255));
+        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton5.setText("Cari");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -295,7 +321,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,8 +336,11 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel7.setText("ID Lansia");
 
+        jButton6.setBackground(new java.awt.Color(153, 153, 255));
+        jButton6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton6.setText("Cetak");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
