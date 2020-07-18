@@ -39,6 +39,7 @@ public class tampilandataanak extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -207,10 +208,12 @@ public class tampilandataanak extends javax.swing.JFrame {
         jLabel6.setText("Jenis Kelamin");
 
         jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jRadioButton1.setText("Laki-Laki");
 
         jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jRadioButton2.setText("Perempuan");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -467,13 +470,26 @@ public class tampilandataanak extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String sql = "insert into karyawan values (?,?,?,?)";
+        String jenis = null;
+
+        if (jRadioButton1.isSelected()) {
+            jenis = "Laki-Laki";
+        } else if (jRadioButton2.isSelected()) {
+            jenis = "Perempuan";
+        }
+        
+        String sql = "insert into anak values (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
-//            stat.setString(1, txtid.getText());
-//            stat.setString(2, txtnm.getText());
-//            stat.setString(3, txtalamat.getText());
-//            stat.setString(4, txttelp.getText());
+            stat.setString(1, jTextField2.getText());
+            stat.setString(2, jTextField3.getText());
+            stat.setString(3, jenis);
+            stat.setString(4, jTextField4.getText());
+            stat.setString(5, jTextField6.getText());
+            stat.setString(6, jTextField8.getText());
+            stat.setString(7, jTextField5.getText());
+            stat.setString(8, jTextArea1.getText());
+            stat.setString(9, jTextField10.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosong();
@@ -495,11 +511,25 @@ public class tampilandataanak extends javax.swing.JFrame {
         String b = tabmode.getValueAt(bar, 1).toString();
         String c = tabmode.getValueAt(bar, 2).toString();
         String d = tabmode.getValueAt(bar, 3).toString();
-//        txtid.setEditable(false);
-//        txtid.setText(a);
-//        txtnm.setText(b);
-//        txtalamat.setText(c);
-//        txttelp.setText(d);
+        String e = tabmode.getValueAt(bar, 4).toString();
+        String f = tabmode.getValueAt(bar, 5).toString();
+        String g = tabmode.getValueAt(bar, 6).toString();
+        String h = tabmode.getValueAt(bar, 7).toString();
+        String i = tabmode.getValueAt(bar, 8).toString();
+        jTextField2.setEditable(false);
+        jTextField2.setText(a);
+        jTextField3.setText(b);
+        if ("Laki-Laki".equals(c)) {
+            jRadioButton1.setSelected(true);
+        } else {
+            jRadioButton2.setSelected(true);
+        }
+        jTextField4.setText(d);
+        jTextField6.setText(e);
+        jTextField8.setText(f);
+        jTextField5.setText(g);
+        jTextArea1.setText(h);
+        jTextField10.setText(i);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -515,7 +545,7 @@ public class tampilandataanak extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         jTextField2.setEditable(true);
         try {
-            String sql = "update karyawan set nama=?,alamat=?,noTelp=? where nik ='" + jTextField2.getText() + "'  ";
+            String sql = "update anak set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + jTextField2.getText() + "'  ";
 
             PreparedStatement stat = conn.prepareStatement(sql);
 //            stat.setString(1, txtnm.getText());
@@ -568,6 +598,7 @@ public class tampilandataanak extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
