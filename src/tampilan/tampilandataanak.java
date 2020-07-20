@@ -5,10 +5,13 @@
  */
 package tampilan;
 
+import java.awt.event.ActionEvent;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import koneksi.koneksi;
 
 /**
@@ -16,8 +19,9 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilandataanak extends javax.swing.JFrame {
-private Connection conn = new koneksi().connect();
-private DefaultTableModel tabmode;
+
+    private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
 
     /**
      * Creates new form tampilandataanak
@@ -28,49 +32,6 @@ private DefaultTableModel tabmode;
         aktif();
         datatable();
     }
-    protected void aktif(){
-        txtid.requestFocus();
-    }
-    protected void kosong(){
-        txtid.setText("");
-        txtnamaanak.setText("");
-        txttgllahiranak.setText("");
-        txtusia.setText("");
-        txtnamaayah.setText("");
-        txtnamaibu.setText("");
-        txtalamat.setText("");
-        txttelepon.setText("");
-        txtcari.setText("");
-    }
-    protected void datatable(){
-        Object[] Baris ={"ID Pelanggan","Nama","Jenis Kelamin","No. Telepon","Alamat"};
-        tabmode = new DefaultTableModel(null, Baris);
-        String cariitem=txtcari.getText();
-
-    try {
-        String sql = "SELECT * FROM pelanggan where id like '%"+cariitem+"%' or nmplgn
-        like '%"+cariitem+"%' order by id asc";
-        Statement stat = conn.createStatement();
-        ResultSet hasil = stat.executeQuery(sql);
-    while (hasil.next()){
-        tabmode.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7),
-            hasil.getString(8),
-            hasil.getString(9)
-        });
-    }
-        tblanak.setModel(tabmode);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
-        }
-    }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,6 +82,7 @@ private DefaultTableModel tabmode;
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         batal = new javax.swing.JButton();
+        ubah1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,9 +159,9 @@ private DefaultTableModel tabmode;
             }
         });
 
+        caributton.setText("Cari");
         caributton.setBackground(new java.awt.Color(153, 153, 255));
         caributton.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        caributton.setText("Cari");
         caributton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caributtonActionPerformed(evt);
@@ -411,9 +373,9 @@ private DefaultTableModel tabmode;
             }
         });
 
+        ubah.setText("Ubah");
         ubah.setBackground(new java.awt.Color(153, 153, 255));
         ubah.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        ubah.setText("Ubah");
         ubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ubahActionPerformed(evt);
@@ -429,12 +391,19 @@ private DefaultTableModel tabmode;
             }
         });
 
+        batal.setText("Batal");
         batal.setBackground(new java.awt.Color(153, 153, 255));
         batal.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        batal.setText("Batal");
         batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 batalActionPerformed(evt);
+            }
+        });
+
+        ubah1.setText("Ubah");
+        ubah1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahActionPerformed(evt);
             }
         });
 
@@ -511,99 +480,63 @@ private DefaultTableModel tabmode;
         // TODO add your handling code here:
     }//GEN-LAST:event_perempuanActionPerformed
 
-    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
-        // TODO add your handling code here:
-        String jenis = null;
-        if(laki.isSelected()){
-            jenis = "Laki-Laki";
-        }else if(perempuan.isSelected()){
-            jenis = "Perempuan";
-        }
-        String sql = "insert into pelanggan values (?,?,?,?,?,?,?,?,?)";
-        try{
-            PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, txtid.getText());
-            stat.setString(2, txtnamaanak.getText());
-            stat.setString(3, jenis);
-            stat.setString(4, txttgllahiranak.getText());
-            stat.setString(5, txttgllahiranak.getText());
-            stat.setString(6, txtnamaayah.getText());
-            stat.setString(7, txtnamaibu.getText());
-            stat.setString(8, txtalamat.getText());
-            stat.setString(9, txttelepon.getText());
-
-            stat.executeUpdate();
-            JOptionPane.showMessageDialog(null, "data berhasil disimpan");
-        kosong();
-        txtid.requestFocus();
-        }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "data gagal disimpan"+e);
-        }
-        datatable();
-    }//GEN-LAST:event_simpanActionPerformed
     
-    private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
-        // TODO add your handling code here:
-        String jenis = null;
-        if(laki.isSelected()){
-            jenis = "Laki-Laki";
-        }else if(perempuan.isSelected()){
-            jenis = "Perempuan";
-        }
-        try{
-        String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where
-        id='"+txtid.getText()+"'";
-            PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, txtid.getText());
-            stat.setString(2, txtnamaanak.getText());
-            stat.setString(3, jenis);
-            stat.setString(4, txttgllahiranak.getText());
-            stat.setString(5, txttgllahiranak.getText());
-            stat.setString(6, txtnamaayah.getText());
-            stat.setString(7, txtnamaibu.getText());
-            stat.setString(8, txtalamat.getText());
-            stat.setString(9, txttelepon.getText());
-            
-            stat.executeUpdate();
-            JOptionPane.showMessageDialog(null, "data berhasil diubah");
-            kosong();
-            txtid.requestFocus();
-        }
-        catch (SQLException e){
-        JOptionPane.showMessageDialog(null, "data gagal diubah"+e);
-        }
-        datatable();
-    }//GEN-LAST:event_ubahActionPerformed
 
-    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
-        // TODO add your handling code here:
-        int ok = JOptionPane.showConfirmDialog(null,"hapus","konfirmasi
-        dialog",JOptionPane.YES_NO_OPTION);
-        if (ok==0){
-            String sql = "delete from pelanggan where id ='"+txtid.getText()+"'";
-            try{
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from anak where id='" + txtid.getText() + "'";
+            try {
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null, "data berhasil dihapus");
                 kosong();
                 txtid.requestFocus();
-            }
-            catch (SQLException e){
-                JOptionPane.showMessageDialog(null, "data gagal dihapus"+e);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
             }
             datatable();
         }
-    }//GEN-LAST:event_hapusActionPerformed
+        txtid.setEditable(true);
+    }                                      
+
+    private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
+        String jenis = null;
+
+        if (laki.isSelected()) {
+            jenis = "Laki-Laki";
+        } else if (perempuan.isSelected()) {
+            jenis = "Perempuan";
+        }
+
+        String sql = "insert into anak values (?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, txtid.getText());
+            stat.setString(2, txtnamaanak.getText());
+            stat.setString(3, jenis);
+            stat.setString(4, txttgllahiranak.getDateStringOrEmptyString());
+            stat.setString(5, txtusia.getText());
+            stat.setString(6, txtnamaayah.getText());
+            stat.setString(7, txtnamaibu.getText());
+            stat.setString(8, txtalamat.getText());
+            stat.setString(9, txttelepon.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil disimpan");
+            kosong();
+            txtid.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
+        }
+        datatable();
+    }//GEN-LAST:event_simpanActionPerformed
 
     private void batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalActionPerformed
-        // TODO add your handling code here:
         kosong();
         datatable();
     }//GEN-LAST:event_batalActionPerformed
 
     private void tblanakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblanakMouseClicked
-        // TODO add your handling code here:
         int bar = tblanak.getSelectedRow();
         String a = tabmode.getValueAt(bar, 0).toString();
         String b = tabmode.getValueAt(bar, 1).toString();
@@ -614,15 +547,17 @@ private DefaultTableModel tabmode;
         String g = tabmode.getValueAt(bar, 6).toString();
         String h = tabmode.getValueAt(bar, 7).toString();
         String i = tabmode.getValueAt(bar, 8).toString();
-
+        txtid.setEditable(false);
         txtid.setText(a);
         txtnamaanak.setText(b);
         if ("Laki-Laki".equals(c)) {
             laki.setSelected(true);
-        } else{
+        } else {
             perempuan.setSelected(true);
         }
-        txttgllahiranak.setText(d);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dateTime = LocalDate.parse(d, formatter);
+        txttgllahiranak.setDate(dateTime);
         txtusia.setText(e);
         txtnamaayah.setText(f);
         txtnamaibu.setText(g);
@@ -631,16 +566,45 @@ private DefaultTableModel tabmode;
     }//GEN-LAST:event_tblanakMouseClicked
 
     private void caributtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caributtonActionPerformed
-        // TODO add your handling code here:
         datatable();
     }//GEN-LAST:event_caributtonActionPerformed
 
     private void txtcariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcariKeyPressed
-        // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             datatable();
         }
     }//GEN-LAST:event_txtcariKeyPressed
+
+    private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
+        txtid.setEditable(true);
+        String jenis = null;
+
+        if (laki.isSelected()) {
+            jenis = "Laki-Laki";
+        } else if (perempuan.isSelected()) {
+            jenis = "Perempuan";
+        }
+        try {
+            String sql = "update anak set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + txtid.getText() + "'  ";
+
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, txtnamaanak.getText());
+            stat.setString(2, jenis);
+            stat.setString(3, txttgllahiranak.getDateStringOrEmptyString());
+            stat.setString(4, txtusia.getText());
+            stat.setString(5, txtnamaayah.getText());
+            stat.setString(6, txtnamaibu.getText());
+            stat.setString(7, txtalamat.getText());
+            stat.setString(8, txttelepon.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosong();
+            txtid.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
+        }
+        datatable();
+    }//GEN-LAST:event_ubahActionPerformed
 
     /**
      * @param args the command line arguments
@@ -719,5 +683,49 @@ private DefaultTableModel tabmode;
     private com.github.lgooddatepicker.components.DatePicker txttgllahiranak;
     private javax.swing.JTextField txtusia;
     private javax.swing.JButton ubah;
+    private javax.swing.JButton ubah1;
     // End of variables declaration//GEN-END:variables
+
+    private void kosong() {
+        txtid.setText("");
+        txtnamaanak.setText("");
+        buttonGroup1.clearSelection();
+        txttgllahiranak.setDate(LocalDate.of(1998,8,13));
+        txtusia.setText("");
+        txtnamaayah.setText("");
+        txtnamaibu.setText("");
+        txtalamat.setText("");
+        txttelepon.setText("");
+    }
+
+    private void aktif() {
+        txtid.requestFocus();
+    }
+
+    private void datatable() {
+        Object[] Baris = {"ID", "NAMA", "KELAMIN", "TGL LAHIR", "USIA", "AYAH", "IBU", "ALAMAT", "TELEPON"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem = txtcari.getText();
+        try {
+            String sql = "SELECT * FROM anak where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by id asc ";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()) {
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),
+                    hasil.getString(8),
+                    hasil.getString(9)
+                });
+            }
+            tblanak.setModel(tabmode);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
+        }
+    }
 }

@@ -16,6 +16,9 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilandaftar extends javax.swing.JFrame {
+    
+    private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
 
     /**
      * Creates new form tampilandaftar
