@@ -378,6 +378,11 @@ private DefaultTableModel tabmode;
         hapus.setBackground(new java.awt.Color(153, 153, 255));
         hapus.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         hapus.setLabel("Hapus");
+        hapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusActionPerformed(evt);
+            }
+        });
 
         batal.setText("Batal");
         batal.setBackground(new java.awt.Color(153, 153, 255));
@@ -488,6 +493,12 @@ private DefaultTableModel tabmode;
 
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
+        String jenis = null;
+        if(laki.isSelected()){
+            jenis = "Laki-Laki";
+        }else if(perempuan.isSelected()){
+            jenis = "Perempuan";
+        }
         String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where
         id='"+txtid.getText()+"'";
         try{
@@ -495,10 +506,10 @@ private DefaultTableModel tabmode;
             stat.setString(1, txtidlansia.getText());
             stat.setString(2, txtnamalansia.getText());
             stat.setString(3, jenis);
-            stat.setString(4, txtusiaibu.getText());
-            stat.setString(5, txtnamasuami.getText());
-            stat.setString(6, txtteleponibu.getText());
-            stat.setString(7, txtalamatibu.getText());
+            stat.setString(4, txttgllahirlansia.getText());
+            stat.setString(5, txtlansia.getText());
+            stat.setString(6, txtalamat.getText());
+            stat.setString(7, txtteleponlansia.getText());
 
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
@@ -510,6 +521,26 @@ private DefaultTableModel tabmode;
         }
         datatable();
     }//GEN-LAST:event_ubahActionPerformed
+
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
+        // TODO add your handling code here:
+        int ok = JOptionPane.showConfirmDialog(null,"hapus","konfirmasi
+        dialog",JOptionPane.YES_NO_OPTION);
+        if (ok==0){
+            String sql = "delete from pelanggan where id ='"+txtid.getText()+"'";
+            try{
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosong();
+                txtid.requestFocus();
+            }
+            catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "data gagal dihapus"+e);
+            }
+            datatable();
+        }
+    }//GEN-LAST:event_hapusActionPerformed
 
     /**
      * @param args the command line arguments
