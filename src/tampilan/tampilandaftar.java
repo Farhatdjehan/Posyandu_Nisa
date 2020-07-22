@@ -78,7 +78,7 @@ public class tampilandaftar extends javax.swing.JFrame {
         idhamil.requestFocus();
     }
     private void datatableanak() {
-        Object[] Baris = {"ID", "NAMA", "KELAMIN", "TGL LAHIR", "USIA", "AYAH", "IBU", "ALAMAT", "TELEPON"};
+        Object[] Baris = {"Id", "Nama", "Jenis Kelamin", "Tgl Lahir", "Usia", "Ayah", "Ibu", "Alamat", "Telepon"};
         tabmode = new DefaultTableModel(null, Baris);
         tabelanak.setModel(tabmode);
 //        String cariitem = txtcari.getText();
@@ -105,7 +105,7 @@ public class tampilandaftar extends javax.swing.JFrame {
 //        }
     }
     private void datatablelansia() {
-        Object[] Baris = {"ID", "NAMA", "KELAMIN", "TGL LAHIR", "USIA", "ALAMAT", "TELEPON"};
+        Object[] Baris = {"Id", "Nama", "Jenis Kelamin", "Tgl Lahir", "Usia", "Alamat", "Telepon"};
         tabmode = new DefaultTableModel(null, Baris);
         tabellansia.setModel(tabmode);
 //        String cariitem = txtcari.getText();
@@ -132,7 +132,7 @@ public class tampilandaftar extends javax.swing.JFrame {
 //        }
     }
     private void datatableibuhamil() {
-        Object[] Baris = {"ID", "NAMA", "TGL LAHIR", "USIA", "ALAMAT", "TELEPON", "SUAMI"};
+        Object[] Baris = {"Id", "Nama", "Tgl Lahir", "Usia", "Alamat", "Telepon", "Nama Suami"};
         tabmode = new DefaultTableModel(null, Baris);
         tabelibuhamil.setModel(tabmode);
 //        String cariitem = txtcari.getText();
@@ -379,7 +379,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel33)
                 .addGap(18, 18, 18)
@@ -418,15 +418,15 @@ public class tampilandaftar extends javax.swing.JFrame {
         jLabel7.setText("Jenis Kelamin");
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        buttonGroup2.add(lansialaki);
-        lansialaki.setText("Laki - Laki");
         lansialaki.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(lansialaki);
         lansialaki.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        lansialaki.setText("Laki - Laki");
 
-        buttonGroup2.add(lansiaperempuan);
-        lansiaperempuan.setText("Perempuan");
         lansiaperempuan.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup2.add(lansiaperempuan);
         lansiaperempuan.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        lansiaperempuan.setText("Perempuan");
         lansiaperempuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lansiaperempuanActionPerformed(evt);
@@ -894,10 +894,20 @@ public class tampilandaftar extends javax.swing.JFrame {
         hapusibuhamil.setText("Hapus");
         hapusibuhamil.setBackground(new java.awt.Color(153, 153, 255));
         hapusibuhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        hapusibuhamil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusibuhamilActionPerformed(evt);
+            }
+        });
 
         ubahibuhamil.setText("Ubah");
         ubahibuhamil.setBackground(new java.awt.Color(153, 153, 255));
         ubahibuhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        ubahibuhamil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahibuhamilActionPerformed(evt);
+            }
+        });
 
         tabelibuhamil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -910,6 +920,11 @@ public class tampilandaftar extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelibuhamil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelibuhamilMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(tabelibuhamil);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -1152,6 +1167,8 @@ public class tampilandaftar extends javax.swing.JFrame {
 
     private void batalibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalibuhamilActionPerformed
         // TODO add your handling code here:
+        kosongibuhamil();
+        datatableibuhamil();
     }//GEN-LAST:event_batalibuhamilActionPerformed
 
     private void daftarlansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarlansiaActionPerformed
@@ -1406,6 +1423,70 @@ public class tampilandaftar extends javax.swing.JFrame {
         }
         datatableibuhamil();
     }//GEN-LAST:event_daftaribuhamilActionPerformed
+
+    private void ubahibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahibuhamilActionPerformed
+        // TODO add your handling code here:
+        idhamil.setEditable(true);
+        try {
+            String sql = "update ibuhamil set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + idhamil.getText() + "'  ";
+
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, idhamil.getText());
+            stat.setString(2, namaibuhamil.getText());
+            stat.setString(3, tgllahiribuhamil.getDateStringOrEmptyString());
+            stat.setString(4, usiaibuhamil.getText());
+            stat.setString(5, alamatibuhamil.getText());
+            stat.setString(6, telponibuhamil.getText());
+            stat.setString(7, namasuami.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosongibuhamil();
+            idhamil.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
+        }
+        datatableibuhamil();
+    }//GEN-LAST:event_ubahibuhamilActionPerformed
+
+    private void hapusibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusibuhamilActionPerformed
+        // TODO add your handling code here:
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from ibuhamil where id='" + idhamil.getText() + "'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosongibuhamil();
+                idhamil.requestFocus();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
+            }
+            datatableibuhamil();
+        }
+        idanak.setEditable(true);
+    }//GEN-LAST:event_hapusibuhamilActionPerformed
+
+    private void tabelibuhamilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelibuhamilMouseClicked
+        // TODO add your handling code here:
+        int bar = tabelibuhamil.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        String d = tabmode.getValueAt(bar, 3).toString();
+        String e = tabmode.getValueAt(bar, 4).toString();
+        String f = tabmode.getValueAt(bar, 5).toString();
+        String g = tabmode.getValueAt(bar, 6).toString();
+        idhamil.setEditable(false);
+        idhamil.setText(a);
+        namaibuhamil.setText(b);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dateTime = LocalDate.parse(c, formatter);
+        tgllahiribuhamil.setDate(dateTime);
+        alamatibuhamil.setText(d);
+        telponibuhamil.setText(f);
+        namasuami.setText(g);
+    }//GEN-LAST:event_tabelibuhamilMouseClicked
 
     /**
      * @param args the command line arguments
