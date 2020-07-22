@@ -6,7 +6,6 @@
 package tampilan;
 
 import java.sql.*;
-import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
@@ -325,7 +324,6 @@ public class tampilandaftar extends javax.swing.JFrame {
         jScrollPane7.setViewportView(jTable4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(900, 505));
         setMinimumSize(new java.awt.Dimension(900, 505));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 505));
