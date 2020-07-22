@@ -16,16 +16,21 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilandataibuhamil extends javax.swing.JFrame {
-private Connection conn = new koneksi().connect();
-private DefaultTableModel tabmode;
+
+    private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
+
     /**
      * Creates new form tampilandatavitamin
      */
     public tampilandataibuhamil() {
         initComponents();
-        
+        kosong();
+        aktif();
+        datatable();
     }
-    protected void kosong(){
+
+    protected void kosong() {
         txtidibuhamil.setText("");
         txtnamaibu.setText("");
         txttgllahiribu.setText("");
@@ -34,35 +39,36 @@ private DefaultTableModel tabmode;
         txtteleponibu.setText("");
         txtalamatibu.setText("");
     }
-    protected void aktif(){
+
+    protected void aktif() {
         txtidibuhamil.requestFocus();
     }
-    protected void datatable(){
-        Object[] Baris ={"ID Pelanggan","Nama","Jenis Kelamin","No. Telepon","Alamat"};
-        tabmode = new DefaultTableModel(null, Baris);
-        String cariitem=txtcariibu.getText();
 
-    try {
-        String sql = "SELECT * FROM pelanggan where id like '%"+cariitem+"%' or nmplgn
-        like '%"+cariitem+"%' order by id asc";
-        Statement stat = conn.createStatement();
-        ResultSet hasil = stat.executeQuery(sql);
-    while (hasil.next()){
-        tabmode.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7),
-        });
-    }
-        tblibuhamil.setModel(tabmode);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+    protected void datatable() {
+        Object[] Baris = {"ID Pelanggan", "Nama", "Jenis Kelamin", "No. Telepon", "Alamat"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem = txtcariibu.getText();
+
+        try {
+            String sql = "SELECT * FROM pelanggan where id like '%" + cariitem + "%' or nmplgn like '%" + cariitem + "%' order by id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()) {
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),});
+            }
+            tblibuhamil.setModel(tabmode);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,24 +117,30 @@ private DefaultTableModel tabmode;
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel2.setText("ID Ibu Hamil");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
+        jButton6.setText("Cari");
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton6.setText("Cari");
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel3.setText("Nama");
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtidibuhamil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidibuhamilKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Tanggal Lahir");
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel7.setText("Usia");
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel10.setText("Tahun");
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -174,9 +186,9 @@ private DefaultTableModel tabmode;
                     .addComponent(txtnamaibu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txttgllahiribu, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txttgllahiribu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -205,8 +217,8 @@ private DefaultTableModel tabmode;
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel1.setText("Cari Data Ibu Hamil");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
         txtcariibu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -255,21 +267,21 @@ private DefaultTableModel tabmode;
         jPanel2.setMaximumSize(new java.awt.Dimension(900, 105));
         jPanel2.setMinimumSize(new java.awt.Dimension(900, 105));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         jLabel5.setText("Data Ibu Hamil");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
 
+        jButton7.setText("Kembali");
         jButton7.setBackground(new java.awt.Color(153, 153, 255));
         jButton7.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton7.setText("Kembali");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
 
+        jButton8.setText("Beranda");
         jButton8.setBackground(new java.awt.Color(153, 153, 255));
         jButton8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton8.setText("Beranda");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -297,14 +309,14 @@ private DefaultTableModel tabmode;
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel4.setText("Nama Suami");
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel8.setText("Telepon");
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel9.setText("Alamat");
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         txtalamatibu.setColumns(20);
         txtalamatibu.setRows(5);
@@ -354,9 +366,8 @@ private DefaultTableModel tabmode;
             }
         });
 
-        ubah.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         ubah.setText("Ubah");
-        ubah.setActionCommand("Ubah");
+        ubah.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         ubah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ubahActionPerformed(evt);
@@ -372,9 +383,9 @@ private DefaultTableModel tabmode;
             }
         });
 
+        batal.setText("Batal");
         batal.setBackground(new java.awt.Color(153, 153, 255));
         batal.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        batal.setText("Batal");
         batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 batalActionPerformed(evt);
@@ -453,7 +464,7 @@ private DefaultTableModel tabmode;
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
         String sql = "insert into pelanggan values (?,?,?,?,?,?,?,?,?)";
-        try{
+        try {
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtidibuhamil.getText());
             stat.setString(2, txtnamaibu.getText());
@@ -467,18 +478,17 @@ private DefaultTableModel tabmode;
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosong();
             txtidibuhamil.requestFocus();
-        }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "data gagal disimpan"+e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
         datatable();
     }//GEN-LAST:event_simpanActionPerformed
 
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
-        String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where
-        id='"+txtid.getText()+"'";
-        try{
+        String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where id ='" + txtidibuhamil.getText() + "'  ";
+
+        try {
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtidibuhamil.getText());
             stat.setString(2, txtnamaibu.getText());
@@ -492,28 +502,25 @@ private DefaultTableModel tabmode;
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosong();
             txtidibuhamil.requestFocus();
-        }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "data gagal diubah"+e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
         }
         datatable();
     }//GEN-LAST:event_ubahActionPerformed
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
-        int ok = JOptionPane.showConfirmDialog(null,"hapus","konfirmasi
-        dialog",JOptionPane.YES_NO_OPTION);
-        if (ok==0){
-            String sql = "delete from pelanggan where id ='"+txtidibuhamil.getText()+"'";
-            try{
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog ", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from pelanggan where id ='" + txtidibuhamil.getText() + "'";
+            try {
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null, "data berhasil dihapus");
                 kosong();
                 txtidibuhamil.requestFocus();
-            }
-            catch (SQLException e){
-                JOptionPane.showMessageDialog(null, "data gagal dihapus"+e);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
             }
             datatable();
         }
@@ -556,6 +563,14 @@ private DefaultTableModel tabmode;
             datatable();
         }
     }//GEN-LAST:event_txtcariibuKeyPressed
+
+    private void txtidibuhamilKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidibuhamilKeyTyped
+        char caracter = evt.getKeyChar();
+        if (((caracter < '0') || (caracter > '9'))
+                && (caracter != '\b')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtidibuhamilKeyTyped
 
     /**
      * @param args the command line arguments

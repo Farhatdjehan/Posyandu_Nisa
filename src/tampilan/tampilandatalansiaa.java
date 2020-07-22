@@ -16,8 +16,10 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilandatalansiaa extends javax.swing.JFrame {
-private Connection conn = new koneksi().connect();
-private DefaultTableModel tabmode;
+
+    private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
+
     /**
      * Creates new form tampilandatalansiaa
      */
@@ -27,7 +29,8 @@ private DefaultTableModel tabmode;
         aktif();
         datatable();
     }
-    protected void kosong(){
+
+    protected void kosong() {
         txtidlansia.setText("");
         txtnamalansia.setText("");
         buttonGroup1.clearSelection();
@@ -36,35 +39,36 @@ private DefaultTableModel tabmode;
         txtalamat.setText("");
         txtteleponlansia.setText("");
     }
-    protected void aktif(){
+
+    protected void aktif() {
         txtidlansia.requestFocus();
     }
-    protected void datatable(){
-        Object[] Baris ={"ID Pelanggan","Nama","Jenis Kelamin","No. Telepon","Alamat"};
-        tabmode = new DefaultTableModel(null, Baris);
-        String cariitem=txtcarilansia.getText();
 
-    try {
-        String sql = "SELECT * FROM pelanggan where id like '%"+cariitem+"%' or nmplgn
-        like '%"+cariitem+"%' order by id asc";
-        Statement stat = conn.createStatement();
-        ResultSet hasil = stat.executeQuery(sql);
-    while (hasil.next()){
-        tabmode.addRow(new Object[]{
-            hasil.getString(1),
-            hasil.getString(2),
-            hasil.getString(3),
-            hasil.getString(4),
-            hasil.getString(5),
-            hasil.getString(6),
-            hasil.getString(7),
-        });
-    }
-        tbllansia.setModel(tabmode);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+    protected void datatable() {
+        Object[] Baris = {"ID Pelanggan", "Nama", "Jenis Kelamin", "No. Telepon", "Alamat"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem = txtcarilansia.getText();
+
+        try {
+            String sql = "SELECT * FROM pelanggan where id like '%" + cariitem + "%' or nmplgn like '%" + cariitem + "%' order by id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()) {
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),});
+            }
+            tbllansia.setModel(tabmode);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -222,15 +226,15 @@ private DefaultTableModel tabmode;
         jLabel6.setText("Jenis Kelamin");
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        buttonGroup1.add(laki);
-        laki.setText("Laki-Laki");
         laki.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(laki);
         laki.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        laki.setText("Laki-Laki");
 
-        buttonGroup1.add(perempuan);
-        perempuan.setText("Perempuan");
         perempuan.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(perempuan);
         perempuan.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        perempuan.setText("Perempuan");
         perempuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 perempuanActionPerformed(evt);
@@ -305,9 +309,9 @@ private DefaultTableModel tabmode;
                     .addComponent(laki)
                     .addComponent(perempuan))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txttgllahirlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txttgllahirlansia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -464,13 +468,13 @@ private DefaultTableModel tabmode;
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
         // TODO add your handling code here:
         String jenis = null;
-        if(laki.isSelected()){
+        if (laki.isSelected()) {
             jenis = "Laki-Laki";
-        }else if(perempuan.isSelected()){
+        } else if (perempuan.isSelected()) {
             jenis = "Perempuan";
         }
         String sql = "insert into pelanggan values (?,?,?,?,?,?,?,?,?)";
-        try{
+        try {
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtidlansia.getText());
             stat.setString(2, txtnamalansia.getText());
@@ -482,11 +486,10 @@ private DefaultTableModel tabmode;
 
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
-        kosong();
-        txtidlansia.requestFocus();
-        }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "data gagal disimpan"+e);
+            kosong();
+            txtidlansia.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
         datatable();
     }//GEN-LAST:event_simpanActionPerformed
@@ -494,14 +497,14 @@ private DefaultTableModel tabmode;
     private void ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahActionPerformed
         // TODO add your handling code here:
         String jenis = null;
-        if(laki.isSelected()){
+        if (laki.isSelected()) {
             jenis = "Laki-Laki";
-        }else if(perempuan.isSelected()){
+        } else if (perempuan.isSelected()) {
             jenis = "Perempuan";
         }
-        String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where
-        id='"+txtid.getText()+"'";
-        try{
+        String sql = "update pelanggan set nmplgn=?,jenis=?,telepon=?,alamat=? where id ='"+txtidlansia.getText()+"'  ";
+
+        try {
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, txtidlansia.getText());
             stat.setString(2, txtnamalansia.getText());
@@ -514,29 +517,26 @@ private DefaultTableModel tabmode;
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosong();
-            txtidibuhamil.requestFocus();
-        }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "data gagal diubah"+e);
+            txtidlansia.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
         }
         datatable();
     }//GEN-LAST:event_ubahActionPerformed
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
-        int ok = JOptionPane.showConfirmDialog(null,"hapus","konfirmasi
-        dialog",JOptionPane.YES_NO_OPTION);
-        if (ok==0){
-            String sql = "delete from pelanggan where id ='"+txtid.getText()+"'";
-            try{
+        int ok = JOptionPane.showConfirmDialog(null, "hapus","konfirmasi dialog ",JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from pelanggan where id ='" + txtidlansia.getText() + "'";
+            try {
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null, "data berhasil dihapus");
                 kosong();
-                txtid.requestFocus();
-            }
-            catch (SQLException e){
-                JOptionPane.showMessageDialog(null, "data gagal dihapus"+e);
+                txtidlansia.requestFocus();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
             }
             datatable();
         }
