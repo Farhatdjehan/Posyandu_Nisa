@@ -152,7 +152,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -186,7 +186,7 @@
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="idtimbanganak" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="idanak1" min="-2" pref="110" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="cariidanak" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -218,10 +218,15 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel1" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel14" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="notimbang" pref="189" max="32767" attributes="0"/>
                                   <Component id="iddaftaranak" max="32767" attributes="0"/>
@@ -276,7 +281,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="idtimbanganak" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="idanak1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="cariidanak" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -352,9 +357,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="notimbang">
             </Component>
-            <Component class="javax.swing.JTextField" name="idtimbanganak">
+            <Component class="javax.swing.JTextField" name="idanak1">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idtimbanganakActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idanak1ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="namaanak">
@@ -515,6 +520,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cari"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cariidanakActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="tinggianak">
             </Component>
@@ -982,7 +990,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Century Gothic" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ID Layanan"/>
+                <Property name="text" type="java.lang.String" value="ID Anak"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="cariimunisasi">

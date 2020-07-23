@@ -16,14 +16,38 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilanlayananibuhamil extends javax.swing.JFrame {
-
+    public String id_ibuhamil, nama_ibuhamil, usia_ibuhamil;
+    private Connection conn = new koneksi().connect();
+    private DefaultTableModel tabmode;
     /**
      * Creates new form tampilanlayananlansia
      */
     public tampilanlayananibuhamil() {
         initComponents();
+        kosong();
+        aktif();
+        autonumber();
     }
+    private void kosong(){
+        
+    }
+    
+    private void aktif(){
+        
+        
+    }
+    
+    private void autonumber(){
+            }
 
+        
+    public void IdLansia() {
+        tampilanpopupibuhamil pl = new tampilanpopupibuhamil();
+        pl.lynnibuhamil = this;
+        idibuhamil.setText(id_ibuhamil);
+        namaibuhamil.setText(nama_ibuhamil);
+        usiaibuhamil.setText(usia_ibuhamil);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -207,7 +231,7 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
         caridataibuhamil.setText("Cari");
 
         jLabel32.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel32.setText("ID Layanan");
+        jLabel32.setText("ID Ibu Hamil");
 
         cetakhamilbutton.setBackground(new java.awt.Color(153, 153, 255));
         cetakhamilbutton.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -333,7 +357,6 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
                     .addComponent(usiahamil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31)
                     .addComponent(jLabel27))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tensiibu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,7 +393,7 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         pack();
@@ -382,7 +405,10 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void idcaributtonibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idcaributtonibuhamilActionPerformed
-        // TODO add your handling code here:
+        tampilanpopupibuhamil pih = new tampilanpopupibuhamil();
+        pih.lynnibuhamil = this;
+        pih.setVisible(true);
+        pih.setResizable(false);
     }//GEN-LAST:event_idcaributtonibuhamilActionPerformed
 
     private void cetakhamilbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakhamilbuttonActionPerformed

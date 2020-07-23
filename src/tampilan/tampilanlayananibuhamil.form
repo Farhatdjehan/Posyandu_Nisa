@@ -37,7 +37,7 @@
               <Component id="jPanel2" min="-2" pref="96" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -272,7 +272,6 @@
                       <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="tensiibu" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -530,7 +529,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ID Layanan"/>
+            <Property name="text" type="java.lang.String" value="ID Ibu Hamil"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="idlayanantabel">

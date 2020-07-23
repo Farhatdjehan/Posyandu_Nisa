@@ -17,16 +17,42 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilanlayanananak extends javax.swing.JFrame {
-    public String id, nama, jenis, telp, almt;
-    public String kdbrg, nmbrg, jenisbrg, hb, hj;
+    public String id_anak, nama_anak, usia_anak, nama_ibu;
+    public String id_jabatan, nama_jabatan, gaji_pokok;
     private Connection conn = new koneksi().connect();
-private DefaultTableModel tabmode;
+    private DefaultTableModel tabmode;
     /**
      * Creates new form tampilanlayanananak
      */
     public tampilanlayanananak() {
         initComponents();
+        kosong();
+        aktif();
+        autonumber();
     }
+    private void kosong(){
+        
+    }
+    
+    private void aktif(){
+        
+        
+    }
+    
+    private void autonumber(){
+        
+        
+    }
+    
+    public void IdAnak() {
+        tampilanpopupanak pa = new tampilanpopupanak();
+        pa.lynn = this;
+        idanak1.setText(id_anak);
+        namaanak.setText(nama_anak);
+        usiaanak.setText(usia_anak);
+        namaibu.setText(nama_ibu);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +70,7 @@ private DefaultTableModel tabmode;
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         notimbang = new javax.swing.JTextField();
-        idtimbanganak = new javax.swing.JTextField();
+        idanak1 = new javax.swing.JTextField();
         namaanak = new javax.swing.JTextField();
         usiaanak = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -170,9 +196,9 @@ private DefaultTableModel tabmode;
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         jLabel1.setText("No. Timbang");
 
-        idtimbanganak.addActionListener(new java.awt.event.ActionListener() {
+        idanak1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idtimbanganakActionPerformed(evt);
+                idanak1ActionPerformed(evt);
             }
         });
 
@@ -229,6 +255,11 @@ private DefaultTableModel tabmode;
         cariidanak.setBackground(new java.awt.Color(153, 153, 255));
         cariidanak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         cariidanak.setText("Cari");
+        cariidanak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cariidanakActionPerformed(evt);
+            }
+        });
 
         jLabel28.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel28.setText("Layanan Timbang Anak");
@@ -273,7 +304,7 @@ private DefaultTableModel tabmode;
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -298,7 +329,7 @@ private DefaultTableModel tabmode;
                                 .addGap(42, 42, 42)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(idtimbanganak, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idanak1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cariidanak))
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,9 +352,12 @@ private DefaultTableModel tabmode;
                                 .addComponent(namaanak, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel14))
-                        .addGap(15, 15, 15)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(15, 15, 15))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(31, 31, 31)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(notimbang, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                             .addComponent(iddaftaranak))))
@@ -366,7 +400,7 @@ private DefaultTableModel tabmode;
                             .addComponent(notimbang, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(idtimbanganak, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idanak1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cariidanak, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
@@ -500,7 +534,7 @@ private DefaultTableModel tabmode;
         });
 
         jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel23.setText("ID Layanan");
+        jLabel23.setText("ID Anak");
 
         cetakimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         cetakimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -701,12 +735,15 @@ private DefaultTableModel tabmode;
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void cariidanakimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariidanakimunisasiActionPerformed
-        // TODO add your handling code here:
+        tampilanpopupanak pa = new tampilanpopupanak();
+        pa.lynn = this;
+        pa.setVisible(true);
+        pa.setResizable(false);
     }//GEN-LAST:event_cariidanakimunisasiActionPerformed
 
-    private void idtimbanganakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idtimbanganakActionPerformed
+    private void idanak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idanak1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idtimbanganakActionPerformed
+    }//GEN-LAST:event_idanak1ActionPerformed
 
     private void caridataimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caridataimunisasiActionPerformed
         // TODO add your handling code here:
@@ -727,6 +764,13 @@ private DefaultTableModel tabmode;
     private void jenisimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisimunisasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jenisimunisasiActionPerformed
+
+    private void cariidanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariidanakActionPerformed
+        tampilanpopupanak pa = new tampilanpopupanak();
+        pa.lynn = this;
+        pa.setVisible(true);
+        pa.setResizable(false);                      
+    }//GEN-LAST:event_cariidanakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -779,11 +823,11 @@ private DefaultTableModel tabmode;
     private javax.swing.JButton cetaktimbang;
     private javax.swing.JButton hapusanak;
     private javax.swing.JButton hapusimunisasi;
+    private javax.swing.JTextField idanak1;
     private javax.swing.JTextField idanakimunisasi;
     private javax.swing.JTextField iddaftaranak;
     private javax.swing.JTextField iddaftarimunisasi;
     private javax.swing.JTextField idimunisasianak;
-    private javax.swing.JTextField idtimbanganak;
     private javax.swing.JTextField imunisasicari;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

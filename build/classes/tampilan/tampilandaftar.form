@@ -195,11 +195,11 @@
                                           <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <Component id="jTextField18" max="32767" attributes="0"/>
+                                                  <Component id="iddaftar" max="32767" attributes="0"/>
                                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                                  <Component id="jButton10" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  <Component id="buatbutton" min="-2" pref="61" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jComboBox1" min="-2" pref="184" max="-2" attributes="0"/>
+                                              <Component id="jenispelayanan" min="-2" pref="184" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -217,14 +217,17 @@
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField18" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="jButton10" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="buatbutton" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="iddaftar" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="jenispelayanan" min="-2" pref="32" max="-2" attributes="0"/>
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton11" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
@@ -244,9 +247,9 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField18">
+            <Component class="javax.swing.JTextField" name="iddaftar">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton10">
+            <Component class="javax.swing.JButton" name="buatbutton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buat"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -265,7 +268,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="jenispelayanan">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -279,6 +282,9 @@
                   <Font name="Century Gothic" size="11" style="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jenispelayananActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton11">
               <Properties>
@@ -760,60 +766,73 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jScrollPane8" pref="617" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel14" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
-                                                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="idanak" max="32767" attributes="0"/>
-                                                              <Component id="namaanak" pref="174" max="32767" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
                                                               <Group type="102" alignment="0" attributes="0">
                                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel14" alignment="0" min="-2" pref="87" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                   </Group>
-                                                                  <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Group type="102" attributes="0">
-                                                                          <Component id="usiaanak" min="-2" pref="85" max="-2" attributes="0"/>
-                                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                                      <Component id="idanak" max="32767" attributes="0"/>
+                                                                      <Component id="namaanak" pref="174" max="32767" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                                  <Group type="102" alignment="0" attributes="0">
+                                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                                          <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                       </Group>
-                                                                      <Component id="tglanak" max="32767" attributes="0"/>
+                                                                      <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                                          <Group type="102" attributes="0">
+                                                                              <Component id="usiaanak" min="-2" pref="85" max="-2" attributes="0"/>
+                                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                                                          </Group>
+                                                                          <Component id="tglanak" max="32767" attributes="0"/>
+                                                                      </Group>
                                                                   </Group>
-                                                              </Group>
-                                                              <Group type="102" alignment="0" attributes="0">
-                                                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                                                  <Component id="anaklaki" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="anakperempuan" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="1" attributes="0">
-                                                                  <Component id="daftaranak" min="-2" pref="76" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                                  <Component id="ubahanak" max="32767" attributes="0"/>
-                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                                  <Component id="hapusanak" min="-2" pref="76" max="-2" attributes="0"/>
+                                                                  <Group type="102" alignment="0" attributes="0">
+                                                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                                                      <Component id="anaklaki" min="-2" max="-2" attributes="0"/>
+                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                      <Component id="anakperempuan" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <Group type="102" alignment="1" attributes="0">
+                                                                      <Component id="daftaranak" min="-2" pref="76" max="-2" attributes="0"/>
+                                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                      <Component id="ubahanak" max="32767" attributes="0"/>
+                                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                      <Component id="hapusanak" min="-2" pref="76" max="-2" attributes="0"/>
+                                                                  </Group>
                                                               </Group>
                                                           </Group>
-                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="jLabel20" max="32767" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" attributes="0">
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
                                                       </Group>
                                                   </Group>
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
                                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                           <Component id="ibuanak" alignment="0" max="32767" attributes="0"/>
