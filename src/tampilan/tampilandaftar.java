@@ -21,6 +21,8 @@ public class tampilandaftar extends javax.swing.JFrame {
 
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
+    private DefaultTableModel tabmode2;
+    private DefaultTableModel tabmode3;
 
     /**
      * Creates new form tampilandaftar
@@ -84,15 +86,15 @@ public class tampilandaftar extends javax.swing.JFrame {
 
     private void datatableanak() {
         Object[] Baris = {"Id", "Nama", "Jenis Kelamin", "Tgl Lahir", "Usia", "Ayah", "Ibu", "Alamat", "Telepon"};
-        tabmode = new DefaultTableModel(null, Baris);
+        tabmode3 = new DefaultTableModel(null, Baris);
         String cariitem = carianak.getText();
-        tabelanak.setModel(tabmode);
+        tabelanak.setModel(tabmode3);
         try {
             String sql = "SELECT * FROM anak where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by id asc ";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()) {
-                tabmode.addRow(new Object[]{
+                tabmode3.addRow(new Object[]{
                     hasil.getString(1),
                     hasil.getString(2),
                     hasil.getString(3),
@@ -112,15 +114,15 @@ public class tampilandaftar extends javax.swing.JFrame {
 
     private void datatablelansia() {
         Object[] Baris = {"Id", "Nama", "Jenis Kelamin", "Tgl Lahir", "Usia", "Alamat", "Telepon"};
-        tabmode = new DefaultTableModel(null, Baris);
-        tabellansia.setModel(tabmode);
+        tabmode2 = new DefaultTableModel(null, Baris);
+        tabellansia.setModel(tabmode2);
         String cariitem = carilansia.getText();
         try {
-            String sql = "SELECT * FROM anak where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by id asc ";
+            String sql = "SELECT * FROM lansia where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by id asc ";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()) {
-                tabmode.addRow(new Object[]{
+                tabmode2.addRow(new Object[]{
                     hasil.getString(1),
                     hasil.getString(2),
                     hasil.getString(3),
@@ -156,7 +158,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                     hasil.getString(7)
                 });
             }
-            tabelibuhamil.setModel(tabmode);
+            tabelibuhamil.setModel(tabmode2);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
@@ -1354,13 +1356,13 @@ public class tampilandaftar extends javax.swing.JFrame {
     private void tabellansiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabellansiaMouseClicked
         // TODO add your handling code here:
         int bar = tabellansia.getSelectedRow();
-        String a = tabmode.getValueAt(bar, 0).toString();
-        String b = tabmode.getValueAt(bar, 1).toString();
-        String c = tabmode.getValueAt(bar, 2).toString();
-        String d = tabmode.getValueAt(bar, 3).toString();
-        String e = tabmode.getValueAt(bar, 4).toString();
-        String f = tabmode.getValueAt(bar, 5).toString();
-        String g = tabmode.getValueAt(bar, 6).toString();
+        String a = tabmode2.getValueAt(bar, 0).toString();
+        String b = tabmode2.getValueAt(bar, 1).toString();
+        String c = tabmode2.getValueAt(bar, 2).toString();
+        String d = tabmode2.getValueAt(bar, 3).toString();
+        String e = tabmode2.getValueAt(bar, 4).toString();
+        String f = tabmode2.getValueAt(bar, 5).toString();
+        String g = tabmode2.getValueAt(bar, 6).toString();
         idlansia.setEditable(false);
         idlansia.setText(a);
         namalansia.setText(b);
@@ -1469,15 +1471,15 @@ public class tampilandaftar extends javax.swing.JFrame {
     private void tabelanakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelanakMouseClicked
         // TODO add your handling code here:
         int bar = tabelanak.getSelectedRow();
-        String a = tabmode.getValueAt(bar, 0).toString();
-        String b = tabmode.getValueAt(bar, 1).toString();
-        String c = tabmode.getValueAt(bar, 2).toString();
-        String d = tabmode.getValueAt(bar, 3).toString();
-        String e = tabmode.getValueAt(bar, 4).toString();
-        String f = tabmode.getValueAt(bar, 5).toString();
-        String g = tabmode.getValueAt(bar, 6).toString();
-        String h = tabmode.getValueAt(bar, 7).toString();
-        String i = tabmode.getValueAt(bar, 8).toString();
+        String a = tabmode3.getValueAt(bar, 0).toString();
+        String b = tabmode3.getValueAt(bar, 1).toString();
+        String c = tabmode3.getValueAt(bar, 2).toString();
+        String d = tabmode3.getValueAt(bar, 3).toString();
+        String e = tabmode3.getValueAt(bar, 4).toString();
+        String f = tabmode3.getValueAt(bar, 5).toString();
+        String g = tabmode3.getValueAt(bar, 6).toString();
+        String h = tabmode3.getValueAt(bar, 7).toString();
+        String i = tabmode3.getValueAt(bar, 8).toString();
         idanak.setEditable(false);
         idanak.setText(a);
         namaanak.setText(b);
