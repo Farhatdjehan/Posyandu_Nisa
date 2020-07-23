@@ -185,7 +185,6 @@ public class tampilandaftar extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         iddaftar = new javax.swing.JTextField();
-        buatbutton = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jenispelayanan = new javax.swing.JComboBox();
         jButton11 = new javax.swing.JButton();
@@ -337,14 +336,10 @@ public class tampilandaftar extends javax.swing.JFrame {
         jLabel32.setText("ID  Daftar");
         jLabel32.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        buatbutton.setText("Buat");
-        buatbutton.setBackground(new java.awt.Color(153, 153, 255));
-        buatbutton.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-
         jLabel33.setText("Jenis Pelayanan");
         jLabel33.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jenispelayanan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jenispelayanan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pelayanan Anak", "Pelayanan Ibu Hamil", "Pelayanan Lansia" }));
         jenispelayanan.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jenispelayanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,14 +371,10 @@ public class tampilandaftar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel33)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                            .addComponent(iddaftar)
-                                            .addGap(34, 34, 34)
-                                            .addComponent(buatbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jenispelayanan, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jenispelayanan, 0, 184, Short.MAX_VALUE)
+                                    .addComponent(iddaftar))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap(30, Short.MAX_VALUE))))
         );
@@ -392,12 +383,8 @@ public class tampilandaftar extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buatbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(iddaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
+                .addComponent(iddaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel33)
                 .addGap(18, 18, 18)
@@ -1711,7 +1698,6 @@ public class tampilandaftar extends javax.swing.JFrame {
     private javax.swing.JButton batalanak;
     private javax.swing.JButton batalibuhamil;
     private javax.swing.JButton batallansia;
-    private javax.swing.JButton buatbutton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField carianak;
