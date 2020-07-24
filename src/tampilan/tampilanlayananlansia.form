@@ -271,9 +271,9 @@
                           <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton10" min="-2" pref="31" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton12" min="-2" pref="31" max="-2" attributes="0"/>
@@ -283,7 +283,6 @@
                           <Component id="jButton14" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextField10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -491,7 +490,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Layanan Ibu Hamil"/>
+            <Property name="text" type="java.lang.String" value="Layanan Lansia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField5">

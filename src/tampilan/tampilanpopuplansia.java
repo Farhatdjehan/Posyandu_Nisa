@@ -24,8 +24,32 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
      */
     public tampilanpopuplansia() {
         initComponents();
+        datatable();
     }
 
+    protected void datatable() {
+        Object[] Baris = {"Id", "Nama", "Jenis Kelamin", "Tgl Lahir", "Usia", "Alamat", "Telepon"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem = carilansia.getText();
+        try {
+            String sql = "SELECT * FROM lansia where id_lansia like '%" + cariitem + "%' or nama_lansia like '%" + cariitem + "%' order by id_lansia asc ";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()) {
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7)});
+            }
+            tabellansia.setModel(tabmode);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,8 +61,8 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        tabellansia = new javax.swing.JTable();
+        carilansia = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tutup = new javax.swing.JButton();
@@ -47,7 +71,7 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabellansia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -58,7 +82,12 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tabellansia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabellansiaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabellansia);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -89,7 +118,7 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(carilansia, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -102,7 +131,7 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carilansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
@@ -131,6 +160,19 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
         
         dispose();
     }//GEN-LAST:event_tutupActionPerformed
+
+    private void tabellansiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabellansiaMouseClicked
+        int tbllansia = tabellansia.getSelectedRow();
+        lynnlansia.id_lansia = tabellansia.getValueAt(tbllansia, 0).toString();
+        lynnlansia.nama_lansia = tabellansia.getValueAt(tbllansia, 1).toString();
+        lynnlansia.jenis_kelamin = tabellansia.getValueAt(tbllansia, 2).toString();
+        lynnlansia.tgl_lahir = tabellansia.getValueAt(tbllansia, 3).toString();
+        lynnlansia.usia_lansia = tabellansia.getValueAt(tbllansia, 4).toString();
+        lynnlansia.alamat_lansia = tabellansia.getValueAt(tbllansia, 5).toString();
+        lynnlansia.telepon_lansia = tabellansia.getValueAt(tbllansia, 6).toString();
+        lynnlansia.IdLansia();
+        this.dispose();
+    }//GEN-LAST:event_tabellansiaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -169,12 +211,12 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField carilansia;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tabellansia;
     private javax.swing.JButton tutup;
     // End of variables declaration//GEN-END:variables
 }

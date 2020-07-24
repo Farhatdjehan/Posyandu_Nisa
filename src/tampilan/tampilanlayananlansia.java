@@ -16,7 +16,7 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilanlayananlansia extends javax.swing.JFrame {
-    public String idlansia, nama_lansia, usia_lansia;
+    public String id_lansia, nama_lansia, jenis_kelamin, tgl_lahir, usia_lansia, alamat_lansia, telepon_lansia ;
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
     /**
@@ -46,7 +46,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     public void IdLansia() {
         tampilanpopuplansia pl = new tampilanpopuplansia();
         pl.lynnlansia = this;
-        idpelayananlansia.setText(idlansia);
+        idpelayananlansia.setText(id_lansia);
         namalansia.setText(nama_lansia);
         usialansia.setText(usia_lansia);
     }
@@ -217,7 +217,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel3.setText("Layanan Ibu Hamil");
+        jLabel3.setText("Layanan Lansia");
 
         jButton15.setBackground(new java.awt.Color(153, 153, 255));
         jButton15.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -347,9 +347,9 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                         .addComponent(cetakimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cariimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel32)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,7 +358,6 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28))
