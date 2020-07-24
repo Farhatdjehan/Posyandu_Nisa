@@ -106,7 +106,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                     hasil.getString(9)
                 });
             }
-            tabelanak.setModel(tabmode);
+            tabelanak.setModel(tabmode3);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
@@ -132,7 +132,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                     hasil.getString(7)
                 });
             }
-            tabellansia.setModel(tabmode);
+            tabellansia.setModel(tabmode2);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
@@ -158,7 +158,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                     hasil.getString(7)
                 });
             }
-            tabelibuhamil.setModel(tabmode2);
+            tabelibuhamil.setModel(tabmode);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
         }
@@ -1311,7 +1311,7 @@ public class tampilandaftar extends javax.swing.JFrame {
             jeniskelaminlansia = "Perempuan";
         }
         try {
-            String sql = "update lansia set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + idlansia.getText() + "'  ";
+            String sql = "update lansia set nama=?,jenis=?,tanggal=?,usia=?,alamat=?,telepon=? where id ='" + idlansia.getText() + "'  ";
 
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, namalansia.getText());
@@ -1525,18 +1525,16 @@ public class tampilandaftar extends javax.swing.JFrame {
 
     private void ubahibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahibuhamilActionPerformed
         // TODO add your handling code here:
-        idhamil.setEditable(true);
         try {
-            String sql = "update ibuhamil set nama=?,jk=?,tgl=?,usia=?,ayah=?,ibu=?,alamat=?,telepon=? where id ='" + idhamil.getText() + "'  ";
+            String sql = "update ibuhamil set nama=?,tgl=?,usia=?,nama_suami=?,telepon=?,alamat=? where Id ='" + idhamil.getText() + "'  ";
 
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, idhamil.getText());
-            stat.setString(2, namaibuhamil.getText());
-            stat.setString(3, tgllahiribuhamil.getDateStringOrEmptyString());
-            stat.setString(4, usiaibuhamil.getText());
-            stat.setString(5, alamatibuhamil.getText());
-            stat.setString(6, telponibuhamil.getText());
-            stat.setString(7, namasuami.getText());
+            stat.setString(1, namaibuhamil.getText());
+            stat.setString(2, tgllahiribuhamil.getDateStringOrEmptyString());
+            stat.setString(3, usiaibuhamil.getText());
+            stat.setString(4, alamatibuhamil.getText());
+            stat.setString(5, telponibuhamil.getText());
+            stat.setString(6, namasuami.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosongibuhamil();
@@ -1582,7 +1580,8 @@ public class tampilandaftar extends javax.swing.JFrame {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate dateTime = LocalDate.parse(c, formatter);
         tgllahiribuhamil.setDate(dateTime);
-        alamatibuhamil.setText(d);
+        usiaibuhamil.setText(d);
+        alamatibuhamil.setText(e);
         telponibuhamil.setText(f);
         namasuami.setText(g);
     }//GEN-LAST:event_tabelibuhamilMouseClicked

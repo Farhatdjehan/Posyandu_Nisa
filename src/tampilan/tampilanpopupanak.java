@@ -32,7 +32,7 @@ public class tampilanpopupanak extends javax.swing.JFrame {
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem = caripopupanak.getText();
         try {
-            String sql = "SELECT * FROM anak where id_anak like '%" + cariitem + "%' or id_pegawai like '%" + cariitem + "%' or nama_pegawai like '%" + cariitem + "%' or jabatan like '%" + cariitem + "%' order by id_absensi asc";
+            String sql = "SELECT * FROM anak where Id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' or jk like '%" + cariitem + "%' or ayah like '%" + cariitem + "%' or ibu like '%" + cariitem + "%' order by Id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()) {
@@ -68,7 +68,6 @@ public class tampilanpopupanak extends javax.swing.JFrame {
         caripopupanak = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        tutup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,15 +99,6 @@ public class tampilanpopupanak extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Pop Up Data Anak");
 
-        tutup.setBackground(new java.awt.Color(255, 255, 255));
-        tutup.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        tutup.setText("Tutup");
-        tutup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tutupActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,10 +112,7 @@ public class tampilanpopupanak extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(caripopupanak, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tutup, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -137,10 +124,8 @@ public class tampilanpopupanak extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tutup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,22 +144,19 @@ public class tampilanpopupanak extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelpopupanakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelpopupanakMouseClicked
-//        int tabelabsensi = tabelpopupanak.getSelectedRow();
-//            lynn.iddaftar = tabelpopupanak.getModel().getValueAt(tabelabsensi, 0).toString();
-//            lynn.id_absensi = tabelpopupanak.getValueAt(tabelabsensi, 1).toString();
-//            lynn.id_pegawai = tabelpopupanak.getValueAt(tabelabsensi, 2).toString();
-//            lynn.nama_pegawai = tabelpopupanak.getValueAt(tabelabsensi, 3).toString();
-//            lynn.jabatan = tabelpopupanak.getValueAt(tabelabsensi, 4).toString();
-//            lynn.kehadiran = tabelpopupanak.getValueAt(tabelabsensi, 5).toString();
-//            lynn.tidakhadir = tabelpopupanak.getValueAt(tabelabsensi, 6).toString();
-//            lynn.jamlembur = tabelpopupanak.getValueAt(tabelabsensi, 7).toString();
-//            lynn.itemTerpilih1();
-//        this.dispose();
+        int tabelabsensi = tabelpopupanak.getSelectedRow();
+            lynn.Id = tabelpopupanak.getModel().getValueAt(tabelabsensi, 0).toString();
+            lynn.nama = tabelpopupanak.getValueAt(tabelabsensi, 1).toString();
+            lynn.jk= tabelpopupanak.getValueAt(tabelabsensi, 2).toString();
+            lynn.tgl = tabelpopupanak.getValueAt(tabelabsensi, 3).toString();
+            lynn.usia = tabelpopupanak.getValueAt(tabelabsensi, 4).toString();
+            lynn.ayah = tabelpopupanak.getValueAt(tabelabsensi, 5).toString();
+            lynn.ibu = tabelpopupanak.getValueAt(tabelabsensi, 6).toString();
+            lynn.alamat = tabelpopupanak.getValueAt(tabelabsensi, 7).toString();
+            lynn.telepon = tabelpopupanak.getValueAt(tabelabsensi, 8).toString();
+            lynn.IdAnak();
+        this.dispose();
     }//GEN-LAST:event_tabelpopupanakMouseClicked
-
-    private void tutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutupActionPerformed
-        dispose();
-    }//GEN-LAST:event_tutupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +200,5 @@ public class tampilanpopupanak extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelpopupanak;
-    private javax.swing.JButton tutup;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,8 +17,7 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilanlayanananak extends javax.swing.JFrame {
-    public String id_anak, nama_anak, usia_anak, nama_ibu;
-    public String id_jabatan, nama_jabatan, gaji_pokok;
+    public String Id, nama, jk, tgl, usia, ayah, ibu, alamat, telepon ;
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
     /**
@@ -26,32 +25,89 @@ public class tampilanlayanananak extends javax.swing.JFrame {
      */
     public tampilanlayanananak() {
         initComponents();
-        kosong();
-        aktif();
+        kosongtimbanganak();
+        kosongimunisasianak();
+        datatabletimbang();
+        datatableimunisasi();
+        aktiftimbanganak();
+        aktifimunisasianak();
         autonumber();
     }
-    private void kosong(){
+    private void kosongtimbanganak(){
+        iddaftaranak.setText("");
+        notimbang.setText("");
+        idanak1.setText("");
+        namaanak.setText("");
+        usiaanak.setText("");
+        namaibu.setText("");
+        beratanak.setText("");
+        tinggianak.setText("");
+        ketanak.setText("");
+    }
+    private void kosongimunisasianak(){
+        iddaftarimunisasi.setText("");
+        noimunisasi.setText("");
+        idanakimunisasi.setText("");
+        namaanakimunisasi.setText("");
+        usiaanakimunisasi.setText("");
+        namaibuimunisasi.setText("");
+        jenisvitaminimunisasi.setSelectedItem(null);;
+        idimunisasianak.setText("");
+        jenisimunisasi.setText("");
+        ketimunisasi.setText("");
+    }
+    
+    private void aktiftimbanganak(){
         
     }
     
-    private void aktif(){
-        
+    private void aktifimunisasianak(){
         
     }
     
     private void autonumber(){
-        
         
     }
     
     public void IdAnak() {
         tampilanpopupanak pa = new tampilanpopupanak();
         pa.lynn = this;
-        idanak1.setText(id_anak);
-        namaanak.setText(nama_anak);
-        usiaanak.setText(usia_anak);
-        namaibu.setText(nama_ibu);
+        idanak1.setText(Id);
+        namaanak.setText(nama);
+        usiaanak.setText(usia);
+        namaibu.setText(ibu);
     }
+    protected void datatabletimbang(){
+        Object[] Baris ={"Id Daftar","Id Anak","Nama Anak","Nama Ibu","Usia","Berat Badan","Tinggi Badan","Ket."};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem=caritimbanganak.getText();
+
+        try {
+            String sql = "SELECT * FROM timbanganak where id like '%"+cariitem+"%' or nmplgn like '%"+cariitem+"%' order by id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()){
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),
+                    hasil.getString(8)
+                });
+            }
+            tabeltimbang.setModel(tabmode);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        }
+    }
+    
+    protected void datatableimunisasi(){
+        
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
