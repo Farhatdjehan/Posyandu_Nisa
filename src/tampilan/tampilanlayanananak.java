@@ -18,8 +18,10 @@ import koneksi.koneksi;
  */
 public class tampilanlayanananak extends javax.swing.JFrame {
     public String Id, nama, jk, tgl, usia, ayah, ibu, alamat, telepon ;
+    public String id_timbang, no_timbang, id_anak, berat, tinggi, ket;
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
+    private DefaultTableModel tabmode2;
     /**
      * Creates new form tampilanlayanananak
      */
@@ -83,7 +85,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         String cariitem=caritimbanganak.getText();
 
         try {
-            String sql = "SELECT * FROM timbanganak where id like '%"+cariitem+"%' or nmplgn like '%"+cariitem+"%' order by id asc";
+            String sql = "SELECT * FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where  '%"+cariitem+"%' or notimbang like '%"+cariitem+"%' order by id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -105,7 +107,31 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }
     
     protected void datatableimunisasi(){
-        
+        Object[] Baris ={"Id Daftar","Id Anak","Nama Anak","Nama Ibu","Usia","Jenis Vitamin","Id Imunisasi","Jenis Imunisasi","Ket."};
+        tabmode2 = new DefaultTableModel(null, Baris);
+        String cariitem=caritimbanganak.getText();
+
+        try {
+            String sql = "SELECT * FROM imunisasianak INNER JOIN anak ON timbanganak.id_anak = anak.id where  '%"+cariitem+"%' or notimbang like '%"+cariitem+"%' order by id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()){
+                tabmode2.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),
+                    hasil.getString(8),
+                    hasil.getString(9)
+                });
+            }
+            tabeltimbang.setModel(tabmode2);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        }
     }
 
     

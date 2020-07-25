@@ -16,7 +16,7 @@ import koneksi.koneksi;
  * @author farhatdk
  */
 public class tampilanlayananibuhamil extends javax.swing.JFrame {
-    public String id_ibuhamil, nama_ibuhamil, usia_ibuhamil;
+    public String id, nama, tgl, usia, nama_suami, telepon, alamat;
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
     /**
@@ -44,9 +44,9 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
     public void IdLansia() {
         tampilanpopupibuhamil pl = new tampilanpopupibuhamil();
         pl.lynnibuhamil = this;
-        idibuhamil.setText(id_ibuhamil);
-        namaibuhamil.setText(nama_ibuhamil);
-        usiaibuhamil.setText(usia_ibuhamil);
+        idibuhamil.setText(id);
+        namaibuhamil.setText(nama);
+        usiaibuhamil.setText(usia);
     }
     /**
      * This method is called from within the constructor to initialize the form.

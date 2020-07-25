@@ -24,8 +24,35 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
      */
     public tampilanpopupibuhamil() {
         initComponents();
+        datatable();
     }
 
+    protected void datatable() {
+        Object[] Baris = {"Id Anak", "Nama Anak", "Jenis Kelamin", "Tgl Lahir", "Usia", "Nama Ayah", "Nama Ibu", "Alamat", "Telepon"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem = cariibuhamil.getText();
+        try {
+            String sql = "SELECT * FROM anak where Id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' or jk like '%" + cariitem + "%' or ayah like '%" + cariitem + "%' or ibu like '%" + cariitem + "%' order by Id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()) {
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),
+                    hasil.getString(8),
+                    hasil.getString(9)
+                });
+            }
+            tabelibuhamil.setModel(tabmode);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil" + e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,8 +64,8 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        tabelibuhamil = new javax.swing.JTable();
+        cariibuhamil = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -46,7 +73,7 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelibuhamil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,7 +84,12 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tabelibuhamil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelibuhamilMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelibuhamil);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -78,7 +110,7 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cariibuhamil, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -88,7 +120,7 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cariibuhamil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
@@ -110,6 +142,19 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabelibuhamilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelibuhamilMouseClicked
+        int tabelibuhml = tabelibuhamil.getSelectedRow();
+            lynnibuhamil.id = tabelibuhamil.getModel().getValueAt(tabelibuhml, 0).toString();
+            lynnibuhamil.nama = tabelibuhamil.getValueAt(tabelibuhml, 1).toString();
+            lynnibuhamil.tgl= tabelibuhamil.getValueAt(tabelibuhml, 2).toString();
+            lynnibuhamil.usia = tabelibuhamil.getValueAt(tabelibuhml, 3).toString();
+            lynnibuhamil.nama_suami = tabelibuhamil.getValueAt(tabelibuhml, 4).toString();
+            lynnibuhamil.telepon = tabelibuhamil.getValueAt(tabelibuhml, 5).toString();
+            lynnibuhamil.alamat = tabelibuhamil.getValueAt(tabelibuhml, 6).toString();
+            lynnibuhamil.IdLansia();
+        this.dispose();
+    }//GEN-LAST:event_tabelibuhamilMouseClicked
 
     /**
      * @param args the command line arguments
@@ -148,11 +193,11 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cariibuhamil;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tabelibuhamil;
     // End of variables declaration//GEN-END:variables
 }
