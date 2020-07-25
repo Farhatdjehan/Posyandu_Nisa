@@ -32,7 +32,7 @@ public class tampilanpopupanak extends javax.swing.JFrame {
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem = caripopupanak.getText();
         try {
-            String sql = "SELECT * FROM anak where Id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' or jk like '%" + cariitem + "%' or ayah like '%" + cariitem + "%' or ibu like '%" + cariitem + "%' order by Id asc";
+            String sql = "SELECT * FROM anak where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' or jk like '%" + cariitem + "%' or ayah like '%" + cariitem + "%' or ibu like '%" + cariitem + "%' order by id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()) {
@@ -144,18 +144,19 @@ public class tampilanpopupanak extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelpopupanakMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelpopupanakMouseClicked
-        int tabelabsensi = tabelpopupanak.getSelectedRow();
-            lynn.Id = tabelpopupanak.getModel().getValueAt(tabelabsensi, 0).toString();
-            lynn.nama = tabelpopupanak.getValueAt(tabelabsensi, 1).toString();
-            lynn.jk= tabelpopupanak.getValueAt(tabelabsensi, 2).toString();
-            lynn.tgl = tabelpopupanak.getValueAt(tabelabsensi, 3).toString();
-            lynn.usia = tabelpopupanak.getValueAt(tabelabsensi, 4).toString();
-            lynn.ayah = tabelpopupanak.getValueAt(tabelabsensi, 5).toString();
-            lynn.ibu = tabelpopupanak.getValueAt(tabelabsensi, 6).toString();
-            lynn.alamat = tabelpopupanak.getValueAt(tabelabsensi, 7).toString();
-            lynn.telepon = tabelpopupanak.getValueAt(tabelabsensi, 8).toString();
+        
+            int tabelanak = tabelpopupanak.getSelectedRow();
+            lynn.Id = tabelpopupanak.getModel().getValueAt(tabelanak, 0).toString();
+            lynn.nama = tabelpopupanak.getValueAt(tabelanak, 1).toString();
+            lynn.jk = tabelpopupanak.getValueAt(tabelanak, 2).toString();
+            lynn.tgl = tabelpopupanak.getValueAt(tabelanak, 3).toString();
+            lynn.usia = tabelpopupanak.getValueAt(tabelanak, 4).toString();
+            lynn.ayah = tabelpopupanak.getValueAt(tabelanak, 5).toString();
+            lynn.ibu = tabelpopupanak.getValueAt(tabelanak, 6).toString();
+            lynn.alamat = tabelpopupanak.getValueAt(tabelanak, 7).toString();
+            lynn.telepon = tabelpopupanak.getValueAt(tabelanak, 8).toString();
             lynn.IdAnak();
-        this.dispose();
+            this.dispose();
     }//GEN-LAST:event_tabelpopupanakMouseClicked
 
     /**

@@ -17,6 +17,7 @@ import koneksi.koneksi;
  */
 public class tampilanlayananlansia extends javax.swing.JFrame {
     public String id_lansia, nama_lansia, jenis_kelamin, tgl_lahir, usia_lansia, alamat_lansia, telepon_lansia ;
+    public String id, no_layanan, id_lansia2, berat, tensi, ket;
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
     /**
@@ -30,7 +31,14 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     }
 
     private void kosong(){
-        
+        iddaftarlansia.setText("");
+        nolayananlansia.setText("");
+        idpelayananlansia.setText("");
+        namalansia.setText("");
+        usialansia.setText("");
+        beratlansia.setText("");
+        tensilansia.setText("");
+        keteranganlansia.setText("");
     }
     
     private void aktif(){
@@ -65,13 +73,13 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        simpanlansia = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        batallansia = new javax.swing.JButton();
+        nolayananlansia = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        iddaftarlansia = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         idpelayananlansia = new javax.swing.JTextField();
         carilansia = new javax.swing.JButton();
@@ -80,13 +88,13 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         usialansia = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        beratlansia = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        tensilansia = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        keteranganlansia = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -148,9 +156,14 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         jLabel1.setText("No. Layanan");
 
-        jButton10.setBackground(new java.awt.Color(153, 153, 255));
-        jButton10.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton10.setText("Simpan");
+        simpanlansia.setBackground(new java.awt.Color(153, 153, 255));
+        simpanlansia.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        simpanlansia.setText("Simpan");
+        simpanlansia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanlansiaActionPerformed(evt);
+            }
+        });
 
         jButton12.setBackground(new java.awt.Color(153, 153, 255));
         jButton12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -160,9 +173,14 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jButton13.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton13.setText("Hapus");
 
-        jButton14.setBackground(new java.awt.Color(153, 153, 255));
-        jButton14.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton14.setText("Batal");
+        batallansia.setBackground(new java.awt.Color(153, 153, 255));
+        batallansia.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        batallansia.setText("Batal");
+        batallansia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batallansiaActionPerformed(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         jLabel22.setText("ID Daftar");
@@ -197,9 +215,9 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel30.setText("Kg");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        keteranganlansia.setColumns(20);
+        keteranganlansia.setRows(5);
+        jScrollPane1.setViewportView(keteranganlansia);
 
         jLabel2.setText("Ket.");
 
@@ -246,8 +264,8 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                         .addComponent(jLabel22)
                         .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2))
+                            .addComponent(nolayananlansia)
+                            .addComponent(iddaftarlansia))
                         .addGap(44, 44, 44))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,10 +294,10 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(beratlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(18, 18, 18)
                                                         .addComponent(jLabel30))
-                                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(tensilansia, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(0, 0, Short.MAX_VALUE)))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)))
@@ -302,8 +320,8 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10)))
+                        .addComponent(batallansia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(simpanlansia)))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
@@ -312,7 +330,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iddaftarlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -321,7 +339,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nolayananlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(idpelayananlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,7 +358,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(beratlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel30)
                         .addComponent(jLabel26))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -350,16 +368,16 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(simpanlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(batallansia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tensilansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,6 +424,29 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cetakimunisasiActionPerformed
 
+    private void batallansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batallansiaActionPerformed
+        kosong();
+    }//GEN-LAST:event_batallansiaActionPerformed
+
+    private void simpanlansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanlansiaActionPerformed
+        String sql = "insert into pelayananlansia values (?,?,?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, iddaftarlansia.getText());
+            stat.setString(2, nolayananlansia.getText());
+            stat.setString(3, idpelayananlansia.getText());
+            stat.setString(4, beratlansia.getText());
+            stat.setString(5, tensilansia.getText());
+            stat.setString(6, keteranganlansia.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil disimpan");
+            kosong();
+            iddaftarlansia.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
+        }
+    }//GEN-LAST:event_simpanlansiaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -445,14 +486,15 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton batallansia;
+    private javax.swing.JTextField beratlansia;
     private javax.swing.JTextField cariimunisasi;
     private javax.swing.JButton carilansia;
     private javax.swing.JButton cetakimunisasi;
+    private javax.swing.JTextField iddaftarlansia;
     private javax.swing.JTextField idpelayananlansia;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -474,13 +516,12 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextArea keteranganlansia;
     private javax.swing.JTextField namalansia;
+    private javax.swing.JTextField nolayananlansia;
+    private javax.swing.JButton simpanlansia;
+    private javax.swing.JTextField tensilansia;
     private javax.swing.JTextField usialansia;
     // End of variables declaration//GEN-END:variables
 }

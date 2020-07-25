@@ -32,7 +32,7 @@ public class tampilanpopuplansia extends javax.swing.JFrame {
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem = carilansia.getText();
         try {
-            String sql = "SELECT * FROM lansia where id_lansia like '%" + cariitem + "%' or nama_lansia like '%" + cariitem + "%' order by id_lansia asc ";
+            String sql = "SELECT * FROM lansia where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' order by id asc ";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()) {

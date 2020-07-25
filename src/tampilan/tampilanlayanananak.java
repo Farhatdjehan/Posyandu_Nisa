@@ -7,6 +7,8 @@ package tampilan;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JSpinner;
@@ -19,6 +21,7 @@ import koneksi.koneksi;
 public class tampilanlayanananak extends javax.swing.JFrame {
     public String Id, nama, jk, tgl, usia, ayah, ibu, alamat, telepon ;
     public String id_timbang, no_timbang, id_anak, berat, tinggi, ket;
+    public String id2, no_imunisasi, id_anak2, jenis_vitamin, id_imunisasi, jenis_imunisasi, ket2;
     private Connection conn = new koneksi().connect();
     private DefaultTableModel tabmode;
     private DefaultTableModel tabmode2;
@@ -85,7 +88,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         String cariitem=caritimbanganak.getText();
 
         try {
-            String sql = "SELECT * FROM timbanganak INNER JOIN anak ON timbanganak.id_anak=anak.id where timbanganak.id like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by timbanganak.id asc";
+            String sql = "SELECT * FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -107,12 +110,12 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }
     
     protected void datatableimunisasi(){
-        Object[] Baris ={"Id Daftar","Id Anak","Nama Anak","Nama Ibu","Usia","Jenis Vitamin","Id Imunisasi","Jenis Imunisasi","Ket."};
+        Object[] Baris ={"Id","No Imunisasi","Id Anak","Nama Anak","Usia","Nama Ibu","Jenis Vitamin","Id Imunisasi","Jenis Imunisasi","Ket."};
         tabmode2 = new DefaultTableModel(null, Baris);
         String cariitem=caritimbanganak.getText();
 
         try {
-            String sql = "SELECT * FROM imunisasianak INNER JOIN anak ON timbanganak.id_anak = anak.id where  '%"+cariitem+"%' or notimbang like '%"+cariitem+"%' order by id asc";
+            String sql = "SELECT * FROM imunisasianak INNER JOIN anak ON imunisasianak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -125,10 +128,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     hasil.getString(6),
                     hasil.getString(7),
                     hasil.getString(8),
-                    hasil.getString(9)
+                    hasil.getString(9),
+                    hasil.getString(10)
                 });
             }
-            tabeltimbang.setModel(tabmode2);
+            tabelimunisasi.setModel(tabmode2);
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
         }
@@ -330,10 +334,20 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         batalanak.setBackground(new java.awt.Color(153, 153, 255));
         batalanak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         batalanak.setText("Batal");
+        batalanak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batalanakActionPerformed(evt);
+            }
+        });
 
         hapusanak.setBackground(new java.awt.Color(153, 153, 255));
         hapusanak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         hapusanak.setText("Hapus");
+        hapusanak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusanakActionPerformed(evt);
+            }
+        });
 
         ubahanak.setBackground(new java.awt.Color(153, 153, 255));
         ubahanak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -362,6 +376,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabeltimbang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabeltimbangMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tabeltimbang);
 
         jLabel30.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -571,6 +590,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         simpanimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         simpanimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 9)); // NOI18N
         simpanimunisasi.setText("Simpan");
+        simpanimunisasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanimunisasiActionPerformed(evt);
+            }
+        });
 
         ubahimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         ubahimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -579,6 +603,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         batalimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         batalimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         batalimunisasi.setText("Batal");
+        batalimunisasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batalimunisasiActionPerformed(evt);
+            }
+        });
 
         jenisvitaminimunisasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -588,6 +617,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         hapusimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         hapusimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
         hapusimunisasi.setText("Hapus");
+        hapusimunisasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusimunisasiActionPerformed(evt);
+            }
+        });
 
         jenisimunisasi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -782,11 +816,10 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel26)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ubahimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(hapusimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ubahimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hapusimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
                         .addComponent(batalimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
@@ -877,6 +910,93 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
     }//GEN-LAST:event_simpananakActionPerformed
+
+    private void tabeltimbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabeltimbangMouseClicked
+//        int bar = tabeltimbang.getSelectedRow();
+//        String a = tabmode.getValueAt(bar, 0).toString();
+//        String b = tabmode.getValueAt(bar, 1).toString();
+//        String c = tabmode.getValueAt(bar, 2).toString();
+//        String d = tabmode.getValueAt(bar, 3).toString();
+//        String e = tabmode.getValueAt(bar, 4).toString();
+//        String f = tabmode.getValueAt(bar, 5).toString();
+//        String g = tabmode.getValueAt(bar, 6).toString();
+//        String h = tabmode.getValueAt(bar, 7).toString();
+//        String i = tabmode.getValueAt(bar, 8).toString();
+//        iddaftaranak.setEditable(false);
+//        idanak1.setEditable(false);
+//        iddaftaranak.setText(a);
+//        notimbang.setText(b);
+//        idanak1.setText(c);
+//        namaanak.setText(d);
+//        usiaanak.setText(e);
+//        namaibu.setText(f);
+//        beratanak.setText(g);
+//        tinggianak.setText(h);
+//        ketanak.setText(i);
+    }//GEN-LAST:event_tabeltimbangMouseClicked
+
+    private void batalanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalanakActionPerformed
+        kosongtimbanganak();
+    }//GEN-LAST:event_batalanakActionPerformed
+
+    private void batalimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalimunisasiActionPerformed
+        kosongimunisasianak();
+    }//GEN-LAST:event_batalimunisasiActionPerformed
+
+    private void hapusanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusanakActionPerformed
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from timbangananak where id='" + idanak1.getText() + "'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosongtimbanganak();
+                idanak1.requestFocus();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
+            }
+            datatabletimbang();
+        }
+        idanak1.setEditable(true);
+    }//GEN-LAST:event_hapusanakActionPerformed
+
+    private void hapusimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusimunisasiActionPerformed
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from imunisasianak where id='" + idanakimunisasi.getText() + "'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosongimunisasianak();
+                idanakimunisasi.requestFocus();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
+            }
+            datatableimunisasi();
+        }
+        idanakimunisasi.setEditable(true);
+    }//GEN-LAST:event_hapusimunisasiActionPerformed
+
+    private void simpanimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanimunisasiActionPerformed
+        String sql = "insert into imunisasianak values (?,?,?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, iddaftaranak.getText());
+            stat.setString(2, notimbang.getText());
+            stat.setString(3, idanak1.getText());
+            stat.setString(4, beratanak.getText());
+            stat.setString(5, tinggianak.getText());
+            stat.setString(6, ketanak.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil disimpan");
+            kosongtimbanganak();
+            iddaftaranak.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
+        }
+    }//GEN-LAST:event_simpanimunisasiActionPerformed
 
     /**
      * @param args the command line arguments

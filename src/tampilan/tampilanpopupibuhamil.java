@@ -28,11 +28,11 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
     }
 
     protected void datatable() {
-        Object[] Baris = {"Id Anak", "Nama Anak", "Jenis Kelamin", "Tgl Lahir", "Usia", "Nama Ayah", "Nama Ibu", "Alamat", "Telepon"};
+        Object[] Baris = {"Id Ibu Hamil", "Nama ", "Tgl Lahir", "Usia", "Alamat", "Telepon", "Nama Suami"};
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem = cariibuhamil.getText();
         try {
-            String sql = "SELECT * FROM anak where Id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' or jk like '%" + cariitem + "%' or ayah like '%" + cariitem + "%' or ibu like '%" + cariitem + "%' order by Id asc";
+            String sql = "SELECT * FROM ibuhamil where id like '%" + cariitem + "%' or nama like '%" + cariitem + "%' or usia like '%" + cariitem + "%' or nama_suami like '%" + cariitem + "%' order by id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()) {
@@ -44,8 +44,6 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
                     hasil.getString(5),
                     hasil.getString(6),
                     hasil.getString(7),
-                    hasil.getString(8),
-                    hasil.getString(9)
                 });
             }
             tabelibuhamil.setModel(tabmode);
@@ -152,7 +150,7 @@ public class tampilanpopupibuhamil extends javax.swing.JFrame {
             lynnibuhamil.nama_suami = tabelibuhamil.getValueAt(tabelibuhml, 4).toString();
             lynnibuhamil.telepon = tabelibuhamil.getValueAt(tabelibuhml, 5).toString();
             lynnibuhamil.alamat = tabelibuhamil.getValueAt(tabelibuhml, 6).toString();
-            lynnibuhamil.IdLansia();
+            lynnibuhamil.IdIbuHamil();
         this.dispose();
     }//GEN-LAST:event_tabelibuhamilMouseClicked
 
