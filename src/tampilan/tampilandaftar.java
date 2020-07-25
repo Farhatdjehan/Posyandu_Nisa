@@ -38,8 +38,9 @@ public class tampilandaftar extends javax.swing.JFrame {
         datatablelansia();
         datatableanak();
         datatableibuhamil();
+        autonumber();
     }
-    
+
     private void kosonganak() {
         idanak.setText("");
         namaanak.setText("");
@@ -73,15 +74,15 @@ public class tampilandaftar extends javax.swing.JFrame {
     }
 
     private void aktifanak() {
-        idanak.requestFocus();
+        namaanak.requestFocus();
     }
 
     private void aktiflansia() {
-        idlansia.requestFocus();
+        namalansia.requestFocus();
     }
 
     private void aktifibuhamil() {
-        idhamil.requestFocus();
+        namaibuhamil.requestFocus();
     }
 
     private void datatableanak() {
@@ -341,6 +342,11 @@ public class tampilandaftar extends javax.swing.JFrame {
 
         jenispelayanan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pelayanan Anak", "Pelayanan Ibu Hamil", "Pelayanan Lansia" }));
         jenispelayanan.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jenispelayanan.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jenispelayananItemStateChanged(evt);
+            }
+        });
         jenispelayanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jenispelayananActionPerformed(evt);
@@ -408,6 +414,11 @@ public class tampilandaftar extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(153, 153, 255));
         jTabbedPane1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jTabbedPane1.setToolTipText("");
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1652,6 +1663,104 @@ public class tampilandaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jenispelayananActionPerformed
 
+    private void jenispelayananItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jenispelayananItemStateChanged
+        if (jenispelayanan.getSelectedIndex() == 0) {
+            try {
+                String sql = "SELECT id FROM anak order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                iddaftar.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    iddaftar.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+        } else if (jenispelayanan.getSelectedIndex() == 1) {
+            try {
+                String sql = "SELECT id FROM ibuhamil order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                iddaftar.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    iddaftar.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+        } else {
+            try {
+                String sql = "SELECT id FROM lansia order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                iddaftar.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    iddaftar.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+        }
+    }//GEN-LAST:event_jenispelayananItemStateChanged
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if (jTabbedPane1.getSelectedIndex() == 0) {
+            try {
+                String sql = "SELECT id FROM anak order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                idanak.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    idanak.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+        } else if (jTabbedPane1.getSelectedIndex() == 1) {
+            try {
+                String sql = "SELECT id FROM ibuhamil order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                idhamil.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    idhamil.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+        } else {
+            try {
+                String sql = "SELECT id FROM lansia order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                idlansia.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    idlansia.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1800,4 +1909,35 @@ public class tampilandaftar extends javax.swing.JFrame {
     private javax.swing.JTextField usiaibuhamil;
     private javax.swing.JTextField usialansia;
     // End of variables declaration//GEN-END:variables
+
+    private void autonumber() {
+        try {
+            String sql = "SELECT id FROM anak order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            iddaftar.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                String ANS = Integer.toString(AN);
+                iddaftar.setText(ANS);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
+        try {
+                String sql = "SELECT id FROM lansia order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                idlansia.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    idlansia.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            }
+    }
 }

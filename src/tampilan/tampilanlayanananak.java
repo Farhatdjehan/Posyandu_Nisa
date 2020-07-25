@@ -78,12 +78,12 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         namaibu.setText(ibu);
     }
     protected void datatabletimbang(){
-        Object[] Baris ={"Id Daftar","Id Anak","Nama Anak","Nama Ibu","Usia","Berat Badan","Tinggi Badan","Ket."};
+        Object[] Baris ={"Id","No Timbang","Id Anak","Nama Anak","Usia","Nama Ibu","Berat Badan","Tinggi Badan","Keterangan"};
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem=caritimbanganak.getText();
 
         try {
-            String sql = "SELECT * FROM timbanganak where id like '%"+cariitem+"%' or nmplgn like '%"+cariitem+"%' order by id asc";
+            String sql = "SELECT * FROM timbanganak INNER JOIN anak ON timbanganak.id_anak=anak.id where timbanganak.id like '%"+cariitem+"%' or nama like '%"+cariitem+"%' order by timbanganak.id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -91,7 +91,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     hasil.getString(1),
                     hasil.getString(2),
                     hasil.getString(3),
-                    hasil.getString(4),
+                    hasil.getString(8),
                     hasil.getString(5),
                     hasil.getString(6),
                     hasil.getString(7),
@@ -285,6 +285,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         simpananak.setBackground(new java.awt.Color(153, 153, 255));
         simpananak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         simpananak.setText("Simpan");
+        simpananak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpananakActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel14.setText("ID Daftar");
@@ -827,6 +832,25 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         pa.setVisible(true);
         pa.setResizable(false);                      
     }//GEN-LAST:event_cariidanakActionPerformed
+
+    private void simpananakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpananakActionPerformed
+       String sql = "insert into timbanganak values (?,?,?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, iddaftaranak.getText());
+            stat.setString(2, notimbang.getText());
+            stat.setString(3, idanak1.getText());
+            stat.setString(4, beratanak.getText());
+            stat.setString(5, tinggianak.getText());
+            stat.setString(6, ketanak.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil disimpan");
+            kosongtimbanganak();
+            iddaftaranak.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
+        }
+    }//GEN-LAST:event_simpananakActionPerformed
 
     /**
      * @param args the command line arguments
