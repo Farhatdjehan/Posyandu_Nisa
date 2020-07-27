@@ -1920,7 +1920,7 @@ public class tampilandaftar extends javax.swing.JFrame {
             String sql = "SELECT id FROM anak order by id asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            iddaftar.setText("1");
+            idanak.setText("1");
             while (rs.next()) {
                 String id_transaksi = rs.getString("id");
                 int AN = Integer.parseInt(id_transaksi) + 1;
@@ -1931,18 +1931,18 @@ public class tampilandaftar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
         }
         try {
-                String sql = "SELECT id FROM lansia order by id asc";
-                Statement st = conn.createStatement();
-                ResultSet rs = st.executeQuery(sql);
-                idlansia.setText("1");
-                while (rs.next()) {
-                    String id_transaksi = rs.getString("id");
-                    int AN = Integer.parseInt(id_transaksi) + 1;
-                    String ANS = Integer.toString(AN);
-                    idlansia.setText(ANS);
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+            String sql = "SELECT id FROM lansia order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            idlansia.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                String ANS = Integer.toString(AN);
+                idlansia.setText(ANS);
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ee64f04-8fd2-45d9-9838-fe1169eef892">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     anak.`id` AS anak_id,
+     anak.`nama` AS anak_nama,
+     anak.`jk` AS anak_jk,
+     anak.`tgl` AS anak_tgl,
+     anak.`usia` AS anak_usia,
+     anak.`ayah` AS anak_ayah,
+     anak.`ibu` AS anak_ibu,
+     anak.`alamat` AS anak_alamat,
+     anak.`telepon` AS anak_telepon,
+     timbanganak.`id` AS timbanganak_id,
+     timbanganak.`no_timbang` AS timbanganak_no_timbang,
+     timbanganak.`id_anak` AS timbanganak_id_anak,
+     timbanganak.`berat` AS timbanganak_berat,
+     timbanganak.`tinggi` AS timbanganak_tinggi,
+     timbanganak.`ket` AS timbanganak_ket
+FROM
+     `timbanganak` timbanganak INNER JOIN `anak` anak ON timbanganak.`id_anak` = anak.`id`]]>
+	</queryString>
+	<field name="timbanganak_id" class="java.lang.Integer"/>
+	<field name="timbanganak_no_timbang" class="java.lang.String"/>
+	<field name="timbanganak_id_anak" class="java.lang.String"/>
+	<field name="timbanganak_berat" class="java.lang.String"/>
+	<field name="timbanganak_tinggi" class="java.lang.String"/>
+	<field name="timbanganak_ket" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -82,13 +82,21 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         usiaanak.setText(usia);
         namaibu.setText(ibu);
     }
+    public void IdAnak2() {
+        tampilanpopupanak pa = new tampilanpopupanak();
+        pa.lynn = this;
+        idanakimunisasi.setText(Id);
+        namaanakimunisasi.setText(nama);
+        usiaanakimunisasi.setText(usia);
+        namaibuimunisasi.setText(ibu);
+    }
     protected void datatabletimbang(){
         Object[] Baris ={"Id","No Timbang","Id Anak","Nama Anak","Usia","Nama Ibu","Berat Badan","Tinggi Badan","Keterangan"};
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem=caritimbanganak.getText();
 
         try {
-            String sql = "SELECT * FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
+            String sql = "SELECT timbanganak.id, timbanganak.no_timbang, anak.id, anak.nama, anak.usia, anak.ibu, timbanganak.berat, timbanganak.tinggi, timbanganak.ket FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -100,7 +108,8 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     hasil.getString(5),
                     hasil.getString(6),
                     hasil.getString(7),
-                    hasil.getString(8)
+                    hasil.getString(8),
+                    hasil.getString(9)
                 });
             }
             tabeltimbang.setModel(tabmode);
@@ -855,8 +864,8 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void cariidanakimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariidanakimunisasiActionPerformed
-        tampilanpopupanak pa = new tampilanpopupanak();
-        pa.lynn = this;
+        tampilanpopupanak2 pa = new tampilanpopupanak2();
+        pa.lynn2 = this;
         pa.setVisible(true);
         pa.setResizable(false);
     }//GEN-LAST:event_cariidanakimunisasiActionPerformed
@@ -909,30 +918,31 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
+        datatabletimbang();
     }//GEN-LAST:event_simpananakActionPerformed
 
     private void tabeltimbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabeltimbangMouseClicked
-//        int bar = tabeltimbang.getSelectedRow();
-//        String a = tabmode.getValueAt(bar, 0).toString();
-//        String b = tabmode.getValueAt(bar, 1).toString();
-//        String c = tabmode.getValueAt(bar, 2).toString();
-//        String d = tabmode.getValueAt(bar, 3).toString();
-//        String e = tabmode.getValueAt(bar, 4).toString();
-//        String f = tabmode.getValueAt(bar, 5).toString();
-//        String g = tabmode.getValueAt(bar, 6).toString();
-//        String h = tabmode.getValueAt(bar, 7).toString();
-//        String i = tabmode.getValueAt(bar, 8).toString();
-//        iddaftaranak.setEditable(false);
-//        idanak1.setEditable(false);
-//        iddaftaranak.setText(a);
-//        notimbang.setText(b);
-//        idanak1.setText(c);
-//        namaanak.setText(d);
-//        usiaanak.setText(e);
-//        namaibu.setText(f);
-//        beratanak.setText(g);
-//        tinggianak.setText(h);
-//        ketanak.setText(i);
+        int bar = tabeltimbang.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        String d = tabmode.getValueAt(bar, 3).toString();
+        String e = tabmode.getValueAt(bar, 4).toString();
+        String f = tabmode.getValueAt(bar, 5).toString();
+        String g = tabmode.getValueAt(bar, 6).toString();
+        String h = tabmode.getValueAt(bar, 7).toString();
+        String i = tabmode.getValueAt(bar, 8).toString();
+        iddaftaranak.setEditable(false);
+        idanak1.setEditable(false);
+        iddaftaranak.setText(a);
+        notimbang.setText(b);
+        idanak1.setText(c);
+        namaanak.setText(d);
+        usiaanak.setText(e);
+        namaibu.setText(f);
+        beratanak.setText(g);
+        tinggianak.setText(h);
+        ketanak.setText(i);
     }//GEN-LAST:event_tabeltimbangMouseClicked
 
     private void batalanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalanakActionPerformed
