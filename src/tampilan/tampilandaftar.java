@@ -11,11 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import koneksi.koneksi;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -360,11 +356,6 @@ public class tampilandaftar extends javax.swing.JFrame {
         jButton11.setText("Ok");
         jButton11.setBackground(new java.awt.Color(153, 153, 255));
         jButton11.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
 
         jButton12.setText("Batal");
         jButton12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -1356,7 +1347,7 @@ public class tampilandaftar extends javax.swing.JFrame {
     }//GEN-LAST:event_ubahlansiaActionPerformed
 
     private void hapuslansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapuslansiaActionPerformed
-
+        
         int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
         if (ok == 0) {
             String sql = "delete from lansia where id='" + idlansia.getText() + "'";
@@ -1775,10 +1766,6 @@ public class tampilandaftar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        cetak();
-    }//GEN-LAST:event_jButton11ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1944,31 +1931,18 @@ public class tampilandaftar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
         }
         try {
-            String sql = "SELECT id FROM lansia order by id asc";
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            idlansia.setText("1");
-            while (rs.next()) {
-                String id_transaksi = rs.getString("id");
-                int AN = Integer.parseInt(id_transaksi) + 1;
-                String ANS = Integer.toString(AN);
-                idlansia.setText(ANS);
+                String sql = "SELECT id FROM lansia order by id asc";
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                idlansia.setText("1");
+                while (rs.next()) {
+                    String id_transaksi = rs.getString("id");
+                    int AN = Integer.parseInt(id_transaksi) + 1;
+                    String ANS = Integer.toString(AN);
+                    idlansia.setText(ANS);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
-        }
-    }
-    
-    private void cetak() {
-        try {
-            String path = "./src/report/antrian.jasper"; 
-            HashMap parameter = new HashMap();
-            parameter.put("parameterId", iddaftar.getText());
-            JasperPrint print = JasperFillManager.fillReport(path, parameter, conn);
-            JasperViewer.viewReport(print, false);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "DokumenTidak Ada " + ex);
-
-        }
     }
 }
