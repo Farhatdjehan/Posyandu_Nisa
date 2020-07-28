@@ -361,6 +361,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         ubahanak.setBackground(new java.awt.Color(153, 153, 255));
         ubahanak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         ubahanak.setText("Ubah");
+        ubahanak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahanakActionPerformed(evt);
+            }
+        });
 
         cariidanak.setBackground(new java.awt.Color(153, 153, 255));
         cariidanak.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -933,6 +938,9 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         String h = tabmode.getValueAt(bar, 7).toString();
         String i = tabmode.getValueAt(bar, 8).toString();
         iddaftaranak.setEditable(false);
+        namaanak.setEditable(false);
+        usiaanak.setEditable(false);
+        namaibu.setEditable(false);
         idanak1.setEditable(false);
         iddaftaranak.setText(a);
         notimbang.setText(b);
@@ -956,7 +964,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     private void hapusanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusanakActionPerformed
         int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
         if (ok == 0) {
-            String sql = "delete from timbangananak where id='" + idanak1.getText() + "'";
+            String sql = "delete from timbanganak where id='" + idanak1.getText() + "'";
             try {
                 PreparedStatement stat = conn.prepareStatement(sql);
                 stat.executeUpdate();
@@ -1007,6 +1015,29 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
     }//GEN-LAST:event_simpanimunisasiActionPerformed
+
+    private void ubahanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahanakActionPerformed
+       iddaftaranak.setEditable(true);
+        namaanak.setEditable(true);
+        usiaanak.setEditable(true);
+        namaibu.setEditable(true);
+        idanak1.setEditable(true);
+        try {
+            String sql = "update timbanganak set berat=?,tinggi=?,ket=? where id ='" + iddaftaranak.getText() + "'  ";
+
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, beratanak.getText());
+            stat.setString(2, tinggianak.getText());
+            stat.setString(3, ketanak.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosongtimbanganak();
+            iddaftaranak.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
+        }
+        datatabletimbang();
+    }//GEN-LAST:event_ubahanakActionPerformed
 
     /**
      * @param args the command line arguments
