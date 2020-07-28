@@ -47,8 +47,20 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
     }
     
     private void autonumber(){
-    
-    
+        try {
+            String sql = "SELECT id FROM pelayananibuhamil order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            iddaftaribuhamil.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                String ANS = Integer.toString(AN);
+                iddaftaribuhamil.setText(ANS);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
     }
     
     protected void datatableibuhamil(){
