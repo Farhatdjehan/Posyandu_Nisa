@@ -998,15 +998,16 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }//GEN-LAST:event_hapusimunisasiActionPerformed
 
     private void simpanimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanimunisasiActionPerformed
-        String sql = "insert into imunisasianak values (?,?,?,?,?,?)";
+        String sql = "insert into imunisasianak values (?,?,?,?,?,?,?)";
         try {
             PreparedStatement stat = conn.prepareStatement(sql);
-            stat.setString(1, iddaftaranak.getText());
-            stat.setString(2, notimbang.getText());
-            stat.setString(3, idanak1.getText());
-            stat.setString(4, beratanak.getText());
-            stat.setString(5, tinggianak.getText());
-            stat.setString(6, ketanak.getText());
+            stat.setString(1, iddaftarimunisasi.getText());
+            stat.setString(2, noimunisasi.getText());
+            stat.setString(3, idanakimunisasi.getText());
+            stat.setString(4, jenisvitaminimunisasi.getSelectedItem().toString());
+            stat.setString(5, idimunisasianak.getText());
+            stat.setString(6, jenisimunisasi.getText());
+            stat.setString(7, ketimunisasi.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosongtimbanganak();
