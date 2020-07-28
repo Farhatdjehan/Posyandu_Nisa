@@ -613,6 +613,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         ubahimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         ubahimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         ubahimunisasi.setText("Ubah");
+        ubahimunisasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahimunisasiActionPerformed(evt);
+            }
+        });
 
         batalimunisasi.setBackground(new java.awt.Color(153, 153, 255));
         batalimunisasi.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -1010,8 +1015,8 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.setString(7, ketimunisasi.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
-            kosongtimbanganak();
-            iddaftaranak.requestFocus();
+            kosongimunisasianak();
+            iddaftarimunisasi.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
@@ -1039,6 +1044,29 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         }
         datatabletimbang();
     }//GEN-LAST:event_ubahanakActionPerformed
+
+    private void ubahimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahimunisasiActionPerformed
+        iddaftaranak.setEditable(true);
+        namaanak.setEditable(true);
+        usiaanak.setEditable(true);
+        namaibu.setEditable(true);
+        idanak1.setEditable(true);
+        try {
+            String sql = "update timbanganak set berat=?,tinggi=?,ket=? where id ='" + iddaftaranak.getText() + "'  ";
+
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, beratanak.getText());
+            stat.setString(2, tinggianak.getText());
+            stat.setString(3, ketanak.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosongtimbanganak();
+            iddaftaranak.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
+        }
+        datatabletimbang();
+    }//GEN-LAST:event_ubahimunisasiActionPerformed
 
     /**
      * @param args the command line arguments
