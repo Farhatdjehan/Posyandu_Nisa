@@ -36,10 +36,10 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         datatableimunisasi();
         aktiftimbanganak();
         aktifimunisasianak();
-        autonumber();
+        autonumbertimbang();
+        autonumberimunisasi();
     }
     private void kosongtimbanganak(){
-        iddaftaranak.setText("");
         notimbang.setText("");
         idanak1.setText("");
         namaanak.setText("");
@@ -50,7 +50,6 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         ketanak.setText("");
     }
     private void kosongimunisasianak(){
-        iddaftarimunisasi.setText("");
         noimunisasi.setText("");
         idanakimunisasi.setText("");
         namaanakimunisasi.setText("");
@@ -70,8 +69,38 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         
     }
     
-    private void autonumber(){
-        
+    private void autonumbertimbang(){
+        try {
+            String sql = "SELECT id FROM timbanganak order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            iddaftaranak.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                String ANS = Integer.toString(AN);
+                iddaftaranak.setText(ANS);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
+    }
+    
+    private void autonumberimunisasi(){
+        try {
+            String sql = "SELECT id FROM imunisasianak order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            iddaftarimunisasi.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                String ANS = Integer.toString(AN);
+                iddaftarimunisasi.setText(ANS);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
     }
     
     public void IdAnak() {
@@ -1020,6 +1049,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
+        datatableimunisasi();
     }//GEN-LAST:event_simpanimunisasiActionPerformed
 
     private void ubahanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahanakActionPerformed

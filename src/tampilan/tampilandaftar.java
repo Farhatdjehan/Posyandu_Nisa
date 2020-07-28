@@ -1952,7 +1952,7 @@ public class tampilandaftar extends javax.swing.JFrame {
                 String id_transaksi = rs.getString("id");
                 int AN = Integer.parseInt(id_transaksi) + 1;
                 String ANS = Integer.toString(AN);
-                idlansia.setText(ANS);
+                iddaftar.setText(ANS);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
