@@ -9,7 +9,11 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import koneksi.koneksi;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -44,6 +48,18 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
     private void aktif(){
         
         
+    }
+    
+    public void cetakibuhamil() {
+        try {
+            String path = "./src/report/ibuhamil.jasper"; // letakpenyimpanan report
+            HashMap parameter = new HashMap();
+            parameter.put("parameterId", iddaftaribuhamil.getText());
+            JasperPrint print = JasperFillManager.fillReport(path, parameter, conn);
+            JasperViewer.viewReport(print, false);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "DokumenTidak Ada " + ex);
+        }
     }
     
     private void autonumber(){
@@ -447,7 +463,7 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
     }//GEN-LAST:event_idcaributtonibuhamilActionPerformed
 
     private void cetakhamilbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakhamilbuttonActionPerformed
-        // TODO add your handling code here:
+        cetakibuhamil();
     }//GEN-LAST:event_cetakhamilbuttonActionPerformed
 
     private void berandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_berandaActionPerformed

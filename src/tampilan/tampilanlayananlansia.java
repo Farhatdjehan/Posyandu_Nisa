@@ -49,6 +49,18 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         beratlansia.requestFocus();
     }
     
+    public void cetaklansia() {
+        try {
+            String path = "./src/report/lansia.jasper"; // letakpenyimpanan report
+            HashMap parameter = new HashMap();
+            parameter.put("parameterId", iddaftarlansia.getText());
+            JasperPrint print = JasperFillManager.fillReport(path, parameter, conn);
+            JasperViewer.viewReport(print, false);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "DokumenTidak Ada " + ex);
+        }
+    }
+    
     protected void datatablelansia(){
         Object[] Baris ={"Id","No Layanan","Id Lansia","Nama Lansia","Usia","Berat Badan","Tensi","Keterangan"};
         tabmode = new DefaultTableModel(null, Baris);
@@ -473,7 +485,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     }//GEN-LAST:event_carilansiaActionPerformed
 
     private void cetakimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakimunisasiActionPerformed
-        // TODO add your handling code here:
+        cetaklansia();
     }//GEN-LAST:event_cetakimunisasiActionPerformed
 
     private void batallansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batallansiaActionPerformed

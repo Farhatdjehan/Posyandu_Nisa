@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
+	<property name="ireport.zoom" value="1.4641000000000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      lansia.`id` AS lansia_id,
@@ -35,16 +38,171 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="144" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Posyandu Gurame II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Jl. Kemiri Jaya RT 001 / RW 001]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="89" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal	: ]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="45" y="14" width="34" height="26" uuid="4f01ff44-59ba-4878-be9a-cb56a87c81e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="14" width="62" height="26" uuid="87b07b1e-6e89-4229-b5e3-e249ad1dbd9e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Daftar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="14" width="81" height="26" uuid="fc3c16a8-2625-4d9e-9678-e1b17bbe8e28"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Layanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="14" width="62" height="26" uuid="fe59a7f8-0d6d-4b62-9428-755b459ace4e"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Lansia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="14" width="106" height="26" uuid="5032bce0-1008-44fa-b915-45e92681fb7b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="14" width="47" height="26" uuid="3fd6c627-b504-427a-887b-7cbcc27dd264"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="14" width="47" height="26" uuid="e183a6db-ba4d-42b2-957d-0f9d5a71290c"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Berat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="14" width="53" height="26" uuid="da311056-8670-4526-be52-1618aeea4652"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tensi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="636" y="14" width="120" height="26" uuid="e78f8bde-801e-43cf-bd81-66c786128962"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="46" width="802" height="1" uuid="cfbe49cf-3d5e-41d8-84b5-e1272ffe6c21"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="465" y="7" width="33" height="20" uuid="8f2f69c0-09f5-4f21-8444-12408f1536f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Bulan]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="41" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="36" width="802" height="1" uuid="a9ecf577-7ade-418f-9508-698ac94b0d6f"/>
+				<graphicElement>
+					<pen lineWidth="3.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="45" y="7" width="34" height="20" uuid="9f08fde7-0eb6-4d26-a9f0-19127010e5b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="7" width="62" height="20" uuid="08604f94-7735-44e8-af43-7ceff8393ecb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pelayananlansia_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="7" width="81" height="20" uuid="369e8340-8a63-49c2-bdad-f7374732f98f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pelayananlansia_no_layanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="7" width="62" height="20" uuid="f4bd9275-158e-45a2-8fdd-6ee96b764985"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lansia_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="7" width="106" height="20" uuid="02a819cf-de6c-45de-a254-491948a16fb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lansia_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="518" y="7" width="12" height="20" uuid="7abb7e6f-c7ae-4f43-82a4-765d3d9af37d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pelayananlansia_berat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="7" width="53" height="20" uuid="bd8af077-8c3a-4124-9567-98aac56b7c53"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pelayananlansia_tensi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="636" y="7" width="120" height="20" uuid="9ebd6cee-4ccd-4331-920c-31c68a330b48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pelayananlansia_ket}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="7" width="14" height="20" uuid="a17da011-ba5f-41b6-8c6c-dd25bf70a165"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{lansia_usia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="532" y="7" width="17" height="20" uuid="21246d0d-ad23-4f77-b5a6-72ee0f9d7bd1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kg]]></text>
+			</staticText>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
