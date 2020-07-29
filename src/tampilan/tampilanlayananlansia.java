@@ -27,6 +27,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         initComponents();
         kosong();
         aktif();
+        datatablelansia();
         autonumber();
     }
 
@@ -43,7 +44,34 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     
     private void aktif(){
         
-        
+    }
+    
+    protected void datatablelansia(){
+        Object[] Baris ={"Id","No Timbang","Id Anak","Nama Anak","Usia","Nama Ibu","Berat Badan","Tinggi Badan","Keterangan"};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem=carilansiabutton.getText();
+
+        try {
+            String sql = "SELECT timbanganak.id, timbanganak.no_timbang, anak.id, anak.nama, anak.usia, anak.ibu, timbanganak.berat, timbanganak.tinggi, timbanganak.ket FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()){
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(8),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),
+                    hasil.getString(8),
+                    hasil.getString(9)
+                });
+            }
+            tabellansia.setModel(tabmode);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        }
     }
     
     private void autonumber(){
@@ -109,9 +137,9 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         keteranganlansia = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabellansia = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        carilansiabutton = new javax.swing.JTextField();
         jButton15 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         cariimunisasi = new javax.swing.JTextField();
@@ -233,7 +261,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
 
         jLabel2.setText("Ket.");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabellansia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -244,7 +272,12 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tabellansia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabellansiaMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabellansia);
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel3.setText("Layanan Lansia");
@@ -325,7 +358,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(381, 381, 381)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(carilansiabutton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton15))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -344,7 +377,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                     .addComponent(jLabel22)
                     .addComponent(iddaftarlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carilansiabutton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,7 +490,35 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
         }
+        datatablelansia();
     }//GEN-LAST:event_simpanlansiaActionPerformed
+
+    private void tabellansiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabellansiaMouseClicked
+        int bar = tabellansia.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        String d = tabmode.getValueAt(bar, 3).toString();
+        String e = tabmode.getValueAt(bar, 4).toString();
+        String f = tabmode.getValueAt(bar, 5).toString();
+        String g = tabmode.getValueAt(bar, 6).toString();
+        String h = tabmode.getValueAt(bar, 7).toString();
+        String i = tabmode.getValueAt(bar, 8).toString();
+        iddaftaranak.setEditable(false);
+        namaanak.setEditable(false);
+        usiaanak.setEditable(false);
+        namaibu.setEditable(false);
+        idanak1.setEditable(false);
+        iddaftaranak.setText(a);
+        notimbang.setText(b);
+        idanak1.setText(c);
+        namaanak.setText(d);
+        usiaanak.setText(e);
+        namaibu.setText(f);
+        beratanak.setText(g);
+        tinggianak.setText(h);
+        ketanak.setText(i);
+    }//GEN-LAST:event_tabellansiaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -502,6 +563,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     private javax.swing.JTextField beratlansia;
     private javax.swing.JTextField cariimunisasi;
     private javax.swing.JButton carilansia;
+    private javax.swing.JTextField carilansiabutton;
     private javax.swing.JButton cetakimunisasi;
     private javax.swing.JTextField iddaftarlansia;
     private javax.swing.JTextField idpelayananlansia;
@@ -527,12 +589,11 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextArea keteranganlansia;
     private javax.swing.JTextField namalansia;
     private javax.swing.JTextField nolayananlansia;
     private javax.swing.JButton simpanlansia;
+    private javax.swing.JTable tabellansia;
     private javax.swing.JTextField tensilansia;
     private javax.swing.JTextField usialansia;
     // End of variables declaration//GEN-END:variables

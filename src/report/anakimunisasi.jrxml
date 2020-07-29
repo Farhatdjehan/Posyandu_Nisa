@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="46f1d7ac-fc03-44be-b20b-ba8c1fd54168">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     anak.`id` AS anak_id,
+     anak.`nama` AS anak_nama,
+     anak.`jk` AS anak_jk,
+     anak.`tgl` AS anak_tgl,
+     anak.`usia` AS anak_usia,
+     anak.`ayah` AS anak_ayah,
+     anak.`ibu` AS anak_ibu,
+     anak.`alamat` AS anak_alamat,
+     anak.`telepon` AS anak_telepon,
+     imunisasianak.`id` AS imunisasianak_id,
+     imunisasianak.`no_imunisasi` AS imunisasianak_no_imunisasi,
+     imunisasianak.`id_anak` AS imunisasianak_id_anak,
+     imunisasianak.`jenis_vitamin` AS imunisasianak_jenis_vitamin,
+     imunisasianak.`id_imunisasi` AS imunisasianak_id_imunisasi,
+     imunisasianak.`jenis_imunisasi` AS imunisasianak_jenis_imunisasi,
+     imunisasianak.`ket` AS imunisasianak_ket
+FROM
+     `imunisasianak` imunisasianak INNER JOIN `anak` anak ON imunisasianak.`id_anak` = anak.`id`]]>
+	</queryString>
+	<field name="anak_id" class="java.lang.Integer"/>
+	<field name="anak_nama" class="java.lang.String"/>
+	<field name="anak_jk" class="java.lang.String"/>
+	<field name="anak_tgl" class="java.lang.String"/>
+	<field name="anak_usia" class="java.lang.String"/>
+	<field name="anak_ayah" class="java.lang.String"/>
+	<field name="anak_ibu" class="java.lang.String"/>
+	<field name="anak_alamat" class="java.lang.String"/>
+	<field name="anak_telepon" class="java.lang.String"/>
+	<field name="imunisasianak_id" class="java.lang.Integer"/>
+	<field name="imunisasianak_no_imunisasi" class="java.lang.String"/>
+	<field name="imunisasianak_id_anak" class="java.lang.Integer"/>
+	<field name="imunisasianak_jenis_vitamin" class="java.lang.String"/>
+	<field name="imunisasianak_id_imunisasi" class="java.lang.String"/>
+	<field name="imunisasianak_jenis_imunisasi" class="java.lang.String"/>
+	<field name="imunisasianak_ket" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

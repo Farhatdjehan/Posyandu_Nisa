@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ee64f04-8fd2-45d9-9838-fe1169eef892">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bfce5992-faea-4421-867f-68cf71d58c86">
+	<property name="ireport.zoom" value="0.8264462809917409"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      anak.`id` AS anak_id,
@@ -20,6 +23,15 @@
 FROM
      `timbanganak` timbanganak INNER JOIN `anak` anak ON timbanganak.`id_anak` = anak.`id`]]>
 	</queryString>
+	<field name="anak_id" class="java.lang.Integer"/>
+	<field name="anak_nama" class="java.lang.String"/>
+	<field name="anak_jk" class="java.lang.String"/>
+	<field name="anak_tgl" class="java.lang.String"/>
+	<field name="anak_usia" class="java.lang.String"/>
+	<field name="anak_ayah" class="java.lang.String"/>
+	<field name="anak_ibu" class="java.lang.String"/>
+	<field name="anak_alamat" class="java.lang.String"/>
+	<field name="anak_telepon" class="java.lang.String"/>
 	<field name="timbanganak_id" class="java.lang.Integer"/>
 	<field name="timbanganak_no_timbang" class="java.lang.String"/>
 	<field name="timbanganak_id_anak" class="java.lang.String"/>
@@ -39,7 +51,7 @@ FROM
 		<band height="61" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="119" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>

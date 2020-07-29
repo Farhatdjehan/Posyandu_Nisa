@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     lansia.`id` AS lansia_id,
+     lansia.`nama` AS lansia_nama,
+     lansia.`jenis` AS lansia_jenis,
+     lansia.`tanggal` AS lansia_tanggal,
+     lansia.`usia` AS lansia_usia,
+     lansia.`alamat` AS lansia_alamat,
+     lansia.`telepon` AS lansia_telepon,
+     pelayananlansia.`id` AS pelayananlansia_id,
+     pelayananlansia.`no_layanan` AS pelayananlansia_no_layanan,
+     pelayananlansia.`id_lansia` AS pelayananlansia_id_lansia,
+     pelayananlansia.`berat` AS pelayananlansia_berat,
+     pelayananlansia.`tensi` AS pelayananlansia_tensi,
+     pelayananlansia.`ket` AS pelayananlansia_ket
+FROM
+     `pelayananlansia` pelayananlansia INNER JOIN `lansia` lansia ON pelayananlansia.`id_lansia` = lansia.`id`]]>
+	</queryString>
+	<field name="lansia_id" class="java.lang.Integer"/>
+	<field name="lansia_nama" class="java.lang.String"/>
+	<field name="lansia_jenis" class="java.lang.String"/>
+	<field name="lansia_tanggal" class="java.lang.String"/>
+	<field name="lansia_usia" class="java.lang.String"/>
+	<field name="lansia_alamat" class="java.lang.String"/>
+	<field name="lansia_telepon" class="java.lang.String"/>
+	<field name="pelayananlansia_id" class="java.lang.Integer"/>
+	<field name="pelayananlansia_no_layanan" class="java.lang.String"/>
+	<field name="pelayananlansia_id_lansia" class="java.lang.Integer"/>
+	<field name="pelayananlansia_berat" class="java.lang.String"/>
+	<field name="pelayananlansia_tensi" class="java.lang.String"/>
+	<field name="pelayananlansia_ket" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

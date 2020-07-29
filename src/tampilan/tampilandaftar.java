@@ -1930,29 +1930,55 @@ public class tampilandaftar extends javax.swing.JFrame {
 
     private void autonumber() {
         try {
-            String sql = "SELECT id FROM anak order by id asc";
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            idanak.setText("1");
-            while (rs.next()) {
-                String id_transaksi = rs.getString("id");
-                int AN = Integer.parseInt(id_transaksi) + 1;
-                String ANS = Integer.toString(AN);
-                iddaftar.setText(ANS);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
-        }
-        try {
             String sql = "SELECT id FROM lansia order by id asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             idlansia.setText("1");
             while (rs.next()) {
                 String id_transaksi = rs.getString("id");
+                String id_transaksi2 = rs.getString("id");
                 int AN = Integer.parseInt(id_transaksi) + 1;
+                int AN2 = Integer.parseInt(id_transaksi2) + 1;
                 String ANS = Integer.toString(AN);
+                String ANS2 = Integer.toString(AN2);
                 iddaftar.setText(ANS);
+                idlansia.setText(ANS2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
+        try {
+            String sql = "SELECT id FROM anak order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            idanak.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                String id_transaksi2 = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                int AN2 = Integer.parseInt(id_transaksi2) + 1;
+                String ANS = Integer.toString(AN);
+                String ANS2 = Integer.toString(AN2);
+                iddaftar.setText(ANS);
+                idanak.setText(ANS2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
+        try {
+            String sql = "SELECT id FROM ibuhamil order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            idhamil.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                String id_transaksi2 = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                int AN2 = Integer.parseInt(id_transaksi2) + 1;
+                String ANS = Integer.toString(AN);
+                String ANS2 = Integer.toString(AN2);
+                iddaftar.setText(ANS);
+                idhamil.setText(ANS2);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);

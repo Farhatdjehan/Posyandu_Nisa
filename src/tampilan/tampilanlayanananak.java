@@ -12,7 +12,11 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JSpinner;
+import java.util.HashMap;
 import koneksi.koneksi;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -62,11 +66,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }
     
     private void aktiftimbanganak(){
-        
+        beratanak.requestFocus();
     }
     
     private void aktifimunisasianak(){
-        
+        jenisvitaminimunisasi.requestFocus();
     }
     
     private void autonumbertimbang(){
@@ -657,7 +661,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             }
         });
 
-        jenisvitaminimunisasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jenisvitaminimunisasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kapsul A", "Kapsul B", "Kapsul C" }));
 
         jLabel29.setFont(new java.awt.Font("Century Gothic", 0, 9)); // NOI18N
         jLabel29.setText("Jenis Vitamin");
@@ -922,7 +926,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }//GEN-LAST:event_cetakimunisasiActionPerformed
 
     private void cetaktimbangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetaktimbangActionPerformed
-        // TODO add your handling code here:
+        cetaktimbang();
     }//GEN-LAST:event_cetaktimbangActionPerformed
 
     private void caributtontimbangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caributtontimbangActionPerformed
@@ -1074,7 +1078,17 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         }
         datatabletimbang();
     }//GEN-LAST:event_ubahanakActionPerformed
-
+    public void cetaktimbang() {
+        try {
+            String path = "./src/report/anaktimbang.jasper"; // letakpenyimpanan report
+            HashMap parameter = new HashMap();
+            parameter.put("parameterId", iddaftaranak.getText());
+            JasperPrint print = JasperFillManager.fillReport(path, parameter, conn);
+            JasperViewer.viewReport(print, false);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "DokumenTidak Ada " + ex);
+        }
+    }
     private void ubahimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahimunisasiActionPerformed
         iddaftaranak.setEditable(true);
         namaanak.setEditable(true);
