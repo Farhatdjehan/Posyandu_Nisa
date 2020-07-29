@@ -137,7 +137,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     hasil.getString(1),
                     hasil.getString(2),
                     hasil.getString(3),
-                    hasil.getString(8),
+                    hasil.getString(4),
                     hasil.getString(5),
                     hasil.getString(6),
                     hasil.getString(7),
@@ -1057,7 +1057,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }//GEN-LAST:event_simpanimunisasiActionPerformed
 
     private void ubahanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahanakActionPerformed
-       iddaftaranak.setEditable(true);
+        iddaftaranak.setEditable(true);
         namaanak.setEditable(true);
         usiaanak.setEditable(true);
         namaibu.setEditable(true);

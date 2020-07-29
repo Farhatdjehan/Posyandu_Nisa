@@ -10,7 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import koneksi.koneksi;
-
+import java.util.HashMap;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author farhatdk
@@ -43,16 +46,16 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     }
     
     private void aktif(){
-        
+        beratlansia.requestFocus();
     }
     
     protected void datatablelansia(){
-        Object[] Baris ={"Id","No Timbang","Id Anak","Nama Anak","Usia","Nama Ibu","Berat Badan","Tinggi Badan","Keterangan"};
+        Object[] Baris ={"Id","No Layanan","Id Lansia","Nama Lansia","Usia","Berat Badan","Tensi","Keterangan"};
         tabmode = new DefaultTableModel(null, Baris);
         String cariitem=carilansiabutton.getText();
 
         try {
-            String sql = "SELECT timbanganak.id, timbanganak.no_timbang, anak.id, anak.nama, anak.usia, anak.ibu, timbanganak.berat, timbanganak.tinggi, timbanganak.ket FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
+            String sql = "SELECT pelayananlansia.id, pelayananlansia.no_layanan, lansia.id, lansia.nama, lansia.usia, pelayananlansia.berat, pelayananlansia.tensi, pelayananlansia.ket FROM pelayananlansia INNER JOIN lansia ON pelayananlansia.id_lansia = lansia.id where lansia.id like '%"+cariitem+"%' or lansia.nama like '%"+cariitem+"%' order by lansia.id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -60,12 +63,11 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                     hasil.getString(1),
                     hasil.getString(2),
                     hasil.getString(3),
-                    hasil.getString(8),
+                    hasil.getString(4),
                     hasil.getString(5),
                     hasil.getString(6),
                     hasil.getString(7),
                     hasil.getString(8),
-                    hasil.getString(9)
                 });
             }
             tabellansia.setModel(tabmode);
@@ -114,7 +116,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         simpanlansia = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        ubahlansia = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         batallansia = new javax.swing.JButton();
         nolayananlansia = new javax.swing.JTextField();
@@ -205,9 +207,14 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(153, 153, 255));
-        jButton12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jButton12.setText("Ubah");
+        ubahlansia.setBackground(new java.awt.Color(153, 153, 255));
+        ubahlansia.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        ubahlansia.setText("Ubah");
+        ubahlansia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahlansiaActionPerformed(evt);
+            }
+        });
 
         jButton13.setBackground(new java.awt.Color(153, 153, 255));
         jButton13.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -354,16 +361,16 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                             .addComponent(cariimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(cetakimunisasi))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(381, 381, 381)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(carilansiabutton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton15))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ubahlansia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(batallansia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(simpanlansia)))
@@ -415,7 +422,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(simpanlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ubahlansia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -503,22 +510,41 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         String f = tabmode.getValueAt(bar, 5).toString();
         String g = tabmode.getValueAt(bar, 6).toString();
         String h = tabmode.getValueAt(bar, 7).toString();
-        String i = tabmode.getValueAt(bar, 8).toString();
-        iddaftaranak.setEditable(false);
-        namaanak.setEditable(false);
-        usiaanak.setEditable(false);
-        namaibu.setEditable(false);
-        idanak1.setEditable(false);
-        iddaftaranak.setText(a);
-        notimbang.setText(b);
-        idanak1.setText(c);
-        namaanak.setText(d);
-        usiaanak.setText(e);
-        namaibu.setText(f);
-        beratanak.setText(g);
-        tinggianak.setText(h);
-        ketanak.setText(i);
+        iddaftarlansia.setEditable(false);
+        nolayananlansia.setEditable(false);
+        idpelayananlansia.setEditable(false);
+        namalansia.setEditable(false);
+        usialansia.setEditable(false);
+        iddaftarlansia.setText(a);
+        nolayananlansia.setText(b);
+        idpelayananlansia.setText(c);
+        namalansia.setText(d);
+        usialansia.setText(e);
+        beratlansia.setText(f);
+        tensilansia.setText(g);
+        keteranganlansia.setText(h);
     }//GEN-LAST:event_tabellansiaMouseClicked
+
+    private void ubahlansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahlansiaActionPerformed
+        iddaftarlansia.setEditable(true);
+        namalansia.setEditable(true);
+        usialansia.setEditable(true);
+        try {
+            String sql = "update pelayananlansia set berat =?,tensi=?,ket=? where id ='" + iddaftarlansia.getText() + "'  ";
+
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, beratlansia.getText());
+            stat.setString(2, tensilansia.getText());
+            stat.setString(3, keteranganlansia.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosong();
+            iddaftarlansia.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
+        }
+        datatablelansia();
+    }//GEN-LAST:event_ubahlansiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -567,7 +593,6 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     private javax.swing.JButton cetakimunisasi;
     private javax.swing.JTextField iddaftarlansia;
     private javax.swing.JTextField idpelayananlansia;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton7;
@@ -595,6 +620,7 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
     private javax.swing.JButton simpanlansia;
     private javax.swing.JTable tabellansia;
     private javax.swing.JTextField tensilansia;
+    private javax.swing.JButton ubahlansia;
     private javax.swing.JTextField usialansia;
     // End of variables declaration//GEN-END:variables
 }
