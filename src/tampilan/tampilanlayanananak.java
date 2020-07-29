@@ -59,7 +59,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         namaanakimunisasi.setText("");
         usiaanakimunisasi.setText("");
         namaibuimunisasi.setText("");
-        jenisvitaminimunisasi.setSelectedItem(null);;
+        jenisvitaminimunisasi.setSelectedItem(null);
         idimunisasianak.setText("");
         jenisimunisasi.setText("");
         ketimunisasi.setText("");
@@ -157,7 +157,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         String cariitem=caritimbanganak.getText();
 
         try {
-            String sql = "SELECT * FROM imunisasianak INNER JOIN anak ON imunisasianak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
+            String sql = "SELECT imunisasianak.id, imunisasianak.no_imunisasi, anak.id, anak.nama, anak.usia, anak.ibu, imunisasianak.jenis_vitamin, imunisasianak.id_imunisasi, imunisasianak.jenis_imunisasi, imunisasianak.ket FROM imunisasianak INNER JOIN anak ON imunisasianak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
             Statement stat = conn.createStatement();
             ResultSet hasil = stat.executeQuery(sql);
             while (hasil.next()){
@@ -662,6 +662,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         });
 
         jenisvitaminimunisasi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kapsul A", "Kapsul B", "Kapsul C" }));
+        jenisvitaminimunisasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jenisvitaminimunisasiActionPerformed(evt);
+            }
+        });
 
         jLabel29.setFont(new java.awt.Font("Century Gothic", 0, 9)); // NOI18N
         jLabel29.setText("Jenis Vitamin");
@@ -695,6 +700,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelimunisasi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelimunisasiMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabelimunisasi);
 
         caridataimunisasi.setBackground(new java.awt.Color(153, 153, 255));
@@ -1111,6 +1121,39 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         }
         datatabletimbang();
     }//GEN-LAST:event_ubahimunisasiActionPerformed
+
+    private void tabelimunisasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelimunisasiMouseClicked
+        int bar = tabelimunisasi.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        String d = tabmode.getValueAt(bar, 3).toString();
+        String e = tabmode.getValueAt(bar, 4).toString();
+        String f = tabmode.getValueAt(bar, 5).toString();
+        String g = tabmode.getValueAt(bar, 6).toString();
+        String h = tabmode.getValueAt(bar, 7).toString();
+        String i = tabmode.getValueAt(bar, 8).toString();
+        String j = tabmode.getValueAt(bar, 9).toString();
+        iddaftarimunisasi.setEditable(false);
+        noimunisasi.setEditable(false);
+        idanakimunisasi.setEditable(false);
+        namaibu.setEditable(false);
+        namaanakimunisasi.setEditable(false);
+        iddaftarimunisasi.setText(a);
+        noimunisasi.setText(b);
+        idanakimunisasi.setText(c);
+        namaanakimunisasi.setText(d);
+        usiaanakimunisasi.setText(e);
+        namaibuimunisasi.setText(f);
+        jenisvitaminimunisasi.setSelectedItem(g);
+        idimunisasianak.setText(h);
+        jenisimunisasi.setText(i);
+        ketimunisasi.setText(j);
+    }//GEN-LAST:event_tabelimunisasiMouseClicked
+
+    private void jenisvitaminimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisvitaminimunisasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jenisvitaminimunisasiActionPerformed
 
     /**
      * @param args the command line arguments

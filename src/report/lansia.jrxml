@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
-	<property name="ireport.zoom" value="1.4641000000000033"/>
+	<property name="ireport.zoom" value="1.1000000000000025"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
@@ -58,11 +58,26 @@ FROM
 	<pageHeader>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="89" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
+				<reportElement x="0" y="0" width="45" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Tanggal	: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="45" y="0" width="100" height="35" uuid="d3e4b680-b697-405c-948d-76db3fd9e318"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="702" y="16" width="100" height="19" forecolor="#FFFFFF" backcolor="#9999FF" uuid="19a78b6b-ca9f-4734-aa28-fe51be436dbf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="702" y="16" width="100" height="19" forecolor="#FFFFFF" uuid="30370938-c14b-4fa9-bcab-807b4388aebd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pelayanan Lansia]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

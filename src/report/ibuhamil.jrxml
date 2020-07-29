@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a92adeaf-f184-4f42-abcd-e525a1b5895d">
-	<property name="ireport.zoom" value="1.464100000000004"/>
-	<property name="ireport.x" value="19"/>
-	<property name="ireport.y" value="23"/>
+	<property name="ireport.zoom" value="1.0000000000000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      ibuhamil.`id` AS ibuhamil_id,
@@ -60,11 +60,33 @@ FROM
 	<pageHeader>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="89" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
+				<reportElement x="0" y="0" width="44" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
 				<textElement verticalAlignment="Middle">
-					<font size="12"/>
+					<font size="10"/>
 				</textElement>
-				<text><![CDATA[Tanggal	: ]]></text>
+				<text><![CDATA[Tanggal : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="44" y="0" width="100" height="35" uuid="d2d39a36-85c9-4fbb-aa51-6be5a23507df"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-692" y="-6" width="100" height="19" forecolor="#FFFFFF" uuid="f231bc1c-6b6a-4dd0-8355-121224bb7e21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pelayanan Lansia]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="669" y="16" width="133" height="19" forecolor="#FFFFFF" backcolor="#9999FF" uuid="aca32ae0-78bd-4d8d-8520-26b2fbf7b3ea"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="669" y="16" width="133" height="19" forecolor="#FFFFFF" uuid="f4718970-192a-422c-a768-c013d7c350be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pelayanan Ibu Hamil]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -159,7 +181,7 @@ FROM
 			<textField>
 				<reportElement x="0" y="7" width="34" height="20" uuid="19d1e259-6b1a-44fd-a7d2-aed1418926e3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="44" y="7" width="62" height="20" uuid="69c6b3b5-4dd4-4f3c-8097-9f56db75a463"/>

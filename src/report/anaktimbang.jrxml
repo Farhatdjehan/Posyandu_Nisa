@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bfce5992-faea-4421-867f-68cf71d58c86">
-	<property name="ireport.zoom" value="1.0000000000000153"/>
+	<property name="ireport.zoom" value="1.464100000000023"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="9"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      anak.`id` AS anak_id,
@@ -38,6 +38,7 @@ FROM
 	<field name="timbanganak_berat" class="java.lang.String"/>
 	<field name="timbanganak_tinggi" class="java.lang.String"/>
 	<field name="timbanganak_ket" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -62,12 +63,17 @@ FROM
 	<pageHeader>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="89" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
+				<reportElement x="0" y="0" width="44" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
 				<textElement verticalAlignment="Middle">
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Tanggal	: ]]></text>
 			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="44" y="0" width="100" height="35" uuid="6a30d99c-f512-4099-9675-ee89cc199ae4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -153,11 +159,6 @@ FROM
 	<detail>
 		<band height="41" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="7" width="34" height="20" uuid="cf506fab-fac8-4613-b11b-3d7d8b44fff4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="44" y="7" width="62" height="20" uuid="8860fab5-7b29-440e-8b8b-e0a1f135b6d0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{timbanganak_id}]]></textFieldExpression>
@@ -223,6 +224,11 @@ FROM
 					<pen lineWidth="3.0"/>
 				</graphicElement>
 			</line>
+			<textField>
+				<reportElement x="0" y="7" width="34" height="20" uuid="b2187962-ed7d-44a4-b88e-e0bea07134d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
