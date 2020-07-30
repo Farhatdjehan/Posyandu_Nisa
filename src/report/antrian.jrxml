@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="antrian" language="groovy" pageWidth="300" pageHeight="400" whenNoDataType="AllSectionsNoDetail" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0ac6f45-9742-4c86-981e-ed20768e9555">
 	<property name="ireport.zoom" value="2.3579476910000023"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="270"/>
+	<property name="ireport.y" value="288"/>
 	<parameter name="parameterId" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
@@ -29,7 +29,6 @@
 	<field name="pelayananlansia_berat" class="java.lang.String"/>
 	<field name="pelayananlansia_tensi" class="java.lang.String"/>
 	<field name="pelayananlansia_ket" class="java.lang.String"/>
-	<filterExpression><![CDATA[new Boolean (true)]]></filterExpression>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -76,8 +75,12 @@
 	</columnHeader>
 	<detail>
 		<band height="47" splitType="Stretch">
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="79" y="1" width="91" height="20" uuid="6ad7f8f7-87f5-4a50-8f52-85925eb016a4"/>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="141" y="15" width="100" height="20" uuid="337947f9-9e8f-4c3e-b72e-bd189d416ae4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm.ss">
+				<reportElement x="22" y="15" width="100" height="20" uuid="2cd1179a-3c39-4c8c-b54b-af32a70c6499"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
