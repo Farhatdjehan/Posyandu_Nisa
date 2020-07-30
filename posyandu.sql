@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Jul 2020 pada 03.31
+-- Waktu pembuatan: 30 Jul 2020 pada 16.20
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -62,6 +62,13 @@ CREATE TABLE `ibuhamil` (
   `alamat` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `ibuhamil`
+--
+
+INSERT INTO `ibuhamil` (`id`, `nama`, `tgl`, `usia`, `nama_suami`, `telepon`, `alamat`) VALUES
+(1, 'a', '1960-08-13', '3', 'a', '4', '3');
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +88,32 @@ CREATE TABLE `imunisasianak` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kader`
+--
+
+CREATE TABLE `kader` (
+  `id` int(11) NOT NULL,
+  `login_id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `jabatan` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kader`
+--
+
+INSERT INTO `kader` (`id`, `login_id`, `nama`, `jabatan`) VALUES
+(1, 1, 'Abe', 'Item 1'),
+(2, 1, 'aer', 'Item 1'),
+(3, 1, 'batu', 'Item 1'),
+(4, 1, 'ase', 'Item 1'),
+(6, 2, 'yt', 'Item 1'),
+(8, 3, 'post', 'Item 1'),
+(5, 4, 'lotauajabe', 'Pelayanan');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `lansia`
 --
 
@@ -94,6 +127,13 @@ CREATE TABLE `lansia` (
   `telepon` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `lansia`
+--
+
+INSERT INTO `lansia` (`id`, `nama`, `jenis`, `tanggal`, `usia`, `alamat`, `telepon`) VALUES
+(1, 'Rahmad', 'Laki-Laki', '1920-08-13', '1', '2', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +141,7 @@ CREATE TABLE `lansia` (
 --
 
 CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -109,8 +150,11 @@ CREATE TABLE `login` (
 -- Dumping data untuk tabel `login`
 --
 
-INSERT INTO `login` (`username`, `password`) VALUES
-('admin', 'admin');
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin'),
+(2, 'yt', 'yt'),
+(3, 'lopian', 'lopian'),
+(4, 'lotau', '567');
 
 -- --------------------------------------------------------
 
@@ -159,6 +203,13 @@ CREATE TABLE `timbanganak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `timbanganak`
+--
+
+INSERT INTO `timbanganak` (`id`, `no_timbang`, `id_anak`, `berat`, `tinggi`, `ket`) VALUES
+(1, '1', '1', '124', '12', 'asd');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -173,6 +224,22 @@ ALTER TABLE `anak`
 --
 ALTER TABLE `ibuhamil`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
