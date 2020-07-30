@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="antrian" language="groovy" pageWidth="300" pageHeight="400" whenNoDataType="AllSectionsNoDetail" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0ac6f45-9742-4c86-981e-ed20768e9555">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="2.3579476910000023"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="270"/>
 	<parameter name="parameterId" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
@@ -34,25 +34,29 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="44" y="0" width="183" height="24" uuid="f6d5f7b6-4f81-4bdf-97bd-906e63fef777"/>
-				<textElement>
-					<font size="18" isBold="true"/>
+				<reportElement x="42" y="44" width="183" height="23" uuid="f6d5f7b6-4f81-4bdf-97bd-906e63fef777"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Posyandu Gurame II]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="56" y="28" width="159" height="20" uuid="55e69b50-a012-4528-86b9-b40bec148f81"/>
+				<reportElement x="61" y="67" width="149" height="13" uuid="55e69b50-a012-4528-86b9-b40bec148f81"/>
 				<text><![CDATA[Jl. Kemiri Jaya RT. 001 RW. 001]]></text>
 			</staticText>
+			<image>
+				<reportElement x="112" y="4" width="43" height="40" uuid="f99b170e-dea5-456b-b3d8-bf41a9bc46be"/>
+				<imageExpression><![CDATA["C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\src\\gambar\\logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="43" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="12" width="125" height="20" uuid="c97420da-f0c2-45d0-9b82-696f2ea96d25"/>
-				<textElement>
+				<reportElement x="0" y="12" width="122" height="20" uuid="c97420da-f0c2-45d0-9b82-696f2ea96d25"/>
+				<textElement verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Nomer Antrian Anda :]]></text>
@@ -62,9 +66,9 @@
 	<columnHeader>
 		<band height="61" splitType="Stretch">
 			<textField>
-				<reportElement x="69" y="18" width="134" height="24" uuid="afa36f16-0efe-4779-ad4b-b12189f3f940"/>
-				<textElement>
-					<font size="16" isBold="true"/>
+				<reportElement x="38" y="0" width="181" height="61" uuid="afa36f16-0efe-4779-ad4b-b12189f3f940"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{parameterId}]]></textFieldExpression>
 			</textField>
@@ -72,21 +76,17 @@
 	</columnHeader>
 	<detail>
 		<band height="47" splitType="Stretch">
-			<textField pattern="HH.mm.ss">
-				<reportElement x="10" y="16" width="100" height="20" uuid="58b7f563-6ba3-4adc-8189-7da3746d6adc"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="135" y="16" width="115" height="20" uuid="7b7ebd8a-89a0-4e3d-a9ea-34ba3c23d821"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="79" y="1" width="91" height="20" uuid="6ad7f8f7-87f5-4a50-8f52-85925eb016a4"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="58" splitType="Stretch">
+		<band height="38" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="11" width="240" height="31" uuid="ae63eb33-4cac-480e-b910-2d33f58331f4"/>
-				<textElement>
+				<reportElement x="0" y="11" width="260" height="17" uuid="ae63eb33-4cac-480e-b910-2d33f58331f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
 				<text><![CDATA[" Budayakan Antri Untuk Kenyamanan Bersama "]]></text>

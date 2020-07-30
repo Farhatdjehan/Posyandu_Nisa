@@ -42,19 +42,23 @@ FROM
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="144" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
+				<reportElement x="84" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Posyandu Gurame II]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
+				<reportElement x="84" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Jl. Kemiri Jaya RT 001 / RW 001]]></text>
 			</staticText>
+			<image>
+				<reportElement x="16" y="9" width="57" height="57" uuid="3c90585d-cce8-4f49-8b0f-2d2070344739"/>
+				<imageExpression><![CDATA["C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\src\\gambar\\logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

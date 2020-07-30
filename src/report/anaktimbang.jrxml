@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bfce5992-faea-4421-867f-68cf71d58c86">
-	<property name="ireport.zoom" value="1.464100000000023"/>
+	<property name="ireport.zoom" value="1.210000000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="9"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      anak.`id` AS anak_id,
@@ -45,19 +45,23 @@ FROM
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="144" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
+				<reportElement x="84" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Posyandu Gurame II]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
+				<reportElement x="84" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Jl. Kemiri Jaya RT 001 / RW 001]]></text>
 			</staticText>
+			<image>
+				<reportElement x="16" y="9" width="57" height="57" uuid="8fe5e26f-a2ef-4a3f-916b-7c710a7a754b"/>
+				<imageExpression><![CDATA["C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\src\\gambar\\logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

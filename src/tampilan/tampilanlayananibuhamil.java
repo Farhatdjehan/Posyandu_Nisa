@@ -80,7 +80,31 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
     }
     
     protected void datatableibuhamil(){
-        
+        Object[] Baris ={"Id","No Layanan","Id Ibu","Nama Ibu","Usia","Berat","Usia Kehamilan","Tensi","Ket."};
+        tabmode = new DefaultTableModel(null, Baris);
+        String cariitem=cariibuhamiltabel.getText();
+
+        try {
+            String sql = "SELECT pelayananibuhamil.id, pelayananibuhamil.no_layanan, ibuhamil.id, ibuhamil.nama, ibuhamil.usia, pelayananibuhamil.berat, pelayananibuhamil.usia_hamil, pelayananibuhamil.tensi, pelayananibuhamil.keterangan FROM pelayananibuhamil INNER JOIN ibuhamil ON pelayananibuhamil.id_ibuhamil = ibuhamil.id where ibuhamil.id like '%"+cariitem+"%' or ibuhamil.nama like '%"+cariitem+"%' order by ibuhamil.id asc";
+            Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sql);
+            while (hasil.next()){
+                tabmode.addRow(new Object[]{
+                    hasil.getString(1),
+                    hasil.getString(2),
+                    hasil.getString(3),
+                    hasil.getString(4),
+                    hasil.getString(5),
+                    hasil.getString(6),
+                    hasil.getString(7),
+                    hasil.getString(8),
+                    hasil.getString(9),
+                });
+            }
+            tabelibuhamil.setModel(tabmode);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "data gagal dipanggil"+e);
+        }
     }
      
     public void IdIbuHamil() {
@@ -199,6 +223,11 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
         simpanibuhamil.setBackground(new java.awt.Color(153, 153, 255));
         simpanibuhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         simpanibuhamil.setText("Simpan");
+        simpanibuhamil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanibuhamilActionPerformed(evt);
+            }
+        });
 
         ubahhamil.setBackground(new java.awt.Color(153, 153, 255));
         ubahhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -471,6 +500,27 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
         this.dispose();
         utama.setVisible(true);
     }//GEN-LAST:event_berandaActionPerformed
+
+    private void simpanibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanibuhamilActionPerformed
+        String sql = "insert into pelayananibuhamil values (?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, iddaftaribuhamil.getText());
+            stat.setString(2, nolayananibuhamil.getText());
+            stat.setString(3, idibuhamil.getText());
+            stat.setString(4, beratibuhamil.getText());
+            stat.setString(5, usiahamil.getText());
+            stat.setString(6, tensiibu.getText());
+            stat.setString(7, keteranganibuhamil.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil disimpan");
+            kosong();
+            iddaftaribuhamil.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
+        }
+        datatableibuhamil();
+    }//GEN-LAST:event_simpanibuhamilActionPerformed
 
     /**
      * @param args the command line arguments

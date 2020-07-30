@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="nota_imunisasi" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="46f1d7ac-fc03-44be-b20b-ba8c1fd54168">
-	<property name="ireport.zoom" value="1.100000000000003"/>
+	<property name="ireport.zoom" value="1.7715610000000075"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
@@ -47,19 +47,23 @@ FROM
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="144" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
+				<reportElement x="84" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Posyandu Gurame II]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
+				<reportElement x="84" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
 				<text><![CDATA[Jl. Kemiri Jaya RT 001 / RW 001]]></text>
 			</staticText>
+			<image>
+				<reportElement x="15" y="10" width="57" height="57" uuid="a18d71f6-00d4-4f73-95c9-536360bfeb46"/>
+				<imageExpression><![CDATA["C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\src\\gambar\\logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -91,63 +95,63 @@ FROM
 	<columnHeader>
 		<band height="49" splitType="Stretch">
 			<staticText>
-				<reportElement x="12" y="14" width="62" height="26" uuid="87b07b1e-6e89-4229-b5e3-e249ad1dbd9e"/>
+				<reportElement x="59" y="14" width="52" height="26" uuid="87b07b1e-6e89-4229-b5e3-e249ad1dbd9e"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Id Daftar]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="14" width="81" height="26" uuid="fc3c16a8-2625-4d9e-9678-e1b17bbe8e28"/>
+				<reportElement x="119" y="14" width="81" height="26" uuid="fc3c16a8-2625-4d9e-9678-e1b17bbe8e28"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No. Imunisasi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="184" y="14" width="57" height="26" uuid="fe59a7f8-0d6d-4b62-9428-755b459ace4e"/>
+				<reportElement x="208" y="14" width="57" height="26" uuid="fe59a7f8-0d6d-4b62-9428-755b459ace4e"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Id Anak]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="255" y="14" width="93" height="26" uuid="5032bce0-1008-44fa-b915-45e92681fb7b"/>
+				<reportElement x="275" y="14" width="93" height="26" uuid="5032bce0-1008-44fa-b915-45e92681fb7b"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Anak]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="364" y="14" width="42" height="26" uuid="3fd6c627-b504-427a-887b-7cbcc27dd264"/>
+				<reportElement x="378" y="14" width="42" height="26" uuid="3fd6c627-b504-427a-887b-7cbcc27dd264"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Usia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="421" y="14" width="91" height="26" uuid="e183a6db-ba4d-42b2-957d-0f9d5a71290c"/>
+				<reportElement x="429" y="14" width="91" height="26" uuid="e183a6db-ba4d-42b2-957d-0f9d5a71290c"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Ibu]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="524" y="14" width="87" height="26" uuid="f892358a-4e03-4014-9345-2c86c83309cc"/>
+				<reportElement x="529" y="14" width="87" height="26" uuid="f892358a-4e03-4014-9345-2c86c83309cc"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jenis Vitamin]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="625" y="14" width="98" height="26" uuid="da311056-8670-4526-be52-1618aeea4652"/>
+				<reportElement x="627" y="14" width="98" height="26" uuid="da311056-8670-4526-be52-1618aeea4652"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jenis Imunisasi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="735" y="14" width="55" height="26" uuid="e78f8bde-801e-43cf-bd81-66c786128962"/>
+				<reportElement x="736" y="14" width="66" height="26" uuid="e78f8bde-801e-43cf-bd81-66c786128962"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -159,57 +163,64 @@ FROM
 					<pen lineWidth="3.0"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement x="0" y="14" width="47" height="26" uuid="c7712d03-14b7-4ce1-933a-e6c4640a30c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="41" splitType="Stretch">
 			<textField>
-				<reportElement x="12" y="7" width="62" height="20" uuid="f27fe777-b5b8-4690-9068-0b2cac399c42"/>
+				<reportElement x="59" y="7" width="52" height="20" uuid="f27fe777-b5b8-4690-9068-0b2cac399c42"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{imunisasianak_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="89" y="7" width="81" height="20" uuid="62e6798e-b91e-416c-bbc3-a2e5d255086c"/>
+				<reportElement x="119" y="7" width="81" height="20" uuid="62e6798e-b91e-416c-bbc3-a2e5d255086c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{imunisasianak_no_imunisasi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="184" y="7" width="57" height="20" uuid="1b3a68f1-aa65-499a-a527-7d3caf40babe"/>
+				<reportElement x="208" y="7" width="57" height="20" uuid="1b3a68f1-aa65-499a-a527-7d3caf40babe"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{anak_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="255" y="7" width="93" height="20" uuid="9d854b1b-bf7e-497e-9a37-4677562998ec"/>
+				<reportElement x="275" y="7" width="93" height="20" uuid="9d854b1b-bf7e-497e-9a37-4677562998ec"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{anak_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="364" y="7" width="12" height="20" uuid="2276f21d-a76b-4797-95e4-e1516a245026"/>
+				<reportElement x="378" y="7" width="12" height="20" uuid="2276f21d-a76b-4797-95e4-e1516a245026"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{anak_usia}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="376" y="7" width="30" height="20" uuid="bb125f15-0c97-4111-a0f0-cb7bb753f368"/>
+				<reportElement x="390" y="7" width="30" height="20" uuid="bb125f15-0c97-4111-a0f0-cb7bb753f368"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Bulan]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="421" y="7" width="91" height="20" uuid="71918dbd-88d5-4a70-8e06-dd55ea22133e"/>
+				<reportElement x="429" y="7" width="91" height="20" uuid="71918dbd-88d5-4a70-8e06-dd55ea22133e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{anak_ibu}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="524" y="7" width="87" height="20" uuid="f0c2ac12-7d06-4eeb-9709-f7c2ec7d3815"/>
+				<reportElement x="529" y="7" width="87" height="20" uuid="f0c2ac12-7d06-4eeb-9709-f7c2ec7d3815"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{imunisasianak_jenis_vitamin}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="625" y="7" width="98" height="20" uuid="94900cfa-46e3-4b77-a263-1a18ad79311c"/>
+				<reportElement x="627" y="7" width="98" height="20" uuid="94900cfa-46e3-4b77-a263-1a18ad79311c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{imunisasianak_jenis_imunisasi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="735" y="7" width="55" height="20" uuid="f21473a0-0b93-46e9-8d78-f52a2476c134"/>
+				<reportElement x="736" y="7" width="66" height="20" uuid="f21473a0-0b93-46e9-8d78-f52a2476c134"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{imunisasianak_ket}]]></textFieldExpression>
 			</textField>
@@ -219,6 +230,11 @@ FROM
 					<pen lineWidth="3.0"/>
 				</graphicElement>
 			</line>
+			<textField>
+				<reportElement x="0" y="7" width="47" height="20" uuid="7bb9e872-1ae3-4152-941e-74ff34891723"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
