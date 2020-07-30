@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bfce5992-faea-4421-867f-68cf71d58c86">
 	<property name="ireport.zoom" value="1.210000000000019"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="10"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
@@ -69,13 +69,15 @@ FROM
 			<staticText>
 				<reportElement x="0" y="0" width="44" height="35" uuid="d7d41b1c-b458-4d60-b0a1-316cffde2b3f"/>
 				<textElement verticalAlignment="Middle">
-					<font size="10"/>
+					<font fontName="Century Gothic" size="10"/>
 				</textElement>
 				<text><![CDATA[Tanggal	: ]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="44" y="0" width="100" height="35" uuid="6a30d99c-f512-4099-9675-ee89cc199ae4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="44" y="0" width="118" height="35" uuid="f2f00bed-bc7e-4d63-aada-14bd788da108"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
@@ -183,7 +185,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{anak_nama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="426" y="7" width="12" height="20" uuid="6a073c34-0cfd-4f41-908e-857f074f9824"/>
+				<reportElement x="428" y="7" width="12" height="20" uuid="6a073c34-0cfd-4f41-908e-857f074f9824"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{anak_usia}]]></textFieldExpression>
 			</textField>

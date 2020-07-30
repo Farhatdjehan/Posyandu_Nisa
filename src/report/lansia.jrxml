@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
-	<property name="ireport.zoom" value="1.1000000000000025"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="1.210000000000003"/>
+	<property name="ireport.x" value="53"/>
+	<property name="ireport.y" value="40"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      lansia.`id` AS lansia_id,
@@ -54,8 +54,7 @@ FROM
 				<text><![CDATA[Jl. Kemiri Jaya RT 001 / RW 001]]></text>
 			</staticText>
 			<image>
-				<reportElement x="16" y="9
-" width="57" height="57" uuid="0a5c4172-14c0-4d5d-955f-d1cb6c4e20cd"/>
+				<reportElement x="16" y="9" width="57" height="57" uuid="0a5c4172-14c0-4d5d-955f-d1cb6c4e20cd"/>
 				<imageExpression><![CDATA["C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\src\\gambar\\logo.png"]]></imageExpression>
 			</image>
 		</band>
@@ -69,7 +68,7 @@ FROM
 				</textElement>
 				<text><![CDATA[Tanggal	: ]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
+			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="45" y="0" width="100" height="35" uuid="d3e4b680-b697-405c-948d-76db3fd9e318"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -157,11 +156,6 @@ FROM
 					<pen lineWidth="3.0"/>
 				</graphicElement>
 			</line>
-			<staticText>
-				<reportElement x="465" y="7" width="33" height="20" uuid="8f2f69c0-09f5-4f21-8444-12408f1536f4"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Bulan]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -221,6 +215,11 @@ FROM
 				<reportElement x="532" y="7" width="17" height="20" uuid="21246d0d-ad23-4f77-b5a6-72ee0f9d7bd1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Kg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="7" width="33" height="20" uuid="8f2f69c0-09f5-4f21-8444-12408f1536f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Bulan]]></text>
 			</staticText>
 		</band>
 	</detail>

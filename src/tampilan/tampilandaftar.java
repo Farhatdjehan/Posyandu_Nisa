@@ -16,6 +16,7 @@ import koneksi.koneksi;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import java.util.Locale;
 
 /**
  *
@@ -43,6 +44,8 @@ public class tampilandaftar extends javax.swing.JFrame {
         datatableanak();
         datatableibuhamil();
         autonumber();
+        Locale locale = new Locale ("id","ID");
+        Locale. setDefault(locale);
     }
 
     private void kosonganak() {

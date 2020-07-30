@@ -75,11 +75,6 @@ FROM
 				</textElement>
 				<text><![CDATA[Tanggal	: ]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="47" y="0" width="100" height="35" uuid="585d624b-1da7-4a4d-9ac6-4be12f0eac89"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<rectangle>
 				<reportElement x="702" y="16" width="100" height="19" forecolor="#FFFFFF" backcolor="#9999FF" uuid="106eb6f3-b787-4bf9-ae3c-f25281ad075c"/>
 			</rectangle>
@@ -90,6 +85,11 @@ FROM
 				</textElement>
 				<text><![CDATA[Imunisasi Anak]]></text>
 			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="47" y="0" width="100" height="35" uuid="b8f9f5d5-4515-4cef-a8c6-0409831cf357"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>

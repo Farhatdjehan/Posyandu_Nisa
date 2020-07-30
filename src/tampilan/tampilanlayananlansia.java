@@ -11,9 +11,11 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import koneksi.koneksi;
 import java.util.HashMap;
+import java.util.Locale;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import java.util.Locale;
 /**
  *
  * @author farhatdk
@@ -32,6 +34,8 @@ public class tampilanlayananlansia extends javax.swing.JFrame {
         aktif();
         datatablelansia();
         autonumber();
+        Locale locale = new Locale ("id","ID");
+        Locale.setDefault(locale);
     }
 
     private void kosong(){

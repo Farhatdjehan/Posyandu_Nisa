@@ -14,6 +14,7 @@ import koneksi.koneksi;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import java.util.Locale;
 
 /**
  *
@@ -32,6 +33,8 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
         aktif();
         datatableibuhamil();
         autonumber();
+        Locale locale = new Locale ("id","ID");
+        Locale.setDefault(locale);
     }
     private void kosong(){
         iddaftaribuhamil.setText("");
@@ -232,14 +235,29 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
         ubahhamil.setBackground(new java.awt.Color(153, 153, 255));
         ubahhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         ubahhamil.setText("Ubah");
+        ubahhamil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahhamilActionPerformed(evt);
+            }
+        });
 
         hapusibuhamil.setBackground(new java.awt.Color(153, 153, 255));
         hapusibuhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         hapusibuhamil.setText("Hapus");
+        hapusibuhamil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusibuhamilActionPerformed(evt);
+            }
+        });
 
         batalibuhamil.setBackground(new java.awt.Color(153, 153, 255));
         batalibuhamil.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         batalibuhamil.setText("Batal");
+        batalibuhamil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batalibuhamilActionPerformed(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         jLabel22.setText("ID Daftar");
@@ -297,6 +315,11 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelibuhamil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelibuhamilMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelibuhamil);
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -381,9 +404,10 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(cetakhamilbutton)))
                     .addComponent(batalibuhamil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(simpanibuhamil)
-                    .addComponent(ubahhamil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hapusibuhamil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hapusibuhamil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(simpanibuhamil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ubahhamil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
@@ -521,6 +545,78 @@ public class tampilanlayananibuhamil extends javax.swing.JFrame {
         }
         datatableibuhamil();
     }//GEN-LAST:event_simpanibuhamilActionPerformed
+
+    private void ubahhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahhamilActionPerformed
+        iddaftaribuhamil.setEditable(true);
+        namaibuhamil.setEditable(true);
+        usiaibuhamil.setEditable(true);
+        beratibuhamil.setEditable(true);
+        idibuhamil.setEditable(true);
+        try {
+            String sql = "update pelayananibuhamil set berat=?,usia_hamil=?,tensi=?, ket=? where id ='" + iddaftaribuhamil.getText() + "'  ";
+            PreparedStatement stat = conn.prepareStatement(sql);
+            stat.setString(1, beratibuhamil.getText());
+            stat.setString(2, usiahamil.getText());
+            stat.setString(3, tensiibu.getText());
+            stat.setString(3, keteranganibuhamil.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosong();
+            iddaftaribuhamil.requestFocus();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
+        }
+        datatableibuhamil();
+    }//GEN-LAST:event_ubahhamilActionPerformed
+
+    private void hapusibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusibuhamilActionPerformed
+        int ok = JOptionPane.showConfirmDialog(null, "hapus", "konfirmasi dialog", JOptionPane.YES_NO_OPTION);
+        if (ok == 0) {
+            String sql = "delete from pelayananibuhamil where id='" + idibuhamil.getText() + "'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosong();
+                idibuhamil.requestFocus();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "data gagal dihapus" + e);
+            }
+            datatableibuhamil();
+        }
+        idibuhamil.setEditable(true);
+    }//GEN-LAST:event_hapusibuhamilActionPerformed
+
+    private void batalibuhamilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batalibuhamilActionPerformed
+        kosong();
+    }//GEN-LAST:event_batalibuhamilActionPerformed
+
+    private void tabelibuhamilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelibuhamilMouseClicked
+        int bar = tabelibuhamil.getSelectedRow();
+        String a = tabmode.getValueAt(bar, 0).toString();
+        String b = tabmode.getValueAt(bar, 1).toString();
+        String c = tabmode.getValueAt(bar, 2).toString();
+        String d = tabmode.getValueAt(bar, 3).toString();
+        String e = tabmode.getValueAt(bar, 4).toString();
+        String f = tabmode.getValueAt(bar, 5).toString();
+        String g = tabmode.getValueAt(bar, 6).toString();
+        String h = tabmode.getValueAt(bar, 7).toString();
+        String i = tabmode.getValueAt(bar, 8).toString();
+        iddaftaribuhamil.setEditable(false);
+        nolayananibuhamil.setEditable(false);
+        idibuhamil.setEditable(false);
+        namaibuhamil.setEditable(false);
+        usiaibuhamil.setEditable(false);
+        iddaftaribuhamil.setText(a);
+        nolayananibuhamil.setText(b);
+        idibuhamil.setText(c);
+        namaibuhamil.setText(d);
+        usiaibuhamil.setText(e);
+        beratibuhamil.setText(f);
+        usiahamil.setText(g);
+        tensiibu.setText(h);
+        keteranganibuhamil.setText(i);
+    }//GEN-LAST:event_tabelibuhamilMouseClicked
 
     /**
      * @param args the command line arguments

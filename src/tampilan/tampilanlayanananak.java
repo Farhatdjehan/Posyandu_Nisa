@@ -17,6 +17,7 @@ import koneksi.koneksi;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import java.util.Locale;
 
 /**
  *
@@ -42,6 +43,9 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         aktifimunisasianak();
         autonumbertimbang();
         autonumberimunisasi();
+        Locale locale = new Locale ("id","ID");
+        Locale.setDefault(locale);
+        
     }
     private void kosongtimbanganak(){
         notimbang.setText("");
@@ -816,10 +820,10 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                         .addContainerGap(20, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(batalimunisasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(simpanimunisasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ubahimunisasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hapusimunisasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(simpanimunisasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ubahimunisasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hapusimunisasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(batalimunisasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -932,7 +936,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }//GEN-LAST:event_caridataimunisasiActionPerformed
 
     private void cetakimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakimunisasiActionPerformed
-        // TODO add your handling code here:
+        cetakimunisasi();
     }//GEN-LAST:event_cetakimunisasiActionPerformed
 
     private void cetaktimbangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetaktimbangActionPerformed
@@ -1097,6 +1101,17 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             JasperViewer.viewReport(print, false);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "DokumenTidak Ada " + ex);
+        }
+    }
+    public void cetakimunisasi() {
+        try {
+            String path = "./src/report/anakimunisasi.jasper"; // letakpenyimpanan report
+            HashMap parameter = new HashMap();
+            parameter.put("parameterId", iddaftaranak.getText());
+            JasperPrint print = JasperFillManager.fillReport(path, parameter, conn);
+            JasperViewer.viewReport(print, false);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Dokumen Tidak Ada " + ex);
         }
     }
     private void ubahimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahimunisasiActionPerformed

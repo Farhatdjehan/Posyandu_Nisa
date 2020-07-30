@@ -70,7 +70,7 @@ FROM
 				</textElement>
 				<text><![CDATA[Tanggal : ]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
+			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="44" y="0" width="100" height="35" uuid="d2d39a36-85c9-4fbb-aa51-6be5a23507df"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
