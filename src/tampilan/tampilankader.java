@@ -31,6 +31,7 @@ public class tampilankader extends javax.swing.JFrame {
         kosongkader();
         aktifkader();
         datatablekader();
+        autonumber();
     }
 
     private void kosongkader() {
@@ -45,6 +46,23 @@ public class tampilankader extends javax.swing.JFrame {
         idkader.requestFocus();
     }
 
+    private void autonumber(){
+        try {
+            String sql = "SELECT id FROM kader order by id asc";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            idkader.setText("1");
+            while (rs.next()) {
+                String id_transaksi = rs.getString("id");
+                int AN = Integer.parseInt(id_transaksi) + 1;
+                String ANS = Integer.toString(AN);
+                idkader.setText(ANS);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
+        }
+    }
+    
     private void datatablekader() {
         Object[] Baris = {"Id", "Nama Kader", "Jabatan Kader", "Username", "Password"};
         tabmode = new DefaultTableModel(null, Baris);
@@ -253,7 +271,7 @@ public class tampilankader extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -275,14 +293,14 @@ public class tampilankader extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(simpankader, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ubahkader, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(batalkader, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(hapuskader, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
 
         tabelkader.setModel(new javax.swing.table.DefaultTableModel(
@@ -450,7 +468,7 @@ public class tampilankader extends javax.swing.JFrame {
     }//GEN-LAST:event_batalkaderActionPerformed
 
     private void hapuskaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapuskaderActionPerformed
-        // TODO add your handling code here:
+
         int ok = JOptionPane.showConfirmDialog(null, "Hapus", "Konfirmasi Dialog", JOptionPane.YES_NO_OPTION);
         if (ok == 0) {
             String sql = "delete from kader where id ='" + idkader.getText() + "'";

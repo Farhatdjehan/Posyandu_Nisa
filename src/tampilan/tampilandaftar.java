@@ -49,10 +49,9 @@ public class tampilandaftar extends javax.swing.JFrame {
     }
 
     private void kosonganak() {
-        idanak.setText("");
         namaanak.setText("");
         buttonGroup1.clearSelection();
-        tglanak.setDate(LocalDate.of(1998, 8, 13));
+        tglanak.setDate(LocalDate.of(2015, 1, 1));
         usiaanak.setText("");
         ayahanak.setText("");
         ibuanak.setText("");
@@ -61,7 +60,6 @@ public class tampilandaftar extends javax.swing.JFrame {
     }
 
     private void kosongibuhamil() {
-        idhamil.setText("");
         namaibuhamil.setText("");
         tgllahiribuhamil.setDate(LocalDate.of(1960, 8, 13));
         usiaibuhamil.setText("");
@@ -71,10 +69,9 @@ public class tampilandaftar extends javax.swing.JFrame {
     }
 
     private void kosonglansia() {
-        idlansia.setText("");
         namalansia.setText("");
         buttonGroup2.clearSelection();
-        tglahirlansia.setDate(LocalDate.of(1920, 8, 13));
+        tglahirlansia.setDate(LocalDate.of(1940, 1, 1));
         usialansia.setText("");
         alamatlansia.setText("");
         teleponlansia.setText("");
@@ -556,8 +553,8 @@ public class tampilandaftar extends javax.swing.JFrame {
             }
         });
 
-        jLabel39.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel39.setText("Alamat");
+        jLabel39.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -762,6 +759,8 @@ public class tampilandaftar extends javax.swing.JFrame {
             }
         });
 
+        tglanak.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
         tabelanak.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -802,8 +801,8 @@ public class tampilandaftar extends javax.swing.JFrame {
             }
         });
 
-        jLabel40.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel40.setText("Nama Ibu");
+        jLabel40.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1374,7 +1373,7 @@ public class tampilandaftar extends javax.swing.JFrame {
             }
             datatablelansia();
         }
-        idlansia.setEditable(true);
+        idlansia.setEditable(false);
     }//GEN-LAST:event_hapuslansiaActionPerformed
 
     private void batallansiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batallansiaActionPerformed
@@ -1543,7 +1542,7 @@ public class tampilandaftar extends javax.swing.JFrame {
             stat.setString(7, namasuami.getText());
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
-            kosonganak();
+            kosongibuhamil();
             idhamil.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
@@ -1936,16 +1935,12 @@ public class tampilandaftar extends javax.swing.JFrame {
             String sql = "SELECT id FROM lansia order by id asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            idlansia.setText("1");
+            iddaftar.setText("1");
             while (rs.next()) {
                 String id_transaksi = rs.getString("id");
-                String id_transaksi2 = rs.getString("id");
                 int AN = Integer.parseInt(id_transaksi) + 1;
-                int AN2 = Integer.parseInt(id_transaksi2) + 1;
                 String ANS = Integer.toString(AN);
-                String ANS2 = Integer.toString(AN2);
                 iddaftar.setText(ANS);
-                idlansia.setText(ANS2);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
@@ -1954,16 +1949,12 @@ public class tampilandaftar extends javax.swing.JFrame {
             String sql = "SELECT id FROM anak order by id asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            idanak.setText("1");
+            iddaftar.setText("1");
             while (rs.next()) {
                 String id_transaksi = rs.getString("id");
-                String id_transaksi2 = rs.getString("id");
                 int AN = Integer.parseInt(id_transaksi) + 1;
-                int AN2 = Integer.parseInt(id_transaksi2) + 1;
                 String ANS = Integer.toString(AN);
-                String ANS2 = Integer.toString(AN2);
                 iddaftar.setText(ANS);
-                idanak.setText(ANS2);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
@@ -1972,16 +1963,12 @@ public class tampilandaftar extends javax.swing.JFrame {
             String sql = "SELECT id FROM ibuhamil order by id asc";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            idhamil.setText("1");
+            iddaftar.setText("1");
             while (rs.next()) {
                 String id_transaksi = rs.getString("id");
-                String id_transaksi2 = rs.getString("id");
                 int AN = Integer.parseInt(id_transaksi) + 1;
-                int AN2 = Integer.parseInt(id_transaksi2) + 1;
                 String ANS = Integer.toString(AN);
-                String ANS2 = Integer.toString(AN2);
                 iddaftar.setText(ANS);
-                idhamil.setText(ANS2);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Auto Number Gagal" + e);
