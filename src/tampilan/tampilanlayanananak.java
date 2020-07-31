@@ -958,6 +958,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosongtimbanganak();
+            autonumberimunisasi();
             iddaftaranak.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
@@ -1050,6 +1051,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosongimunisasianak();
+            autonumberimunisasi();
             iddaftarimunisasi.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
@@ -1073,6 +1075,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosongtimbanganak();
+            autonumbertimbang();
             iddaftaranak.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
@@ -1102,13 +1105,13 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         }
     }
     private void ubahimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahimunisasiActionPerformed
-        iddaftaranak.setEditable(true);
+        iddaftarimunisasi.setEditable(true);
         namaanak.setEditable(true);
         usiaanak.setEditable(true);
         namaibu.setEditable(true);
         idanak1.setEditable(true);
         try {
-            String sql = "update timbanganak set berat=?,tinggi=?,ket=? where id ='" + iddaftaranak.getText() + "'  ";
+            String sql = "update imunisasianak set jenis_vitamin=?,jenis_imunisasi=?,ket=? where id ='" + iddaftarimunisasi.getText() + "'  ";
 
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, beratanak.getText());
@@ -1117,30 +1120,32 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosongtimbanganak();
+            autonumberimunisasi();
             iddaftaranak.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
         }
-        datatabletimbang();
+        datatableimunisasi();
     }//GEN-LAST:event_ubahimunisasiActionPerformed
 
     private void tabelimunisasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelimunisasiMouseClicked
         int bar = tabelimunisasi.getSelectedRow();
-        String a = tabmode.getValueAt(bar, 0).toString();
-        String b = tabmode.getValueAt(bar, 1).toString();
-        String c = tabmode.getValueAt(bar, 2).toString();
-        String d = tabmode.getValueAt(bar, 3).toString();
-        String e = tabmode.getValueAt(bar, 4).toString();
-        String f = tabmode.getValueAt(bar, 5).toString();
-        String g = tabmode.getValueAt(bar, 6).toString();
-        String h = tabmode.getValueAt(bar, 7).toString();
-        String i = tabmode.getValueAt(bar, 8).toString();
-        String j = tabmode.getValueAt(bar, 9).toString();
+        String a = tabmode2.getValueAt(bar, 0).toString();
+        String b = tabmode2.getValueAt(bar, 1).toString();
+        String c = tabmode2.getValueAt(bar, 2).toString();
+        String d = tabmode2.getValueAt(bar, 3).toString();
+        String e = tabmode2.getValueAt(bar, 4).toString();
+        String f = tabmode2.getValueAt(bar, 5).toString();
+        String g = tabmode2.getValueAt(bar, 6).toString();
+        String h = tabmode2.getValueAt(bar, 7).toString();
+        String i = tabmode2.getValueAt(bar, 8).toString();
+        String j = tabmode2.getValueAt(bar, 9).toString();
         iddaftarimunisasi.setEditable(false);
         noimunisasi.setEditable(false);
         idanakimunisasi.setEditable(false);
         namaibu.setEditable(false);
         namaanakimunisasi.setEditable(false);
+        idimunisasianak.setEditable(false);
         iddaftarimunisasi.setText(a);
         noimunisasi.setText(b);
         idanakimunisasi.setText(c);
