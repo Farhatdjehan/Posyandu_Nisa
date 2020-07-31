@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="480" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
-	<property name="ireport.zoom" value="1.3310000000000035"/>
-	<property name="ireport.x" value="7"/>
-	<property name="ireport.y" value="35"/>
+	<property name="ireport.zoom" value="6.1159090448414775"/>
+	<property name="ireport.x" value="2396"/>
+	<property name="ireport.y" value="1087"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      lansia.`id` AS lansia_id,
@@ -207,7 +207,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{pelayananlansia_ket}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="451" y="7" width="14" height="20" uuid="a17da011-ba5f-41b6-8c6c-dd25bf70a165"/>
+				<reportElement x="453" y="7" width="14" height="20" uuid="a17da011-ba5f-41b6-8c6c-dd25bf70a165"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{lansia_usia}]]></textFieldExpression>
 			</textField>
@@ -219,7 +219,7 @@ FROM
 			<staticText>
 				<reportElement x="465" y="7" width="33" height="20" uuid="8f2f69c0-09f5-4f21-8444-12408f1536f4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Bulan]]></text>
+				<text><![CDATA[Tahun]]></text>
 			</staticText>
 		</band>
 	</detail>

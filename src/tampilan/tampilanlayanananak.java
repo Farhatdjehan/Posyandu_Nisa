@@ -416,7 +416,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tabeltimbang);
 
         jLabel30.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel30.setText("ID Layanan");
+        jLabel30.setText("ID Anak");
 
         cetaktimbang.setBackground(new java.awt.Color(153, 153, 255));
         cetaktimbang.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -1145,7 +1145,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     }//GEN-LAST:event_jenisvitaminimunisasiActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        
         this.dispose();
         tampilanutama dashboard = new tampilanutama();
         dashboard.setVisible(true);

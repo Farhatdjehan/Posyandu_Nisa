@@ -1,79 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9a6a1322-c58a-4f4e-ac13-07bcda7657b6">
-	<queryString language="SQL">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="450" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9a6a1322-c58a-4f4e-ac13-07bcda7657b6">
+	<property name="ireport.zoom" value="1.464100000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="222"/>
+	<queryString>
 		<![CDATA[SELECT
-     pelayananibuhamil.`id` AS pelayananibuhamil_id,
-     pelayananibuhamil.`no_layanan` AS pelayananibuhamil_no_layanan,
-     pelayananibuhamil.`id_ibuhamil` AS pelayananibuhamil_id_ibuhamil,
-     pelayananibuhamil.`berat` AS pelayananibuhamil_berat,
-     pelayananibuhamil.`usia_hamil` AS pelayananibuhamil_usia_hamil,
-     pelayananibuhamil.`tensi` AS pelayananibuhamil_tensi,
-     pelayananibuhamil.`keterangan` AS pelayananibuhamil_keterangan,
-     pelayananlansia.`id` AS pelayananlansia_id,
-     pelayananlansia.`no_layanan` AS pelayananlansia_no_layanan,
-     pelayananlansia.`id_lansia` AS pelayananlansia_id_lansia,
-     pelayananlansia.`berat` AS pelayananlansia_berat,
-     pelayananlansia.`tensi` AS pelayananlansia_tensi,
-     pelayananlansia.`ket` AS pelayananlansia_ket,
-     timbanganak.`id` AS timbanganak_id,
-     timbanganak.`no_timbang` AS timbanganak_no_timbang,
-     timbanganak.`id_anak` AS timbanganak_id_anak,
-     timbanganak.`berat` AS timbanganak_berat,
-     timbanganak.`tinggi` AS timbanganak_tinggi,
-     timbanganak.`ket` AS timbanganak_ket,
-     imunisasianak.`id` AS imunisasianak_id,
-     imunisasianak.`no_imunisasi` AS imunisasianak_no_imunisasi,
-     imunisasianak.`id_anak` AS imunisasianak_id_anak,
-     imunisasianak.`jenis_vitamin` AS imunisasianak_jenis_vitamin,
-     imunisasianak.`id_imunisasi` AS imunisasianak_id_imunisasi,
-     imunisasianak.`jenis_imunisasi` AS imunisasianak_jenis_imunisasi,
-     imunisasianak.`ket` AS imunisasianak_ket
+     kegiatan.`id` AS kegiatan_id,
+     kegiatan.`tanggal` AS kegiatan_tanggal,
+     kegiatan.`jenis` AS kegiatan_jenis
 FROM
-     `pelayananibuhamil` pelayananibuhamil,
-     `pelayananlansia` pelayananlansia,
-     `timbanganak` timbanganak,
-     `imunisasianak` imunisasianak]]>
+     `kegiatan` kegiatan]]>
 	</queryString>
-	<field name="pelayananibuhamil_id" class="java.lang.Integer"/>
-	<field name="pelayananibuhamil_no_layanan" class="java.lang.String"/>
-	<field name="pelayananibuhamil_id_ibuhamil" class="java.lang.Integer"/>
-	<field name="pelayananibuhamil_berat" class="java.lang.String"/>
-	<field name="pelayananibuhamil_usia_hamil" class="java.lang.String"/>
-	<field name="pelayananibuhamil_tensi" class="java.lang.String"/>
-	<field name="pelayananibuhamil_keterangan" class="java.lang.String"/>
-	<field name="pelayananlansia_id" class="java.lang.Integer"/>
-	<field name="pelayananlansia_no_layanan" class="java.lang.String"/>
-	<field name="pelayananlansia_id_lansia" class="java.lang.Integer"/>
-	<field name="pelayananlansia_berat" class="java.lang.String"/>
-	<field name="pelayananlansia_tensi" class="java.lang.String"/>
-	<field name="pelayananlansia_ket" class="java.lang.String"/>
-	<field name="timbanganak_id" class="java.lang.Integer"/>
-	<field name="timbanganak_no_timbang" class="java.lang.String"/>
-	<field name="timbanganak_id_anak" class="java.lang.String"/>
-	<field name="timbanganak_berat" class="java.lang.String"/>
-	<field name="timbanganak_tinggi" class="java.lang.String"/>
-	<field name="timbanganak_ket" class="java.lang.String"/>
-	<field name="imunisasianak_id" class="java.lang.Integer"/>
-	<field name="imunisasianak_no_imunisasi" class="java.lang.String"/>
-	<field name="imunisasianak_id_anak" class="java.lang.Integer"/>
-	<field name="imunisasianak_jenis_vitamin" class="java.lang.String"/>
-	<field name="imunisasianak_id_imunisasi" class="java.lang.String"/>
-	<field name="imunisasianak_jenis_imunisasi" class="java.lang.String"/>
-	<field name="imunisasianak_ket" class="java.lang.String"/>
+	<field name="kegiatan_id" class="java.lang.Integer"/>
+	<field name="kegiatan_tanggal" class="java.sql.Date"/>
+	<field name="kegiatan_jenis" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="84" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
+				<reportElement x="84" y="19" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Posyandu Gurame II]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="84" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
+				<reportElement x="84" y="44" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
 				<textElement>
 					<font size="10"/>
 				</textElement>
@@ -86,21 +41,114 @@ FROM
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="6" width="555" height="1" uuid="547af0e9-b9a2-4962-bad3-f7486fdb9b04"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="247" y="15" width="83" height="20" uuid="6920b82b-f993-4712-ac65-0acb7551f8e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="16" width="100" height="20" uuid="8ca0ab8d-05fc-4196-a785-3de617386778"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Kegiatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="15" width="79" height="20" uuid="2832058c-5149-4a84-ad22-7ec101980683"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Kegiatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="15" width="25" height="20" uuid="e9f7533e-1fc0-446e-8634-ba11cd8ec1f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement x="47" y="-5" width="450" height="1" uuid="cc0ba206-e948-42e3-92cc-8ec59e897ff4"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="73" y="3" width="25" height="20" uuid="4306496e-e1c8-4ff1-9e73-56a14bb712af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="3" width="79" height="20" uuid="c0559f89-1291-45e9-b300-9d0a484e4189"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{kegiatan_id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="246" y="3" width="83" height="20" uuid="bf898d7b-a704-4732-93ba-dfc4913f0edf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{kegiatan_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="3" width="100" height="20" uuid="cd1dee07-0952-415b-a93b-30a3a7a35657"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kegiatan_jenis}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="132" splitType="Stretch">
+			<line>
+				<reportElement x="678" y="114" width="100" height="1" uuid="9f125b06-1534-4ded-a6f0-32c2f56813ab"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="438" y="22" width="100" height="13" uuid="6c84f056-029d-499b-819e-5b58d9bbb01e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kepala Kader]]></text>
+			</staticText>
+			<line>
+				<reportElement x="438" y="99" width="100" height="1" uuid="17eb7805-5f3c-4a68-bb49-2d9638270df6"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="438" y="101" width="100" height="13" uuid="684a8ee1-e107-47ba-bf9b-a1f81ee65b40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tiermina Simbolon]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="438" y="2" width="100" height="20" uuid="314685f3-e8a5-47ec-b035-71a26a355cb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="20" splitType="Stretch"/>
 	</summary>
 </jasperReport>

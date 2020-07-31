@@ -152,6 +152,11 @@ public class tampilanutama extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(153, 153, 255));
         jButton6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton6.setText("Laporan Kegiatan");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -209,7 +214,7 @@ public class tampilanutama extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -224,6 +229,12 @@ public class tampilanutama extends javax.swing.JFrame {
         menupelayanan dashboard = new menupelayanan();
         dashboard.setVisible(true);
     }//GEN-LAST:event_layananActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.dispose();
+       kegiatan dashboard = new kegiatan();
+        dashboard.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
