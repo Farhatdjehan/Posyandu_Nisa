@@ -131,7 +131,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     protected void datatabletimbang(){
         Object[] Baris ={"No Timbang","Id Anak","Nama Anak","Usia","Nama Ibu","Berat Badan","Tinggi Badan","Keterangan"};
         tabmode = new DefaultTableModel(null, Baris);
-        String cariitem=caritimbanganak.getText();
+        String cariitem=caricetaktimbang.getText();
 
         try {
             String sql = "SELECT timbanganak.no_timbang, anak.id, anak.nama, anak.usia, anak.ibu, timbanganak.berat, timbanganak.tinggi, timbanganak.ket FROM timbanganak INNER JOIN anak ON timbanganak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
@@ -158,7 +158,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     protected void datatableimunisasi(){
         Object[] Baris ={"No Imunisasi","Id Anak","Nama Anak","Usia","Nama Ibu","Jenis Vitamin","Id Imunisasi","Jenis Imunisasi","Ket."};
         tabmode2 = new DefaultTableModel(null, Baris);
-        String cariitem=caritimbanganak.getText();
+        String cariitem=caricetaktimbang.getText();
 
         try {
             String sql = "SELECT imunisasianak.no_imunisasi, anak.id, anak.nama, anak.usia, anak.ibu, imunisasianak.jenis_vitamin, imunisasianak.id_imunisasi, imunisasianak.jenis_imunisasi, imunisasianak.ket FROM imunisasianak INNER JOIN anak ON imunisasianak.id_anak = anak.id where anak.id like '%"+cariitem+"%' or anak.nama like '%"+cariitem+"%' order by anak.id asc";
