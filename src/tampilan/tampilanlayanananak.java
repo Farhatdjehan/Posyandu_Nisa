@@ -277,6 +277,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(153, 153, 255));
         jButton8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jButton8.setText("Beranda");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -287,7 +292,11 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(65, 65, 65))
+=======
+                .addGap(47, 47, 47))
+>>>>>>> f6b55acddcb9abae39060d7d272846479834ae09
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,6 +306,10 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(39, 39, 39))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jTabbedPane1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -870,15 +883,19 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(54, Short.MAX_VALUE))
+=======
+                .addContainerGap(42, Short.MAX_VALUE))
+>>>>>>> f6b55acddcb9abae39060d7d272846479834ae09
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -936,6 +953,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosongtimbanganak();
+            autonumberimunisasi();
             iddaftaranak.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
@@ -1026,6 +1044,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil disimpan");
             kosongimunisasianak();
+            autonumberimunisasi();
             iddaftarimunisasi.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal disimpan" + e);
@@ -1049,6 +1068,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosongtimbanganak();
+            autonumbertimbang();
             iddaftaranak.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
@@ -1078,13 +1098,13 @@ public class tampilanlayanananak extends javax.swing.JFrame {
         }
     }
     private void ubahimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahimunisasiActionPerformed
-        iddaftaranak.setEditable(true);
+        iddaftarimunisasi.setEditable(true);
         namaanak.setEditable(true);
         usiaanak.setEditable(true);
         namaibu.setEditable(true);
         idanak1.setEditable(true);
         try {
-            String sql = "update timbanganak set berat=?,tinggi=?,ket=? where id ='" + iddaftaranak.getText() + "'  ";
+            String sql = "update imunisasianak set jenis_vitamin=?,jenis_imunisasi=?,ket=? where id ='" + iddaftarimunisasi.getText() + "'  ";
 
             PreparedStatement stat = conn.prepareStatement(sql);
             stat.setString(1, beratanak.getText());
@@ -1093,30 +1113,32 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             stat.executeUpdate();
             JOptionPane.showMessageDialog(null, "data berhasil diubah");
             kosongtimbanganak();
+            autonumberimunisasi();
             iddaftaranak.requestFocus();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "data gagal diubah" + e);
         }
-        datatabletimbang();
+        datatableimunisasi();
     }//GEN-LAST:event_ubahimunisasiActionPerformed
 
     private void tabelimunisasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelimunisasiMouseClicked
         int bar = tabelimunisasi.getSelectedRow();
-        String a = tabmode.getValueAt(bar, 0).toString();
-        String b = tabmode.getValueAt(bar, 1).toString();
-        String c = tabmode.getValueAt(bar, 2).toString();
-        String d = tabmode.getValueAt(bar, 3).toString();
-        String e = tabmode.getValueAt(bar, 4).toString();
-        String f = tabmode.getValueAt(bar, 5).toString();
-        String g = tabmode.getValueAt(bar, 6).toString();
-        String h = tabmode.getValueAt(bar, 7).toString();
-        String i = tabmode.getValueAt(bar, 8).toString();
-        String j = tabmode.getValueAt(bar, 9).toString();
+        String a = tabmode2.getValueAt(bar, 0).toString();
+        String b = tabmode2.getValueAt(bar, 1).toString();
+        String c = tabmode2.getValueAt(bar, 2).toString();
+        String d = tabmode2.getValueAt(bar, 3).toString();
+        String e = tabmode2.getValueAt(bar, 4).toString();
+        String f = tabmode2.getValueAt(bar, 5).toString();
+        String g = tabmode2.getValueAt(bar, 6).toString();
+        String h = tabmode2.getValueAt(bar, 7).toString();
+        String i = tabmode2.getValueAt(bar, 8).toString();
+        String j = tabmode2.getValueAt(bar, 9).toString();
         iddaftarimunisasi.setEditable(false);
         iddaftarimunisasi.setEditable(false);
         idanakimunisasi.setEditable(false);
         namaibu.setEditable(false);
         namaanakimunisasi.setEditable(false);
+        idimunisasianak.setEditable(false);
         iddaftarimunisasi.setText(a);
         iddaftarimunisasi.setText(b);
         idanakimunisasi.setText(c);
@@ -1132,6 +1154,13 @@ public class tampilanlayanananak extends javax.swing.JFrame {
     private void jenisvitaminimunisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jenisvitaminimunisasiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jenisvitaminimunisasiActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        tampilanutama dashboard = new tampilanutama();
+        dashboard.setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
