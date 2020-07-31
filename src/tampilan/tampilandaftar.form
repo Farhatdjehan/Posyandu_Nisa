@@ -992,7 +992,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Tahun"/>
+                    <Property name="text" type="java.lang.String" value="Bulan"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Century Gothic" size="11" style="0"/>
                     </Property>
@@ -1608,6 +1608,11 @@
             <Component class="javax.swing.JLabel" name="jLabel36">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel37">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/gambar/logo.png"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9a6a1322-c58a-4f4e-ac13-07bcda7657b6">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pelayananibuhamil.`id` AS pelayananibuhamil_id,
+     pelayananibuhamil.`no_layanan` AS pelayananibuhamil_no_layanan,
+     pelayananibuhamil.`id_ibuhamil` AS pelayananibuhamil_id_ibuhamil,
+     pelayananibuhamil.`berat` AS pelayananibuhamil_berat,
+     pelayananibuhamil.`usia_hamil` AS pelayananibuhamil_usia_hamil,
+     pelayananibuhamil.`tensi` AS pelayananibuhamil_tensi,
+     pelayananibuhamil.`keterangan` AS pelayananibuhamil_keterangan,
+     pelayananlansia.`id` AS pelayananlansia_id,
+     pelayananlansia.`no_layanan` AS pelayananlansia_no_layanan,
+     pelayananlansia.`id_lansia` AS pelayananlansia_id_lansia,
+     pelayananlansia.`berat` AS pelayananlansia_berat,
+     pelayananlansia.`tensi` AS pelayananlansia_tensi,
+     pelayananlansia.`ket` AS pelayananlansia_ket,
+     timbanganak.`id` AS timbanganak_id,
+     timbanganak.`no_timbang` AS timbanganak_no_timbang,
+     timbanganak.`id_anak` AS timbanganak_id_anak,
+     timbanganak.`berat` AS timbanganak_berat,
+     timbanganak.`tinggi` AS timbanganak_tinggi,
+     timbanganak.`ket` AS timbanganak_ket,
+     imunisasianak.`id` AS imunisasianak_id,
+     imunisasianak.`no_imunisasi` AS imunisasianak_no_imunisasi,
+     imunisasianak.`id_anak` AS imunisasianak_id_anak,
+     imunisasianak.`jenis_vitamin` AS imunisasianak_jenis_vitamin,
+     imunisasianak.`id_imunisasi` AS imunisasianak_id_imunisasi,
+     imunisasianak.`jenis_imunisasi` AS imunisasianak_jenis_imunisasi,
+     imunisasianak.`ket` AS imunisasianak_ket
+FROM
+     `pelayananibuhamil` pelayananibuhamil,
+     `pelayananlansia` pelayananlansia,
+     `timbanganak` timbanganak,
+     `imunisasianak` imunisasianak]]>
+	</queryString>
+	<field name="pelayananibuhamil_id" class="java.lang.Integer"/>
+	<field name="pelayananibuhamil_no_layanan" class="java.lang.String"/>
+	<field name="pelayananibuhamil_id_ibuhamil" class="java.lang.Integer"/>
+	<field name="pelayananibuhamil_berat" class="java.lang.String"/>
+	<field name="pelayananibuhamil_usia_hamil" class="java.lang.String"/>
+	<field name="pelayananibuhamil_tensi" class="java.lang.String"/>
+	<field name="pelayananibuhamil_keterangan" class="java.lang.String"/>
+	<field name="pelayananlansia_id" class="java.lang.Integer"/>
+	<field name="pelayananlansia_no_layanan" class="java.lang.String"/>
+	<field name="pelayananlansia_id_lansia" class="java.lang.Integer"/>
+	<field name="pelayananlansia_berat" class="java.lang.String"/>
+	<field name="pelayananlansia_tensi" class="java.lang.String"/>
+	<field name="pelayananlansia_ket" class="java.lang.String"/>
+	<field name="timbanganak_id" class="java.lang.Integer"/>
+	<field name="timbanganak_no_timbang" class="java.lang.String"/>
+	<field name="timbanganak_id_anak" class="java.lang.String"/>
+	<field name="timbanganak_berat" class="java.lang.String"/>
+	<field name="timbanganak_tinggi" class="java.lang.String"/>
+	<field name="timbanganak_ket" class="java.lang.String"/>
+	<field name="imunisasianak_id" class="java.lang.Integer"/>
+	<field name="imunisasianak_no_imunisasi" class="java.lang.String"/>
+	<field name="imunisasianak_id_anak" class="java.lang.Integer"/>
+	<field name="imunisasianak_jenis_vitamin" class="java.lang.String"/>
+	<field name="imunisasianak_id_imunisasi" class="java.lang.String"/>
+	<field name="imunisasianak_jenis_imunisasi" class="java.lang.String"/>
+	<field name="imunisasianak_ket" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="16" width="182" height="25" uuid="3d9e704f-2b40-422d-8777-2875c5ed0172"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Posyandu Gurame II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="41" width="149" height="20" uuid="b37bcb20-5040-4cb2-8f34-c7d47e6d093e"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Jl. Kemiri Jaya RT 001 / RW 001]]></text>
+			</staticText>
+			<image>
+				<reportElement x="16" y="9" width="57" height="57" uuid="3c90585d-cce8-4f49-8b0f-2d2070344739"/>
+				<imageExpression><![CDATA["C:\\Users\\farhatdk\\Documents\\NetBeansProjects\\Posyandu_Nisa\\src\\gambar\\logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

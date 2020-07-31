@@ -46,6 +46,9 @@ public class tampilandaftar extends javax.swing.JFrame {
         autonumber();
         Locale locale = new Locale("id", "ID");
         Locale.setDefault(locale);
+        tglanak.setLocale(locale);
+        tgllahiribuhamil.setLocale(locale);
+        tglahirlansia.setLocale(locale);
     }
 
     private void kosonganak() {
@@ -709,7 +712,7 @@ public class tampilandaftar extends javax.swing.JFrame {
         jLabel17.setText("Usia");
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
-        jLabel18.setText("Tahun");
+        jLabel18.setText("Bulan");
         jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
 
         daftaranak.setText("Daftar");
@@ -1174,6 +1177,8 @@ public class tampilandaftar extends javax.swing.JFrame {
 
         jLabel35.setText("Jl. Kemiri Jaya RT. 001 RW. 001");
         jLabel35.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

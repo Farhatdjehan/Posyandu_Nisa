@@ -5,6 +5,7 @@
  */
 package tampilan;
 
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -292,11 +293,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addGap(65, 65, 65))
-=======
                 .addGap(47, 47, 47))
->>>>>>> f6b55acddcb9abae39060d7d272846479834ae09
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,10 +303,6 @@ public class tampilanlayanananak extends javax.swing.JFrame {
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(39, 39, 39))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jTabbedPane1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
@@ -883,11 +876,7 @@ public class tampilanlayanananak extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                 .addContainerGap(54, Short.MAX_VALUE))
-=======
-                .addContainerGap(42, Short.MAX_VALUE))
->>>>>>> f6b55acddcb9abae39060d7d272846479834ae09
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

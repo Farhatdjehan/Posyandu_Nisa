@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
-	<property name="ireport.zoom" value="1.210000000000003"/>
-	<property name="ireport.x" value="53"/>
-	<property name="ireport.y" value="40"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="480" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39965987-1554-4e0c-9dab-fbbb02facf0a">
+	<property name="ireport.zoom" value="1.3310000000000035"/>
+	<property name="ireport.x" value="7"/>
+	<property name="ireport.y" value="35"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      lansia.`id` AS lansia_id,
@@ -169,7 +169,7 @@ FROM
 			<textField>
 				<reportElement x="45" y="7" width="34" height="20" uuid="9f08fde7-0eb6-4d26-a9f0-19127010e5b6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="91" y="7" width="62" height="20" uuid="08604f94-7735-44e8-af43-7ceff8393ecb"/>
@@ -227,7 +227,29 @@ FROM
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="132" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="678" y="17" width="100" height="20" uuid="1662da79-2b2a-46a4-b633-396b78cf7cf5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="678" y="114" width="100" height="1" uuid="9f125b06-1534-4ded-a6f0-32c2f56813ab"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="678" y="116" width="100" height="13" uuid="89d9825c-06f2-42f3-8201-8508681bf2c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tiermina Simbolon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="678" y="37" width="100" height="13" uuid="c82c765e-8bf2-4a43-bad6-44778f07458e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kepala Kader]]></text>
+			</staticText>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
